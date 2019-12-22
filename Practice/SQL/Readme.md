@@ -1,0 +1,1 @@
+SQL Practice editor: https://www.w3resource.com/sql-exercises/employee-database-exercise/subqueries-exercises-on-employee-database.php#SQLEDITOR
