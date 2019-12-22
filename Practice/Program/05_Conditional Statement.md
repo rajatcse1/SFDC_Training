@@ -1,63 +1,63 @@
 1. Write a Apex program to accept two integers and check whether they are equal or not. 
-Test Data : 15 15
-Expected Output:
+- Test Data : 15 15
+- Expected Output:
 ```
 Number1 and Number2 are equal
 
 
 2. Write a Apex program to check whether a given number is even or odd. 
-Test Data : 15
-Expected Output:
+- Test Data : 15
+- Expected Output:
 ```
 15 is an odd integer
 
 
 3. Write a Apex program to check whether a given number is positive or negative. 
-Test Data : 15
-Expected Output:
+- Test Data : 15
+- Expected Output:
 ```
 15 is a positive number
 
 
 4. Write a Apex program to find whether a given year is a leap year or not. 
-Test Data : 2016
-Expected Output:
+- Test Data : 2016
+- Expected Output:
 ```
 2016 is a leap year.
 
 
 5. Write a Apex program to read the age of a candidate and determine whether it is eligible for casting his/her own vote. 
-Test Data : 21
-Expected Output:
+- Test Data : 21
+- Expected Output:
 ```
 Congratulation! You are eligible for casting your vote.
 
 
 6. Write a Apex program to read the value of an integer m and display the value of n is 1 when m is larger than 0, 0 when m is 0 and -1 when m is less than 0. 
-Test Data : -5
-Expected Output:
+- Test Data : -5
+- Expected Output:
 ```
 The value of n = -1
 
 
-7. Write a Apex program to accept the height of a person in centimeter and categorize the person according to their height. 
-Test Data : 135
-Expected Output:
+7. Write a Apex program to accept the height of a person in Apexentimeter and categorize the person according to their height. 
+- Test Data : 135
+- Expected Output:
 ```
 The person is Dwarf.
 
 
 8. Write a Apex program to find the largest of three numbers. 
-Test Data : 12 25 52
-Expected Output:
+- Test Data : 12 25 52
+- Expected Output:
 ```
 1st Number = 12,        2nd Number = 25,        3rd Number = 52
 The 3rd Number is the greatest among three
 
 
 9. Write a Apex program to accept a coordinate point in a XY coordinate system and determine in which quadrant the coordinate point lies. 
-Test Data : 7 9
-Expected Output:
+- Test Data : 7 9
+- Expected Output:
 ```
 The coordinate point (7,9) lies in the First quadrant.
 
@@ -65,16 +65,16 @@ The coordinate point (7,9) lies in the First quadrant.
 10. Write a Apex program to find the eligibility of admission for a professional course based on the following criteria: 
 Marks in Maths >=65
 Marks in Phy >=55
-Marks in Chem>=50
+Marks in Apexhem>=50
 Total in all three subject >=180
 or
 Total in Math and Subjects >=140
 
-Test Data :
+- Test Data :
 Input the marks obtained in Physics :65
-Input the marks obtained in Chemistry :51
+Input the marks obtained in Apexhemistry :51
 Input the marks obtained in Mathematics :72
-Expected Output:
+- Expected Output:
 ```
 The candidate is eligible for admission.
 
@@ -82,85 +82,85 @@ The candidate is eligible for admission.
 
  
 11. Write a Apex program to calculate the root of a Quadratic Equation. 
-Test Data : 1 5 7
-Expected Output:
+- Test Data : 1 5 7
+- Expected Output:
 ```
 Root are imaginary;
 No solution.
 
 
 12. Write a Apex program to read roll no, name and marks of three subjects and calculate the total, percentage and division. 
-Test Data :
+- Test Data :
 Input the Roll Number of the student :784
 Input the Name of the Student :James
 Input the marks of Physics, Chemistry and Computer Application : 70 80 90
-Expected Output:
+- Expected Output:
 ```
 Roll No : 784
 Name of Student : James
 Marks in Physics : 70
-Marks in Chemistry : 80
-Marks in Computer Application : 90
+Marks in Apexhemistry : 80
+Marks in Apexomputer Application : 90
 Total Marks = 240
 Percentage = 80.00
 Division = First
 
 
-13. Write a Apex program to read temperature in centigrade and display a suitable message according to temperature state below : 
+13. Write a Apex program to read temperature in Apexentigrade and display a suitable message according to temperature state below : 
 Temp < 0 then Freezing weather
 Temp 0-10 then Very Cold weather
 Temp 10-20 then Cold weather
 Temp 20-30 then Normal in Temp
 Temp 30-40 then Its Hot
 Temp >=40 then Its Very Hot
-Test Data :
+- Test Data :
 42
-Expected Output:
+- Expected Output:
 ```
 Its very hot.
 
 
 14. Write a Apex program to check whether a triangle is Equilateral, Isosceles or Scalene. 
-Test Data :
+- Test Data :
 50 50 60
-Expected Output:
+- Expected Output:
 ```
 This is an isosceles triangle.
 
 
 15. Write a Apex program to check whether a triangle can be formed by the given value for the angles. 
-Test Data :
+- Test Data :
 40 55 65
-Expected Output:
+- Expected Output:
 ```
 The triangle is not valid.
 
 
 16. Write a Apex program to check whether a character is an alphabet, digit or special character. 
-Test Data :
+- Test Data :
 @
-Expected Output:
+- Expected Output:
 ```
 This is a special character.
 
 
 17. Write a Apex program to check whether an alphabet is a vowel or consonant. 
-Test Data :
+- Test Data :
 k
-Expected Output:
+- Expected Output:
 ```
 The alphabet is a consonant.
 
 
 18. Write a Apex program to calculate profit and loss on a transaction. 
-Test Data :
+- Test Data :
 500 700
-Expected Output:
+- Expected Output:
 ```
 You can booked your profit amount : 200
 
 
-19. Write a program in C to calculate and print the Electricity bill of a given customer. The customer id., name and unit consumed by the user should be taken from the keyboard and display the total amount to pay to the customer. The charge are as follow : 
+19. Write a program in Apex to calculate and print the Electricity bill of a given customer. The customer id., name and unit consumed by the user should be taken from the keyboard and display the total amount to pay to the customer. The charge are as follow : 
 
 Unit	Charge/unit
 upto 199	@1.20
@@ -169,11 +169,11 @@ upto 199	@1.20
 600 and above	@2.00
 If bill exceeds Rs. 400 then a surcharge of 15% will be charged and the minimum bill should be of Rs. 100/-
 
-Test Data :
+- Test Data :
 1001
 James
 800
-Expected Output:
+- Expected Output:
 ```
 Customer IDNO :1001
 Customer Name :James
@@ -184,7 +184,7 @@ Net Amount Paid By the Customer : 1840.00
 
 
 
-20. Write a program in C to accept a grade and declare the equivalent description : 
+20. Write a program in Apex to accept a grade and declare the equivalent description : 
 
 Grade	Description
 E	Excellent
@@ -192,59 +192,59 @@ V	Very Good
 G	Good
 A	Average
 F	Fail
-Test Data :
+- Test Data :
 Input the grade :A
-Expected Output:
+- Expected Output:
 ```
 You have chosen : Average
 
 
-21. Write a program in C to read any day number in integer and display day name in the word. 
-Test Data :
+21. Write a program in Apex to read any day number in integer and display day name in the word. 
+- Test Data :
 4
-Expected Output:
+- Expected Output:
 ```
 Thursday
 
 
-22. Write a program in C to read any digit, display in the word. 
-Test Data :
+22. Write a program in Apex to read any digit, display in the word. 
+- Test Data :
 4
-Expected Output:
+- Expected Output:
 ```
 Four
 
 
-23. Write a program in C to read any Month Number in integer and display Month name in the word. 
-Test Data :
+23. Write a program in Apex to read any Month Number in integer and display Month name in the word. 
+- Test Data :
 4
-Expected Output:
+- Expected Output:
 ```
 April
 
 
-24. Write a program in C to read any Month Number in integer and display the number of days for this month. 
-Test Data :
+24. Write a program in Apex to read any Month Number in integer and display the number of days for this month. 
+- Test Data :
 7
-Expected Output:
+- Expected Output:
 ```
 Month have 31 days
 
 
-25. Write a program in C which is a Menu-Driven Program to compute the area of the various geometrical shape. 
-Test Data :
+25. Write a program in Apex which is a Menu-Driven Program to compute the area of the various geometrical shape. 
+- Test Data :
 1
 5
-Expected Output:
+- Expected Output:
 ```
 The area is : 78.500000
 
 
-26. Write a program in C which is a Menu-Driven Program to perform a simple calculation. 
-Test Data :
+26. Write a program in Apex which is a Menu-Driven Program to perform a simple calculation. 
+- Test Data :
 10
 2
 3
-Expected Output:
+- Expected Output:
 ```
 The Multiplication of 10 and 2 is: 20

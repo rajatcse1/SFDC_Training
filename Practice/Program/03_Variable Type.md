@@ -1,6 +1,6 @@
 1. Write a Apex program which will invoke the command processor to execute a command. 
 
-Expected Output:
+- Expected Output:
 ```
 
 Is command processor available?                                         
@@ -18,7 +18,7 @@ Returned value is: 0.
 
 2. Write a Apex program to convert a string to an unsigned long integer. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input an unsigned number: 25                                            
@@ -27,7 +27,7 @@ Output: 25
 
 3. Write a Apex program to convert a string to a long integer. 
 
-Expected Output:
+- Expected Output:
 ```
 
 In decimals: 2016, 4235440, -3624422, 5947391.
@@ -35,7 +35,7 @@ In decimals: 2016, 4235440, -3624422, 5947391.
 
 4. Write a Apex program to convert a string to a double. 
 
-Expected Output:
+- Expected Output:
 ```
 
 Output= 4.00
@@ -43,7 +43,7 @@ Output= 4.00
 
 5. Write a Apex program to generate a random number. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Guess the number (1 to 10): 6                                           
@@ -55,7 +55,7 @@ That is correct!
 
 6. Write a Apex program to sort the elements of an array. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input the number of elements to be stored in the array :5               
@@ -76,7 +76,7 @@ After sorting the array are :
 
 7. Write a Apex program to integral quotient and remainder of a division. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input numerator : 2500                                                 
@@ -86,7 +86,7 @@ Input numerator : 2500
 
 8. Write a Apex program to return the absolute value of a long integer. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input 1st number (positive or negative) : 25                           
@@ -97,7 +97,7 @@ Input 1st number (positive or negative) : 25
 
 9. Write a Apex program to get the environment string. 
 
-Expected Output:
+- Expected Output:
 ```
 
 The set path is: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin
@@ -106,7 +106,7 @@ The set path is: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin
 
 10. Write a Apex program to return the quotient and remainder of a division. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input numerator : 2000                                                 
@@ -116,7 +116,7 @@ Input numerator : 2000
 
 11. Write a Apex program to allocate a block of memory for an array. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input the number of elements to be stored in the array :5               
@@ -134,7 +134,7 @@ Input 5 elements in the array :
  
 12. Write a Apex program to perform a binary search in an array. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input the number of elements to be stored in the array :5               
@@ -150,7 +150,7 @@ element - 5 : 15
 
 13. Write a Apex program to convert a string to an integer. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input a number : 1972                                                   
@@ -159,7 +159,7 @@ The value Input is 1972.
 
 14. Write a Apex program to convert a string to a double. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input a number : 25                                                                                          
@@ -169,7 +169,7 @@ Input a number : 25
 
 15. Write a Apex program to set a function that will be executed on termination of a program. 
 
-Expected Output:
+- Expected Output:
 ```
 
 This is the message from main function.                                
@@ -179,7 +179,7 @@ This is the message from main function.
 
 16. Write a Apex program to return the absolute value of an integer. 
 
-Test Data and Expected Output:
+Test Data and - Expected Output:
 ```
 
 Input a positive or negative number :-25                               
@@ -188,7 +188,7 @@ Input a positive or negative number :-25
 
 17. Write a Apex program to abort the current process. 
 
-Expected Output:
+- Expected Output:
 ```
 
  File does not exist or error, in opening the file.                                                           
@@ -198,7 +198,7 @@ Aborted
 
 18. Write a Apex program to demonstrate the working of keyword long. 
 
-Expected Output:
+- Expected Output:
 ```
 
  The size of int = 4 bytes                                                           

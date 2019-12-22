@@ -1,12 +1,12 @@
 1. Write a Apex program to compute the sum of the two given integer values. If the two values are the same, then return triple their sum. 
-Expected Output:
+- Expected Output:
 
 3
 12
 
 
 2. Write a Apex program to get the absolute difference between n and 51. If n is greater than 51 return triple the absolute difference. 
-Expected Output:
+- Expected Output:
 
 6
 21
@@ -14,7 +14,7 @@ Expected Output:
 
 
 3. Write a Apex program to check two given integers, and return true if one of them is 30 or if their sum is 30. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -22,7 +22,7 @@ Expected Output:
 
 
 4. Write a Apex program to check a given integer and return true if it is within 10 of 100 or 200. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -30,7 +30,7 @@ Expected Output:
 
 
 5. Write a Apex program to check if a given positive number is a multiple of 3 or a multiple of 7. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -39,7 +39,7 @@ Expected Output:
 
 
 6. Write a Apex program to check if one given temperatures is less than 0 and the other is greater than 100. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -47,7 +47,7 @@ Expected Output:
 
 
 7. Write a Apex program to check two given integers whether either of them is in the range 100..200 inclusive. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -55,7 +55,7 @@ Expected Output:
 
 
 8. Write a Apex program to check whether three given integer values are in the range 20..50 inclusive. Return true if 1 or more of them are in the said range otherwise return false. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -64,7 +64,7 @@ Expected Output:
 
 
 9. Write a Apex program to check whether two given integer values are in the range 20..50 inclusive. Return true if 1 or other is in the said range otherwise false. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -73,7 +73,7 @@ Expected Output:
 
 
 10. Write a Apex program to check which number nearest to the value 100 among two given integers. Return 0 if the two numbers are equal. 
-Expected Output:
+- Expected Output:
 
 95
 0
@@ -81,7 +81,7 @@ Expected Output:
 
 
 11. Write a Apex program to check whether two given integers are in the range 40..50 inclusive, or they are both in the range 50..60 inclusive. 
-Expected Output:
+- Expected Output:
 
 0
 0
@@ -90,7 +90,7 @@ Expected Output:
 
 
 12. Write a Apex program to find the larger value from two positive integer values that is in the range 20..30 inclusive, or return 0 if neither is in that range. 
-Expected Output:
+- Expected Output:
 
 0
 30
@@ -101,7 +101,7 @@ Expected Output:
 
  
 13. Write a Apex program to check if two given non-negative integers have the same last digit. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -110,7 +110,7 @@ Expected Output:
 
 
 14. Write a Apex program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -118,7 +118,7 @@ Expected Output:
 
 
 15. Write a Apex program to count the number of two 5's are next to each other in an array of integers. Also count the situation where the second 5 is actually a 6. 
-Expected Output:
+- Expected Output:
 
 1
 2
@@ -126,7 +126,7 @@ Expected Output:
 
 
 16. Write a Apex program to check if a triple is presents in an array of integers or not. If a value appears three times in a row in an array it is called a triple. 
-Expected Output:
+- Expected Output:
 
 0
 0
@@ -134,7 +134,7 @@ Expected Output:
 
 
 17. Write a Apex program to compute the sum of the two given integers. If the sum is in the range 10..20 inclusive return 30.
-Expected Output:
+- Expected Output:
 
 29
 30
@@ -143,7 +143,7 @@ Expected Output:
 
 
 18. Write a Apex program that accept two integers and return true if either one is 5 or their sum or difference is 5. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -151,7 +151,7 @@ Expected Output:
 
 
 19. Write a Apex program to to test if a given non-negative number is a multiple of 13 or it is one more than a multiple of 13. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -160,7 +160,7 @@ Expected Output:
 
 
 20. Write a Apex program to check if a given non-negative given number is a multiple of 3 or 7, but not both. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -168,7 +168,7 @@ Expected Output:
 
 
 21. Write a Apex program to check if a given number is within 2 of a multiple of 10. 
-Expected Output:
+- Expected Output:
 
 0
 0
@@ -177,7 +177,7 @@ Expected Output:
 
 
 22. Write a Apex program to compute the sum of the two given integers. If one of the given integer value is in the range 10..20 inclusive return 18. 
-Expected Output:
+- Expected Output:
 
 10
 18
@@ -186,7 +186,7 @@ Expected Output:
 
 
 23. Write a Apex program to check if it is possible to add two integers to get the third integer from three given integers. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -194,7 +194,7 @@ Expected Output:
 
 
 24. Write a Apex program to check if y is greater than x, and z is greater than y from three given integers x,y,z. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -202,7 +202,7 @@ Expected Output:
 
 
 25. Write a Apex program to check if two or more non-negative given integers have the same rightmost digit. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -210,7 +210,7 @@ Expected Output:
 
 
 26. Write a Apex program to check three given integers and return true if one of them is 20 or more less than one of the others. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -218,7 +218,7 @@ Expected Output:
 
 
 27. Write a Apex program to find the larger from two given integers. However if the two integers have the same remainder when divided by 5, then the return the smaller integer. If the two integers are the same, return 0. 
-Expected Output:
+- Expected Output:
 
 11
 20
@@ -226,7 +226,7 @@ Expected Output:
 
 
 28. Write a Apex program to check two given integers, each in the range 10..99. Return true if a digit appears in both numbers, such as the 3 in 13 and 33. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -234,7 +234,7 @@ Expected Output:
 
 
 29. Write a Apex program to compute the sum of three given integers. If the two values are same return the third value. 
-Expected Output:
+- Expected Output:
 
 16
 23
@@ -243,7 +243,7 @@ Expected Output:
 
 
 30. Write a Apex program to compute the sum of the three integers. If one of the values is 13 then do not count it and its right towards the sum.
-Expected Output:
+- Expected Output:
 
 16
 23
@@ -252,7 +252,7 @@ Expected Output:
 
 
 31. Write a Apex program to compute the sum of the three given integers. However, if any of the values is in the range 10..20 inclusive then that value counts as 0, except 13 and 17. 
-Expected Output:
+- Expected Output:
 
 16
 11
@@ -261,7 +261,7 @@ Expected Output:
 
 
 32. Write a Apex program to check two given integers and return the value whichever value is nearest to 13 without going over. Return 0 if both numbers go over. 
-Expected Output:
+- Expected Output:
 
 5
 12
@@ -270,7 +270,7 @@ Expected Output:
 
 
 33. Write a Apex program to check three given integers (small, medium and large) and return true if the difference between small and medium and the difference between medium and large is same. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -278,7 +278,7 @@ Expected Output:
 
 
 34. Write a Apex program to check a given array of integers of length 1 or more and return true if the first element and the last element are equal in the given array. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -286,35 +286,35 @@ Expected Output:
 
 
 35. Write a Apex program to check two given arrays of integers of length 1 or more and return true if they have the same first element or they have the same last element. 
-Expected Output:
+- Expected Output:
 
 1
 0
 
 
 36. Write a Apex program to compute the sum of the elements of an given  array of integers. 
-Expected Output:
+- Expected Output:
 
 150
 10
 
 
 37. Write a Apex program to rotate the elements of a given array of integers (length 4 ) in left direction and return the new array. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 10, 20, 30, 40
 Elements in new array are: 20, 30, 40, 10 
 
 
 38. Write a Apex program to reverse a given array of integers and length 5. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 10, 20, 30, 40, 50 
 Elements in reverse array are: 50, 40, 30, 20, 10
 
 
 39. Write a Apex program to create a new array containing the middle elements from the two given arrays of integers, each length 5. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are:
 10, 20, -30, -40, 30 
@@ -323,14 +323,14 @@ Elements in new array are: -30, 30
 
 
 40. Write a Apex program to create a new array taking the first and last elements of a given array of integers and length one or more. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 10, 20, 30, 40, 50 
 Elements in new array are: 10, 50
 
 
 41. Write a Apex program to check if a given array of integers and length 2, contains 15 or 20. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -338,7 +338,7 @@ Expected Output:
 
 
 42. Write a Apex program to check if a given array of integers and length 2, does not contain 15 or 20. 
-Expected Output:
+- Expected Output:
 
 0
 0
@@ -346,7 +346,7 @@ Expected Output:
 
 
 43. Write a Apex program to check a given array of integers and return true if the array contains 10 or 20 twice. The length of the array will be 0, 1, or 2. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -354,14 +354,14 @@ Expected Output:
 
 
 44. Write a Apex program to check a given array of integers, length 3 and create a  new array. If there is a 5 in the given array immediately followed by a 7 then set 7 to 1. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 5, 7 
 Elements in new array are: 1, 5, 1
 
 
 45. Write a Apex program to compute the sum of the two given arrays of integers, length 3 and find the array which has the largest sum. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 10, 20, -30 
 Elements in original array are: 10, 20, 30 
@@ -369,14 +369,14 @@ The array which has the largest sum.: 10, 20, 30
 
 
 46. Write a Apex program to create an array taking two middle elements from a given array of integers of length even. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 5, 7, 9, 11, 13 
 New array: 7, 9
 
 
 47. Write a Apex program to create a new array from two give array of integers, each length 3. 
-Expected Output:
+- Expected Output:
 
 Elements in original array1 are: 10, 20, 30 
 Elements in original array2 are: 40, 50, 60 
@@ -384,21 +384,21 @@ New array: 10, 20, 30, 40, 50, 60
 
 
 48. Write a Apex program to create a new array swapping the first and last elements of a given array of integers and length will be least 1. 
-Expected Output:
+- Expected Output:
 
 Elements in original array1 are: 1, 5, 7, 9, 11, 13 
 New array, after swapping first and last elements: 13, 5, 7, 9, 11, 1
 
 
 49. Write a Apex program to create a new array of length 3 from a given array (length atleast 3) containing the elements from the middle of the array. 
-Expected Output:
+- Expected Output:
 
 Elements in original array1 are: 1, 5, 7, 9, 11, 13 
 New array: 7, 9, 11
 
 
 50. Write a Apex program to find the largest value from first, last, and middle elements of a given array of integers of odd length (atleast 1). 
-Expected Output:
+- Expected Output:
 
 1
 9
@@ -406,25 +406,25 @@ Expected Output:
 
 
 51. Write a Apex program to count even number of elements in a given array of integers. 
-Expected Output:
+- Expected Output:
 
 3
 
 
 52. Write a Apex program to compute the sum of values in a given array of integers except the number 17. Return 0 if the given array has no integer.
-Expected Output:
+- Expected Output:
 
 Sum of values in the array of integers except the number 17: 46
 
 
 53. Write a Apex program to compute the sum of the numbers in a given array except those numbers starting with 5 followed by atleast one 6. Return 0 if the given array has no integer.
-Expected Output:
+- Expected Output:
 
 Sum of values in the array of integers except the number 17: 37
 
 
 54. Write a Apex program to check if a given array of integers contains 5 next to a 5 somewhere. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -432,7 +432,7 @@ Expected Output:
 
 
 55. Write a Apex program to check whether a given array of integers contains 5's and 7's. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -440,7 +440,7 @@ Expected Output:
 
 
 56. Write a Apex program to check if the sum of all 5' in the array exactly 15 in a given array of integers. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -448,7 +448,7 @@ Expected Output:
 
 
 57. Write a Apex program to check if the number of 3's is greater than the number of 5's. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -456,7 +456,7 @@ Expected Output:
 
 
 58. Write a Apex program to check if a given array of integers contains a 3 or a 5.
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -464,7 +464,7 @@ Expected Output:
 
 
 59. Write a Apex program to check  if a given array of integers contains no 3 or a 5. 
-Expected Output:
+- Expected Output:
 
 1
 1
@@ -473,7 +473,7 @@ Expected Output:
 
 
 60. Write a Apex program to check if an array of integers contains a 3 next to a 3 or a 5 next to a 5 or both. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -481,7 +481,7 @@ Expected Output:
 
 
 61. Write a Apex program to check a given array of integers and return true if the given array contains two 5's next to each other, or two 5 separated by one element. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -489,7 +489,7 @@ Expected Output:
 
 
 62. Write a Apex program to check a given array of integers and return true if there is a 3 with a 5 somewhere later in the given array. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -497,7 +497,7 @@ Expected Output:
 
 
 63. Write a Apex program to check a given array of integers and return true if the given array contains either 2 even or 2 odd values all next to each other. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -505,7 +505,7 @@ Expected Output:
 
 
 64. Write a Apex program to check a given array of integers and return true if the value 5 appears 5 times and there are no 5 next to each other. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -514,7 +514,7 @@ Expected Output:
 
 
 65. Write a Apex program to check a given array of integers and return true if every 5 that appears in the given array is next to another 5. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -523,7 +523,7 @@ Expected Output:
 
 
 66. Write a Apex program to check a given array of integers and return true if the specified number of same elements appears at the start and end of the given array. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -531,7 +531,7 @@ Expected Output:
 
 
 67. Write a Apex program to check a given array of integers and return true if the array contains three increasing adjacent numbers. 
-Expected Output:
+- Expected Output:
 
 1
 0
@@ -539,42 +539,42 @@ Expected Output:
 
 
 68. Write a Apex program to shift an element in left direction and return a new array. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 10, 20, 30, 40 
 Elements in new array are: 20, 30, 40, 10
 
 
 69. Write a Apex program to create a new array taking the elements before the element value 5 from a given array of integers. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 2, 3, 5, 7
 Elements in new array are: 1, 2, 3
 
 
 70. Write a Apex program to create a new array taking the elements after the element value 5 from a given array of integers. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 2, 3, 5, 7, 9, 11
 Elements in new array are: 7, 9, 11
 
 
 71. Write a Apex program to create a new array from a given array of integers shifting all zeros to left direction. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 2, 0, 3, 5, 7, 0, 9, 11 
 Elements in new array are: 0, 0, 1, 3, 5, 7, 2, 9, 11
 
 
 72. Write a Apex program to create a new array after replacing  all the values 5 with 0 shifting all zeros to right direction. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 2, 0, 3, 5, 7, 0, 9, 11, 5 
 Elements in new array are: 1, 2, 0, 3, 7, 0, 9, 11, 0, 0
 
 
 73. Write a Apex program to create new array from a given array of integers shifting all even numbers before all odd numbers. 
-Expected Output:
+- Expected Output:
 
 Elements in original array are: 1, 2, 5, 3, 5, 4, 6, 9, 11 
 
@@ -582,7 +582,7 @@ Elements in new array are: 2, 4, 6, 3, 5, 1, 5, 9, 11
 
 
 74. Write a Apex program to check if the value of each element is equal or greater than the value of previous element of a given array of integers. 
-Expected Output:
+- Expected Output:
 
 0
 1
@@ -590,7 +590,7 @@ Expected Output:
 
 
 75. Write a Apex program to check a given array (length will be atleast 2) of integers and return true if there are two values 15, 15 next to each other. 
-Expected Output:
+- Expected Output:
 
 1
 0

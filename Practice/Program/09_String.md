@@ -1,79 +1,79 @@
-1. Write a program in C to input a string and print it. 
+1. Write a program in Apex to input a string and print it. 
 
-Test Data :
+- Test Data :
 Input the string : Welcome, w3resource
 
-Expected Output:
+- Expected Output:
 ```
 
 The string you entered is : Welcome, w3resource 
 
 
-2. Write a program in C to find the length of a string without using library function. 
+2. Write a program in Apex to find the length of a string without using library function. 
 
-Test Data :
+- Test Data :
 Input the string : w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 Length of the string is : 15 
 
 
-3. Write a program in C to separate the individual characters from a string. 
+3. Write a program in Apex to separate the individual characters from a string. 
 
-Test Data :
+- Test Data :
 Input the string : w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 The characters of the string are : 
 w  3  r  e  s  o  u  r  c  e  .  c  o  m 
 
 
-4. Write a program in C to print individual characters of string in reverse order. 
+4. Write a program in Apex to print individual characters of string in reverse order. 
 
-Test Data :
+- Test Data :
 Input the string : w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 The characters of the string in reverse are :
 m  o  c  .  e  c  r  u  o  s  e  r  3  w 
 
 
-5. Write a program in C to count the total number of words in a string. 
+5. Write a program in Apex to count the total number of words in a string. 
 
-Test Data :
+- Test Data :
 Input the string : This is w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 Total number of words in the string is : 3 
 
 
-6. Write a program in C to compare two string without using string library functions. 
+6. Write a program in Apex to compare two string without using string library functions. 
 
-Test Data :
+- Test Data :
 Input the 1st string : This is first string
 Input the 2nd string : This is first string
 
-Expected Output:
+- Expected Output:
 ```
 
 The length of both strings are equal and
 also both strings are equal.
 
 
-7. Write a program in C to count total number of alphabets, digits and special characters in a string. 
+7. Write a program in Apex to count total number of alphabets, digits and special characters in a string. 
 
-Test Data :
+- Test Data :
 Input the string : Welcome to w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 Number of Alphabets in the string is : 21 
@@ -81,12 +81,12 @@ Number of Digits in the string is : 1
 Number of Special characters in the string is : 4 
 
 
-8. Write a program in C to copy one string to another string. 
+8. Write a program in Apex to copy one string to another string. 
 
-Test Data :
+- Test Data :
 Input the string : This is a string to be copied.
 
-Expected Output:
+- Expected Output:
 ```
 
 The First string is : This is a string to be copied.
@@ -94,24 +94,24 @@ The Second string is : This is a string to be copied.
 Number of characters copied : 31 
 
 
-9. Write a program in C to count total number of vowel or consonant in a string. 
+9. Write a program in Apex to count total number of vowel or consonant in a string. 
 
-Test Data :
+- Test Data :
 Input the string : Welcome to w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 The total number of vowel in the string is : 9 
 The total number of consonant in the string is : 12 
 
 
-10. Write a program in C to find maximum occurring character in a string. 
+10. Write a program in Apex to find maximum occurring character in a string. 
 
-Test Data :
+- Test Data :
 Input the string : Welcome to w3resource.com.
 
-Expected Output:
+- Expected Output:
 ```
 
 The Highest frequency of character 'e' 
@@ -120,10 +120,10 @@ appears number of times : 4
 
 11.Write a Apex program to sort a string array in ascending order. 
 
-Test Data :
+- Test Data :
 Input the string : w3resource
 
-Expected Output:
+- Expected Output:
 ```
 
 After sorting the string appears like : 
@@ -132,16 +132,16 @@ After sorting the string appears like :
 
 
  
-12.Write a program in C to read a string through keyboard and sort it using bubble sort. 
+12.Write a program in Apex to read a string through keyboard and sort it using bubble sort. 
 
-Test Data :
+- Test Data :
 Input number of strings :3
 Input string 3 :
 zero
 one
 two
 
-Expected Output:
+- Expected Output:
 ```
 
 The strings appears after sorting : 
@@ -150,14 +150,14 @@ two
 zero 
 
 
-13.Write a program in C to extract a substring from a given string. 
+13.Write a program in Apex to extract a substring from a given string. 
 
-Test Data :
+- Test Data :
 Input the string : this is test string
 Input the position to start extraction :9
 Input the length of substring :4
 
-Expected Output:
+- Expected Output:
 ```
 
 The substring retrieve from the string is : " test " 
@@ -165,81 +165,81 @@ The substring retrieve from the string is : " test "
 
 14.Write a Apex program to check whether a given substring is present in the given string. 
 
-Test Data :
+- Test Data :
 Input the string : This is a test string.
 Input the substring to be search : search
 
-Expected Output:
+- Expected Output:
 ```
 
 The substring is not exists in the string.
 
 
-15.Write a program in C to read a sentence and replace lowercase characters by uppercase and vice-versa. 
+15.Write a program in Apex to read a sentence and replace lowercase characters by uppercase and vice-versa. 
 
-Test Data :
+- Test Data :
 Input the string : This Is A Test String.
 
-Expected Output:
+- Expected Output:
 ```
 
 The given sentence is   : This Is A Test String.
 After Case changed the string  is: tHIS iS a tEST sTRING.
 
 
-16.Write a program in C to find the number of times a given word 'the' appears in the given string. 
+16.Write a program in Apex to find the number of times a given word 'the' appears in the given string. 
 
-Test Data :
+- Test Data :
 Input the string : The string where the word the present more than once.
 
-Expected Output:
+- Expected Output:
 ```
 
 The frequency of the word 'the' is : 3 
 
 
-17. Write a program in C to remove characters in String Except Alphabets. 
+17. Write a program in Apex to remove characters in String Except Alphabets. 
 
-Test Data :
+- Test Data :
 Input the string : w3resource.com
 
-Expected Output:
+- Expected Output:
 ```
 
 After removing the Output String : wresourcecom 
 
 
-18.Write a program in C to Find the Frequency of Characters. 
+18.Write a program in Apex to Find the Frequency of Characters. 
 
-Test Data :
+- Test Data :
 Input the string : This is a test string
 Input the character to find frequency: i
 
-Expected Output:
+- Expected Output:
 ```
 
 The frequency of 'i' is : 3 
 
 
-19.Write a program in C to Concatenate Two Strings Manually. 
+19.Write a program in Apex to Concatenate Two Strings Manually. 
 
-Test Data :
+- Test Data :
 Input the first string : this is string one
 Input the second string : this is string two
 
-Expected Output:
+- Expected Output:
 ```
 
 After concatenation the string is : 
 this is string one this is string two
 
 
-20. Write a program in C to find the largest and smallest word in a string. 
+20. Write a program in Apex to find the largest and smallest word in a string. 
 
-Test Data :
+- Test Data :
 Input the string : It is a string with smallest and largest word.
 
-Expected Output:
+- Expected Output:
 ```
 
 The largest word is 'smallest'
@@ -247,12 +247,12 @@ and the smallest word is 'a'
 in the string : 'It is a string with smallest and largest word.'.
 
 
-21. Write a program in C to convert a string to uppercase. 
+21. Write a program in Apex to convert a string to uppercase. 
 
-Test Data :
+- Test Data :
 Input a string in lowercase : the quick brown fox jumps over the lazy dog
 
-Expected Output:
+- Expected Output:
 ```
 
 Here is the above string in UPPERCASE :                                
@@ -260,87 +260,87 @@ Here is the above string in UPPERCASE :
  
 
 
-22. Write a program in C to convert a string to lowercase. 
+22. Write a program in Apex to convert a string to lowercase. 
 
-Test Data :
+- Test Data :
 Input a string in UPPERCASE : THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
 
-Expected Output:
+- Expected Output:
 ```
 
 Here is the above string in lowercase :                              
 the quick brown fox jumps over the lazy dog.
 
 
-23. Write a program in C to check whether a character is Hexadecimal Digit or not. 
+23. Write a program in Apex to check whether a character is Hexadecimal Digit or not. 
 
-Test Data :
+- Test Data :
 Input a character : 7
 
-Expected Output:
+- Expected Output:
 ```
 
 The entered character is a hexadecimal digit.
 
 
-24. Write a program in C to check whether a letter is uppercase or not. 
+24. Write a program in Apex to check whether a letter is uppercase or not. 
 
-Test Data :
+- Test Data :
 Input a character : p
 
-Expected Output:
+- Expected Output:
 ```
 
 The entered letter is not an UPPERCASE letter.
 
 
-25. Write a program in C to replace the spaces of a string with a specific character. 
+25. Write a program in Apex to replace the spaces of a string with a specific character. 
 
-Test Data :
+- Test Data :
 Input a string : Be glad to see the back of Input replace character : *
 
-Expected Output:
+- Expected Output:
 ```
 
 After replacing the space with  * the new string is :                 
 Be*glad*to*see*the*back*of*
 
 
-26. Write a program in C to count the number of punctuation characters exists in a string. 
+26. Write a program in Apex to count the number of punctuation characters exists in a string. 
 
-Test Data :
+- Test Data :
 Input a string : The quick brown fox, jumps over the, lazy dog.
 
-Expected Output:
+- Expected Output:
 ```
 
 The punctuation characters exists in the string is : 3 
 
 
-27. Write a program in C to print only the string before new line character. 
+27. Write a program in Apex to print only the string before new line character. 
 
 Note: isprint() will only print line one, because the newline character is not printable.
 
-Expected Output:
+- Expected Output:
 ```
 
 The quick brown fox
 
 
-28. Write a program in C to check whether a letter is lowercase or not. 
+28. Write a program in Apex to check whether a letter is lowercase or not. 
 
-Test Data :
+- Test Data :
 Input a character : w
 
-Expected Output:
+- Expected Output:
 ```
 
 The entered letter is a lowercase letter.
 
 
-29. Write a program in C to read a file and remove the spaces between two words of its content. 
+29. Write a program in Apex to read a file and remove the spaces between two words of its content. 
 
-Expected Output:
+- Expected Output:
 ```
 
 The content of the file is :                                           
@@ -349,21 +349,21 @@ After removing the spaces the content is :
 Thequickbrownfoxjumpsoverthelazydog
 
 
-30. Write a program in C to check whether a character is digit or not. 
+30. Write a program in Apex to check whether a character is digit or not. 
 
-Test Data :
+- Test Data :
 Input a character : 8
 
-Expected Output:
+- Expected Output:
 ```
 
 The entered character is a digit.
 
 
-31. Write a program in C to split string by space into words. 
-Test Data :
+31. Write a program in Apex to split string by space into words. 
+- Test Data :
 Input a string : this is a test string
-Expected Output:
+- Expected Output:
 ```
 
 Strings or words after split by space are : 
@@ -376,17 +376,17 @@ string .
 
 
 32. Write a Apex programming to find the repeated character in a given string. 
-Test Data :
+- Test Data :
 Input a string: w3resource
-Expected Output:
+- Expected Output:
 
 Input a string: The first repetitive character in w3resource is: r 
 
 
 33. Write a Apex programming to count of each character in a given string. 
-Test Data :
+- Test Data :
 Input a string: w3resource
-Expected Output:
+- Expected Output:
 
 Enter a str1ing: The count of each character in the string w3resource is 
 w	1
@@ -400,9 +400,9 @@ c	1
 
 
 34. Write a Apex programming to convert vowels into upper case character in a given string. 
-Test Data :
+- Test Data :
 Input a string : w3resource
-Expected Output:
+- Expected Output:
 
 Input a sentence: The original string:
 w3resource
