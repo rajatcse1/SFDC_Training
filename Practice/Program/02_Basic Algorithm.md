@@ -1,255 +1,256 @@
 1. Write a Apex program to compute the sum of the two given integer values. If the two values are the same, then return triple their sum. 
 - Expected Output:
-
-3
-12
+    ```
+    3
+    12
+    ```
 
 
 2. Write a Apex program to get the absolute difference between n and 51. If n is greater than 51 return triple the absolute difference. 
 - Expected Output:
-
-6
-21
-0
-
+    ```
+    6
+    21
+    0
+    ```
 
 3. Write a Apex program to check two given integers, and return true if one of them is 30 or if their sum is 30. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 4. Write a Apex program to check a given integer and return true if it is within 10 of 100 or 200. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 5. Write a Apex program to check if a given positive number is a multiple of 3 or a multiple of 7. 
 - Expected Output:
-
-1
-1
-1
-0
-
+    ```
+    1
+    1
+    1
+    0
+    ```
 
 6. Write a Apex program to check if one given temperatures is less than 0 and the other is greater than 100. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 7. Write a Apex program to check two given integers whether either of them is in the range 100..200 inclusive. 
 - Expected Output:
-
-1
-0
-1
-
+    ```
+    1
+    0
+    1
+    ```
 
 8. Write a Apex program to check whether three given integer values are in the range 20..50 inclusive. Return true if 1 or more of them are in the said range otherwise return false. 
 - Expected Output:
-
-1
-1
-1
-0
-
+    ```
+    1
+    1
+    1
+    0
+    ```
 
 9. Write a Apex program to check whether two given integer values are in the range 20..50 inclusive. Return true if 1 or other is in the said range otherwise false. 
 - Expected Output:
-
-1
-1
-1
-0
-
+    ```
+    1
+    1
+    1
+    0
+    ```
 
 10. Write a Apex program to check which number nearest to the value 100 among two given integers. Return 0 if the two numbers are equal. 
 - Expected Output:
-
-95
-0
-99
-
+    ```
+    95
+    0
+    99
+    ```
 
 11. Write a Apex program to check whether two given integers are in the range 40..50 inclusive, or they are both in the range 50..60 inclusive. 
 - Expected Output:
-
-0
-0
-1
-1
-
+    ```
+    0
+    0
+    1
+    1
+    ```
 
 12. Write a Apex program to find the larger value from two positive integer values that is in the range 20..30 inclusive, or return 0 if neither is in that range. 
 - Expected Output:
-
-0
-30
-25
-28
-
+    ```
+    0
+    30
+    25
+    28
+    ```
 
 
  
 13. Write a Apex program to check if two given non-negative integers have the same last digit. 
 - Expected Output:
-
-0
-1
-1
-0
-
+    ```
+    0
+    1
+    1
+    0
+    ```
 
 14. Write a Apex program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere. 
 - Expected Output:
-
-1
-0
-1
-
+    ```
+    1
+    0
+    1
+    ```
 
 15. Write a Apex program to count the number of two 5's are next to each other in an array of integers. Also count the situation where the second 5 is actually a 6. 
 - Expected Output:
-
-1
-2
-1
-
+    ```
+    1
+    2
+    1
+    ```
 
 16. Write a Apex program to check if a triple is presents in an array of integers or not. If a value appears three times in a row in an array it is called a triple. 
 - Expected Output:
-
-0
-0
-1
-
+    ```
+    0
+    0
+    1
+    ```
 
 17. Write a Apex program to compute the sum of the two given integers. If the sum is in the range 10..20 inclusive return 30.
 - Expected Output:
-
-29
-30
-39
-30
-
+    ```
+    29
+    30
+    39
+    30
+    ```
 
 18. Write a Apex program that accept two integers and return true if either one is 5 or their sum or difference is 5. 
 - Expected Output:
-
-1
-0
-1
-
+    ```
+    1
+    0
+    1
+    ```
 
 19. Write a Apex program to to test if a given non-negative number is a multiple of 13 or it is one more than a multiple of 13. 
 - Expected Output:
-
-1
-1
-1
-0
-
+    ```
+    1
+    1
+    1
+    0
+    ```
 
 20. Write a Apex program to check if a given non-negative given number is a multiple of 3 or 7, but not both. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 21. Write a Apex program to check if a given number is within 2 of a multiple of 10. 
 - Expected Output:
-
-0
-0
-1
-1
-
+    ```
+    0
+    0
+    1
+    1
+    ```
 
 22. Write a Apex program to compute the sum of the two given integers. If one of the given integer value is in the range 10..20 inclusive return 18. 
 - Expected Output:
-
-10
-18
-18
-241
-
+    ```
+    10
+    18
+    18
+    241
+    ```
 
 23. Write a Apex program to check if it is possible to add two integers to get the third integer from three given integers. 
 - Expected Output:
-
-1
-0
-1
-
+    ```
+    1
+    0
+    1
+    ```
 
 24. Write a Apex program to check if y is greater than x, and z is greater than y from three given integers x,y,z. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 25. Write a Apex program to check if two or more non-negative given integers have the same rightmost digit. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 26. Write a Apex program to check three given integers and return true if one of them is 20 or more less than one of the others. 
 - Expected Output:
-
-1
-1
-0
-
+    ```
+    1
+    1
+    0
+    ```
 
 27. Write a Apex program to find the larger from two given integers. However if the two integers have the same remainder when divided by 5, then the return the smaller integer. If the two integers are the same, return 0. 
 - Expected Output:
-
-11
-20
-0
-
+    ```
+    11
+    20
+    0
+    ```
 
 28. Write a Apex program to check two given integers, each in the range 10..99. Return true if a digit appears in both numbers, such as the 3 in 13 and 33. 
 - Expected Output:
-
-1
-0
-1
-
+    ```
+    1
+    0
+    1
+    ```
 
 29. Write a Apex program to compute the sum of three given integers. If the two values are same return the third value. 
 - Expected Output:
-
-16
-23
-12
-18
-
+    ```
+    16
+    23
+    12
+    18
+    ```
 
 30. Write a Apex program to compute the sum of the three integers. If one of the values is 13 then do not count it and its right towards the sum.
 - Expected Output:
-
-16
-23
-10
-0
-
+    ```
+    16
+    23
+    10
+    0
+    ```
 
 31. Write a Apex program to compute the sum of the three given integers. However, if any of the values is in the range 10..20 inclusive then that value counts as 0, except 13 and 17. 
 - Expected Output:

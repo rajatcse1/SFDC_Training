@@ -1,57 +1,55 @@
 1. Write a program in Apex to display the first 10 natural numbers. 
 - Expected Output:
-```
-1 2 3 4 5 6 7 8 9 10
-```
+  ```
+  1 2 3 4 5 6 7 8 9 10
+  ```
 
 2. Write a Apex program to find the sum of first 10 natural numbers. 
 - Expected Output:
-```
-The first 10 natural number is :
-1 2 3 4 5 6 7 8 9 10
-The Sum is : 55
-```
+  ```
+  The first 10 natural number is :
+  1 2 3 4 5 6 7 8 9 10
+  The Sum is : 55
+  ```
 
 3. Write a program in Apex to display n terms of natural number and their sum.
 - Test Data : 7
 - Expected Output:
-```
-The first 7 natural number is :
-1 2 3 4 5 6 7
-The Sum of Natural Number upto 7 terms : 28
-```
+  ```
+  The first 7 natural number is :
+  1 2 3 4 5 6 7
+  The Sum of Natural Number upto 7 terms : 28
+  ```
 
 4. Write a program in Apex to read 10 numbers from keyboard and find their sum and average. 
 - Test Data :
-```
-Input the 10 numbers :
-Number-1 :2
-...
-Number-10 :2
-```
+  ```
+  Input the 10 numbers :
+  Number-1 :2
+  ...
+  Number-10 :2
+  ```
 - Expected Output:
-```
-The sum of 10 no is : 55
-The Average is : 5.500000
-```
+  ```
+  The sum of 10 no is : 55
+  The Average is : 5.500000
+  ```
 
 5. Write a program in Apex to display the cube of the number upto given an integer. 
 - Test Data :
-```
-Input number of terms : 5
-```
+  `Input number of terms : 5`
 - Expected Output:
-```
-Number is : 1 and cube of the 1 is :1
-Number is : 2 and cube of the 2 is :8
-Number is : 3 and cube of the 3 is :27
-Number is : 4 and cube of the 4 is :64
-Number is : 5 and cube of the 5 is :125
-```
+  ```
+  Number is : 1 and cube of the 1 is :1
+  Number is : 2 and cube of the 2 is :8
+  Number is : 3 and cube of the 3 is :27
+  Number is : 4 and cube of the 4 is :64
+  Number is : 5 and cube of the 5 is :125
+  ```
 
 6. Write a program in Apex to display the multiplication table of a given integer. 
 - Test Data :
-`Input the number (Table to be calculated) : 15`
+  `Input the number (Table to be calculated) : 15`
 - Expected Output:
   ```
   15 X 1 = 15
@@ -62,7 +60,7 @@ Number is : 5 and cube of the 5 is :125
 
 7. Write a program in Apex to display the multipliaction table vertically from 1 to n. 
 - Test Data :
-`Input upto the table number starting from 1 : 8`
+  `Input upto the table number starting from 1 : 8`
 - Expected Output:
   ```
   Multiplication table from 1 to 8
@@ -72,123 +70,123 @@ Number is : 5 and cube of the 5 is :125
   ```
 
 8. Write a program in Apex to display the n terms of odd natural number and their sum . 
-Test Data
-Input number of terms : 10
+- Test Data
+  `Input number of terms : 10`
 - Expected Output:
-```
-The odd numbers are :1 3 5 7 9 11 13 15 17 19
-The Sum of odd Natural Number upto 10 terms : 100
-```
+  ```
+  The odd numbers are :1 3 5 7 9 11 13 15 17 19
+  The Sum of odd Natural Number upto 10 terms : 100
+  ```
 
 9. Write a program in Apex to display the pattern like right angle triangle using an asterisk. 
 
 The pattern like :
-```
-*
-**
-***
-****
-```
-
-
+  ```
+  *
+  **
+  ***
+  ****
+  ```
  
 10. Write a program in Apex to display the pattern like right angle triangle with a number. 
 
 The pattern like :
-```
-1
-12
-123
-1234
-```
+  ```
+  1
+  12
+  123
+  1234
+  ```
 
 11. Write a program in Apex to make such a pattern like right angle triangle with a number which will repeat a number in a row. 
 
 The pattern like :
-```
- 1
- 22
- 333
- 4444
-```
+  ```
+  1
+  22
+  333
+  4444
+  ```
 
 12. Write a program in Apex to make such a pattern like right angle triangle with number increased by 1. 
 
 The pattern like :
-```
-   1
-   2 3
-   4 5 6
-   7 8 9 10
-```
+  ```
+    1
+    2 3
+    4 5 6
+    7 8 9 10
+  ```
 
 13. Write a program in Apex to make such a pattern like a pyramid with numbers increased by 1. 
-```
-   1 
-  2 3 
- 4 5 6 
-7 8 9 10 
-```
+  ```
+    1 
+    2 3 
+  4 5 6 
+  7 8 9 10 
+  ```
 14. Write a program in Apex to make such a pattern like a pyramid with an asterisk. 
-```
-   * 
-  * * 
- * * * 
-* * * *
-```
+  ```
+          * 
+        *   * 
+      *   *   * 
+    *   *   *   *
+  ```
 
 15. Write a Apex program to calculate the factorial of a given number. 
 - Test Data :
-Input the number : 5
+  `Input the number : 5`
 - Expected Output:
-```
-The Factorial of 5 is: 120
-```
+  ```
+  The Factorial of 5 is: 120
+  ```
 
 16. Write a program in Apex to display the n terms of even natural number and their sum. 
 - Test Data :
-Input number of terms : 5
+  `Input number of terms : 5`
 - Expected Output:
-```
-The even numbers are :2 4 6 8 10
-The Sum of even Natural Number upto 5 terms : 30
-```
+  ```
+  The even numbers are :2 4 6 8 10
+  The Sum of even Natural Number upto 5 terms : 30
+  ```
 
 17. Write a program in Apex to make such a pattern like a pyramid with a number which will repeat the number in the same row. 
-```
-   1
-  2 2
- 3 3 3
-4 4 4 4
-```
+  ```
+          1
+        2   2
+      3   3   3
+    4   4   4   4
+  ```
 
 18. Write a program in Apex to find the sum of the series [ 1-X^2/2!+X^4/4!- .........]. 
 - Test Data :
-Input the Value of x :2
-Input the number of terms : 5
+  ```
+  Input the Value of x :2
+  Input the number of terms : 5
+  ```
 - Expected Output:
-```
-the sum = -0.415873
-Number of terms = 5
-value of x = 2.000000
-```
+  ```
+  the sum = -0.415873
+  Number of terms = 5
+  value of x = 2.000000
+  ```
 
 19. Write a program in Apex to display the n terms of harmonic series and their sum. 
 1 + 1/2 + 1/3 + 1/4 + 1/5 ... 1/n terms
 - Test Data :
-Input the number of terms : 5
+  `Input the number of terms : 5`
 - Expected Output:
-```
-1/1 + 1/2 + 1/3 + 1/4 + 1/5 +
-Sum of Series upto 5 terms : 2.283334
-```
+  ```
+  1/1 + 1/2 + 1/3 + 1/4 + 1/5 +
+  Sum of Series upto 5 terms : 2.283334
+  ```
 
 20. Write a program in Apex to display the pattern like a pyramid using asterisk and each row contain an odd number of asterisks. 
-```
-   *
-  ***
- *****
-```
+    ```
+          *
+        * * *
+      * * * * *
+    ```
 
 21. Write a program in Apex to display the sum of the series [ 9 + 99 + 999 + 9999 ...]. 
 - Test Data :
@@ -406,146 +404,156 @@ HCF of 24 and 28 is : 4
 
 44. Write a program in Apex to find LCM of any two numbers using HCF. 
 - Test Data :
-Input 1st number for LCM: 15
-Input 2nd number for LCM: 20
+  ```
+  Input 1st number for LCM: 15
+  Input 2nd number for LCM: 20
+  ```
 - Expected Output:
-```
-The LCM of 15 and 20 is : 60
-```
+  ```
+  The LCM of 15 and 20 is : 60
+  ```
 
-45. Write a program in Apex to find LCM of any two numbers. 
+45.  Write a program in Apex to find LCM of any two numbers. 
 - Test Data :
-Input 1st number for LCM: 15
-Input 2nd number for LCM: 20
+  ```
+  Input 1st number for LCM: 15
+  Input 2nd number for LCM: 20
+  ```
 - Expected Output:
-```
-The LCM of 15 and 20 is : 60
-```
+  ```
+  The LCM of 15 and 20 is : 60
+  ```
 
 46. Write a program in Apex to convert a binary number into a decimal number using math function. 
 - Test Data :
-Input the binary number :1010100
+  `Input the binary number :1010100`
 - Expected Output:
-```
-The Binary Number : 1010100
-The equivalent Decimal Number is : 84
-```
+  ```
+  The Binary Number : 1010100
+  The equivalent Decimal Number is : 84
+  ```
 
 47. Write a Apex program to check whether a number is a Strong Number or not. 
 - Test Data :
-Input a number to check whether it is Strong number: 15
+  `Input a number to check whether it is Strong number: 15`
 - Expected Output:
-```
-15 is not a Strong number.
-```
+  ```
+  15 is not a Strong number.
+  ```
 
 48. Write a Apex program to find Strong Numbers within a range of numbers. 
 - Test Data :
-Input starting range of number : 1
-Input ending range of number: 200
+  ```
+  Input starting range of number : 1
+  Input ending range of number: 200
+  ```
 - Expected Output:
-```
-The Strong numbers are :
-1 2 145
-```
+  ```
+  The Strong numbers are :
+  1 2 145
+  ```
 
 49. Write a Apex program to find out the sum of an A.P. series. 
 - Test Data :
-Input the starting number of the A.P. series: 1
-Input the number of items for the A.P. series: 10
-Input the common difference of A.P. series: 4
+  ```
+  Input the starting number of the A.P. series: 1
+  Input the number of items for the A.P. series: 10
+  Input the common difference of A.P. series: 4
+  ```
 - Expected Output:
-```
-The Sum of the A.P. series are :
-1 + 5 + 9 + 13 + 17 + 21 + 25 + 29 + 33 + 37 = 190
-```
+  ```
+  The Sum of the A.P. series are :
+  1 + 5 + 9 + 13 + 17 + 21 + 25 + 29 + 33 + 37 = 190
+  ```
 
-50. Write a program in Apex to convert a decimal number into octal without using an array. 
+1.  Write a program in Apex to convert a decimal number into octal without using an array. 
 - Test Data :
-Enter a number to convert : 79
+  `Enter a number to convert : 79`
 - Expected Output:
-```
-The Octal of 79 is 117.
-```
+  ```
+  The Octal of 79 is 117.
+  ```
 
 51. Write a program in Apex to convert an octal number to a decimal without using an array. 
 - Test Data :
-Input an octal number (using digit 0 - 7) :745
+  `Input an octal number (using digit 0 - 7) :745`
 - Expected Output:
-```
-The Octal Number : 745
-The equivalent Decimal Number : 485
-```
+  ```
+  The Octal Number : 745
+  The equivalent Decimal Number : 485
+  ```
 
 52. Write a program in Apex to find the Sum of GP series. 
 - Test Data :
-Input the first number of the G.P. series: 3
-Input the number or terms in the G.P. series: 5
-Input the common ratio of G.P. series: 2
+  ```
+  Input the first number of the G.P. series: 3
+  Input the number or terms in the G.P. series: 5
+  Input the common ratio of G.P. series: 2
+  ```
 - Expected Output:
-```
-The numbers for the G.P. series:
-3.000000 6.000000 12.000000 24.000000 48.000000
-The Sum of the G.P. series : 93.000000
-```
+  ```
+  The numbers for the G.P. series:
+  3.000000 6.000000 12.000000 24.000000 48.000000
+  The Sum of the G.P. series : 93.000000
+  ```
 
 53. Write a program in Apex to convert a binary number to octal. 
 - Test Data :
-Input a binary number :1001
+  `Input a binary number :1001`
 - Expected Output:
-```
-The Binary Number : 1001
-The equivalent Octal Number : 11
-```
+  ```
+  The Binary Number : 1001
+  The equivalent Octal Number : 11
+  ```
 
 54. Write a program in Apex to convert an octal number into binary. 
 - Test Data :
-Input an octal number (using digit 0 - 7) :57
+  `Input an octal number (using digit 0 - 7) :57`
 - Expected Output:
-```
-The Octal Number : 57
-The equivalent Binary Number : 101111
-```
+  ```
+  The Octal Number : 57
+  The equivalent Binary Number : 101111
+  ```
 
 
 55. Write a program in Apex to convert a decimal number to hexadecimal. 
 - Test Data :
-Input any Decimal number: 79
+  `Input any Decimal number: 79`
 - Expected Output:
-```
-The equivalent Hexadecimal Number : 4F
-```
+  ```
+  The equivalent Hexadecimal Number : 4F
+  ```
 
 56. Write a program in Apex to Check Whether a Number can be Express as Sum of Two Prime Numbers. 
 - Test Data :
-Input a positive integer: 16
+  `Input a positive integer: 16`
 - Expected Output:
-```
-16 = 3 + 13
-16 = 5 + 11
-```
+  ```
+  16 = 3 + 13
+  16 = 5 + 11
+  ```
 
 57. Write a program in Apex to print a string in reverse order. 
 - Test Data :
-Input a string to reverse : Welcome
+  `Input a string to reverse : Welcome`
 - Expected Output:
-```
-Reversed string is: emocleW
-```
+  ```
+  Reversed string is: emocleW
+  ```
 
 58. Write a Apex program to find the length of a string without using the library function. 
 - Test Data :
-Input a string : welcome
+  `Input a string : welcome`
 - Expected Output:
-```
-The string contains 7 number of characters.
-So, the length of the string welcome is : 7
-```
+  ```
+  The string contains 7 number of characters.
+  So, the length of the string welcome is : 7
+  ```
 
 59. Write a program in Apex to check Armstrong number of n digits. 
 - Test Data :
-Input an integer : 1634
+`Input an integer : 1634`
 - Expected Output:
-```
-1634 is an Armstrong number
-```
+  ```
+  1634 is an Armstrong number
+  ```
