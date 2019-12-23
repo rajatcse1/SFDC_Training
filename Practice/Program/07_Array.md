@@ -43,45 +43,51 @@
     Sum of all elements stored in the array is : 15
     ```
 
-1. Write a program in Apex to copy the elements of one array into another array. 
+4. Write a program in Apex to copy the elements of one array into another array. 
 - Test Data :
-Input the number of elements to be stored in the array :3
-Input 3 elements in the array :
-element - 0 : 15
-element - 1 : 10
-element - 2 : 12
+    ```
+    Input the number of elements to be stored in the array :3
+    Input 3 elements in the array :
+    element - 0 : 15
+    element - 1 : 10
+    element - 2 : 12
+    ```
 - Expected Output:
-```
-The elements stored in the first array are :
-15 10 12
-The elements copied into the second array are :
-15 10 12
-
+    ```
+    The elements stored in the first array are :
+    15 10 12
+    The elements copied into the second array are :
+    15 10 12
+    ```
 
 5. Write a program in Apex to count a total number of duplicate elements in an array. 
 - Test Data :
-Input the number of elements to be stored in the array :3
-Input 3 elements in the array :
-element - 0 : 5
-element - 1 : 1
-element - 2 : 1
+    ```
+    Input the number of elements to be stored in the array :3
+    Input 3 elements in the array :
+    element - 0 : 5
+    element - 1 : 1
+    element - 2 : 1
+    ```
 - Expected Output:
-```
-Total number of duplicate elements found in the array is : 1
-
+    ```
+    Total number of duplicate elements found in the array is : 1
+    ```
 
 6. Write a program in Apex to print all unique elements in an array. 
 - Test Data :
-Input the number of elements to be stored in the array :3
-Input 3 elements in the array :
-element - 0 : 1
-element - 1 : 5
-element - 2 : 1
+    ```
+    Input the number of elements to be stored in the array :3
+    Input 3 elements in the array :
+    element - 0 : 1
+    element - 1 : 5
+    element - 2 : 1
+    ```
 - Expected Output:
-```
-The unique elements found in the array are :
-5
-
+    ```
+    The unique elements found in the array are :
+    5
+    ```
 
 7. Write a program in Apex to merge two arrays of same size sorted in decending order. 
 - Test Data :

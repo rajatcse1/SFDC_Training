@@ -4,119 +4,110 @@
 Input the string : Welcome, w3resource
 
 - Expected Output:
-```
-
-The string you entered is : Welcome, w3resource 
-
+    ```
+    The string you entered is : Welcome, w3resource 
+    ```
 
 2. Write a program in Apex to find the length of a string without using library function. 
 
 - Test Data :
-Input the string : w3resource.com
+    `Input the string : w3resource.com`
 
 - Expected Output:
-```
-
-Length of the string is : 15 
-
+    ```
+    Length of the string is : 15 
+    ```
 
 3. Write a program in Apex to separate the individual characters from a string. 
 
 - Test Data :
-Input the string : w3resource.com
+    `Input the string : w3resource.com`
 
 - Expected Output:
-```
-
-The characters of the string are : 
-w  3  r  e  s  o  u  r  c  e  .  c  o  m 
-
+    ```
+    The characters of the string are : 
+    w  3  r  e  s  o  u  r  c  e  .  c  o  m 
+    ```
 
 4. Write a program in Apex to print individual characters of string in reverse order. 
 
 - Test Data :
-Input the string : w3resource.com
+    `Input the string : w3resource.com`
 
 - Expected Output:
-```
-
-The characters of the string in reverse are :
-m  o  c  .  e  c  r  u  o  s  e  r  3  w 
-
+    ```
+    The characters of the string in reverse are :
+    m  o  c  .  e  c  r  u  o  s  e  r  3  w 
+    ```
 
 5. Write a program in Apex to count the total number of words in a string. 
 
 - Test Data :
-Input the string : This is w3resource.com
+    `Input the string : This is w3resource.com`
 
 - Expected Output:
-```
-
-Total number of words in the string is : 3 
-
+    ```
+    Total number of words in the string is : 3 
+    ```
 
 6. Write a program in Apex to compare two string without using string library functions. 
 
 - Test Data :
-Input the 1st string : This is first string
-Input the 2nd string : This is first string
-
+    ```
+    Input the 1st string : This is first string
+    Input the 2nd string : This is first string
+    ```
 - Expected Output:
-```
-
-The length of both strings are equal and
-also both strings are equal.
-
+    ```
+    The length of both strings are equal and
+    also both strings are equal.
+    ```
 
 7. Write a program in Apex to count total number of alphabets, digits and special characters in a string. 
 
 - Test Data :
-Input the string : Welcome to w3resource.com
+    `Input the string : Welcome to w3resource.com`
 
 - Expected Output:
-```
-
-Number of Alphabets in the string is : 21 
-Number of Digits in the string is : 1 
-Number of Special characters in the string is : 4 
-
+    ```
+    Number of Alphabets in the string is : 21 
+    Number of Digits in the string is : 1 
+    Number of Special characters in the string is : 4 
+    ```
 
 8. Write a program in Apex to copy one string to another string. 
 
 - Test Data :
-Input the string : This is a string to be copied.
+    `Input the string : This is a string to be copied.`
 
 - Expected Output:
-```
-
-The First string is : This is a string to be copied.
-The Second string is : This is a string to be copied. 
-Number of characters copied : 31 
-
+    ```
+    The First string is : This is a string to be copied.
+    The Second string is : This is a string to be copied. 
+    Number of characters copied : 31 
+    ```
 
 9. Write a program in Apex to count total number of vowel or consonant in a string. 
 
 - Test Data :
-Input the string : Welcome to w3resource.com
+    `Input the string : Welcome to w3resource.com`
 
 - Expected Output:
-```
-
-The total number of vowel in the string is : 9 
-The total number of consonant in the string is : 12 
-
+    ```
+    The total number of vowel in the string is : 9 
+    The total number of consonant in the string is : 12 
+    ```
 
 10. Write a program in Apex to find maximum occurring character in a string. 
 
 - Test Data :
-Input the string : Welcome to w3resource.com.
+    `Input the string : Welcome to w3resource.com.`
 
 - Expected Output:
-```
-
-The Highest frequency of character 'e' 
-appears number of times : 4 
-
+    ```
+    The Highest frequency of character 'e' 
+    appears number of times : 4 
+    ```
 
 11.Write a Apex program to sort a string array in ascending order. 
 
