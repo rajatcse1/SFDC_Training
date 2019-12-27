@@ -69,7 +69,7 @@
     }
     ```
     2. #### Render DOM Elements Conditionally
-    ```
+    ```html
     <!-- helloConditionalRendering.html -->
     <template>
         <lightning-card title="HelloConditionalRendering" icon-name="custom:custom14">
@@ -235,7 +235,7 @@
     ```
     3. Basic CSS way
     ```html
-    <!–- child.html-->
+    <!-- child.html -->
     <template>
     <h1>To Do Item</h1>
     <slot></slot>
