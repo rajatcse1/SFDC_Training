@@ -1,13 +1,13 @@
 # Tutorials
 1. ## Template
     1. #### data binding in Template
-    ```
+    ```html
     <!-- hello.html -->
     <template>
         Hello, {greeting}!
     </template>
     ```
-    ```
+    ```js
     // hello.js
     import { LightningElement } from 'lwc';
 
@@ -16,14 +16,14 @@
     }
     ```
     --------------
-    ```
+    ```html
     <!-- helloBinding.html -->
     <template>
         <p>Hello, {greeting}!</p>
         <lightning-input label="Name" value={greeting} onchange={handleChange}></lightning-input>
     </template>
     ```
-    ```
+    ```js
     // helloBinding.js
     import { LightningElement, track } from 'lwc';
 
@@ -36,7 +36,7 @@
     }
     ```
     ---------------------
-    ```
+    ```html
     <!-- helloExpressions.html -->
     <template>
         <div class="slds-m-around_medium">
@@ -46,7 +46,7 @@
         </div>
     </template>
     ```
-    ```
+    ```js
     // helloExpressions.js
     import { LightningElement, track } from 'lwc';
 
@@ -84,7 +84,7 @@
         </lightning-card>
     </template>
     ```
-    ```
+    ```js
     // helloConditionalRendering.js
     import { LightningElement, track } from 'lwc';
 
@@ -97,7 +97,7 @@
     }
     ```
     3. #### Render Lists
-    ```
+    ```html
     <!-- helloForEach.html -->
     <template>
         <lightning-card title="HelloForEach" icon-name="custom:custom14">
@@ -111,7 +111,7 @@
         </lightning-card>
     </template>
     ```
-    ```
+    ```js
     // helloForEach.js
     import { LightningElement, track } from 'lwc';
 
@@ -136,7 +136,7 @@
     }
     ```
     ------------------------------
-    ```
+    ```html
     <template>
         <lightning-card title="HelloIterator" icon-name="custom:custom14">
             <ul class="slds-m-around_medium">
@@ -151,7 +151,7 @@
         </lightning-card>
     </template>
     ```
-    ```
+    ```css
     .list-first {
         border-top: 1px solid black;
         padding-top: 5px;
@@ -163,7 +163,7 @@
     }
     ```
     4. #### Render Multiple Templates
-    ```
+    ```js
     // MultipleTemplates.js
 
     import { LightningElement, track  } from 'lwc';
@@ -183,7 +183,7 @@
         }
     }
     ```
-    ```
+    ```html
     <!-- templateOne.html -->
     <template>
         <lightning-card title="Template One">
@@ -198,7 +198,7 @@
         </lightning-card>
     </template>
     ```
-    ```
+    ```html
     <!-- templateTwo.html -->
     <template>
         <lightning-card title="Template Two">
@@ -215,7 +215,7 @@
     ```
 2. ## CSS
     1. #### Lightning style
-    ```
+    ```html
     <template>
         <div class="slds-tree_container" role="application">
             <h4 class="slds-text-title_caps" id="treeheading">{header}</h4>
@@ -227,21 +227,21 @@
     </template>
     ```
     2. #### Aura style
-    ```
+    ```css
     /* myWebComponent.css */
     div {
         margin-right: var(--lwc-spacingSmall);
     }
     ```
     3. Basic CSS way
-    ```
+    ```html
     <!–- child.html-->
     <template>
     <h1>To Do Item</h1>
     <slot></slot>
     </template>
     ```
-    ```
+    ```css
     /* child.css */
     h1 {
         font-size: large;
@@ -255,7 +255,7 @@
         background-color: lightgreen;
     } 
     ``` 
-    ```
+    ```html
     <!-- parent.html -->
     <template>
         <h1>To Do List</h1>
@@ -264,7 +264,7 @@
         <c-child class="active">Plan a party</c-child>
     </template>
     ```
-    ```
+    ```css
     /* parent.css */
 
     h1 {
