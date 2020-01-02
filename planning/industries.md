@@ -1,0 +1,145 @@
+1.  Agribusiness
+     - Crop Production & Basic Processing
+           - Vegetables & Fruits
+           - Sugar Cane & Sugar Beets
+     - Tobacco
+     - Dairy
+     - Poultry & Eggs
+     - Livestock
+     - Agricultural Services & Products
+           - Farm Bureaus
+     - Food Processing & Sales
+           - Food Products Manufacturing
+           - Food Stores
+           - Meat processing & products
+     - Forestry & Forest Products
+2. Communications/Electronics
+     - Printing & Publishing
+           - Books, Magazines & Newspapers
+     - TV / Movies / Music
+           - Cable & Satellite TV Production & Distribution
+           - Commercial TV & Radio Stations
+           - Motion Picture Production & Distribution
+           - Recorded Music & Music Production
+           - TV Production
+     - Telephone Utilities
+     - Telecom Services & Equipment
+     - Electronics Manufacturing & Equipment
+           - Computer Software
+     - Internet
+3. Construction
+     - General Contractors
+     - Home Builders
+     - Special Trade Contractors
+     - Construction Services
+           - Architectural Services
+     - Building Materials & Equipment
+4. Defense
+     - Defense Aerospace
+     - Defense Electronics
+     - Miscellaneous Defense
+5. Energy & Natural Resources
+     - Oil & Gas
+           - Natural Gas Pipelines
+     - Mining
+           - Coal Mining
+     - Alternative Energy Production & Services
+     - Electric Utilities
+     - Waste Management
+6. Finance, Insurance & Real Estate
+     - Commercial Banks
+     - Savings & Loans
+     - Credit Unions
+     - Finance / Credit Companies
+           - Student Loan Companies
+           - Payday Lenders
+     - Securities & Investment
+           - Venture Capital
+           - Hedge Funds
+           - Private Equity & Investment Firms
+     - Insurance
+     - Real Estate
+           - Mortgage Bankers & Brokers
+     - Accountants
+     - Misc Finance
+7. Health
+     - Health Professionals
+           - Chiropractors
+           - Dentists
+           - Nurses
+     - Hospitals & Nursing Homes
+     - Health Services/HMOs
+     - Pharmaceuticals / Health Products
+           - Medical Supplies
+           - Nutritional & Dietary Supplements
+           - Pharmaceutical Manufacturing
+8. Ideological/Single-Issue
+     - Republican/Conservative
+     - Democratic/Liberal
+     - Leadership PACs
+           - Democratic Leadership PACs
+           - Republican Leadership PACs
+     - Foreign & Defense Policy
+     - Pro-Israel
+     - Women's Issues
+     - Human Rights
+           - Gay & Lesbian Rights & Issues
+     - Environment
+     - Gun Control
+     - Gun Rights
+     - Abortion Policy/Anti-Abortion
+     - Abortion Policy/Pro-Abortion Rights
+     - Candidate Committees
+           - Republican Candidate Committees
+           - Democratic Candidate Committees
+9. Labor
+     - Building Trade Unions
+     - Industrial Unions
+     - Transportation Unions
+           - Air Transport Unions
+     - Public Sector Unions
+           - Postal Unions
+           - Teachers Unions
+     - Misc Unions
+10. Lawyers & Lobbyists
+     - Lawyers / Law Firms
+     - Lobbyists
+11. Misc Business
+     - Business Associations
+     - Food & Beverage
+           - Restaurants & Drinking Establishments
+     - Beer, Wine & Liquor
+     - Retail Sales
+     - Miscellaneous Services
+           - Funeral Services
+     - Business Services
+           - Advertising/Public Relations
+     - Recreation / Live Entertainment
+           - Professional Sports, Sports Arenas & Related Equipment & Services
+     - Casinos / Gambling
+           - Indian Gaming
+     - Lodging / Tourism
+     - For-profit Prisons
+     - Chemical & Related Manufacturing
+     - Steel Production
+     - Misc Manufacturing & Distributing
+           - Clothing Manufacturing
+     - Textiles
+12. Other
+     - Non-profits, Foundations & Philanthropists
+     - Civil Servants/Public Officials
+     - Education
+           - For-profit Education
+     - Clergy & Religious Organizations
+     - Retired
+13. Transportation
+     - Air Transport
+           - Airlines
+     - Automotive
+           - Auto Manufacturers
+           - Car Dealers
+           - Car Dealers, Imports
+     - Trucking
+     - Railroads
+     - Sea Transport
+           - Cruise Ships & Lines
