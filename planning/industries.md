@@ -139,7 +139,7 @@
            - Auto Manufacturers
            - Car Dealers
            - Car Dealers, Imports
-     - Trucking
+     - Trucking [details](https://www.truckingoffice.com/)
      - Railroads
      - Sea Transport
            - Cruise Ships & Lines
