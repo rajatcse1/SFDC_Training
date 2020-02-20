@@ -1,0 +1,860 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style>@charset "UTF-8";@import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css';code{color:#c7254e;background-color:#f9f2f4;border-radius:4px}code,kbd{padding:2px 4px}kbd{color:#fff;background-color:#333;border-radius:3px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}kbd kbd{padding:0;font-size:100%;box-shadow:none}pre{display:block;margin:0 0 10px;word-break:break-all;word-wrap:break-word;color:#333;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}.pre-scrollable{max-height:340px;overflow-y:scroll}table{background-color:transparent}th{text-align:left}.table{width:100%;max-width:100%;margin-bottom:20px}.table>thead>tr>th{padding:8px;line-height:1.4285714;border-top:1px solid #ddd}.table>thead>tr>td,.table>tbody>tr>th,.table>tbody>tr>td,.table>tfoot>tr>th,.table>tfoot>tr>td{padding:8px;line-height:1.4285714;vertical-align:top;border-top:1px solid #ddd}.table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd}.table>caption+thead>tr:first-child>th,.table>caption+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>td,.table>thead:first-child>tr:first-child>th,.table>thead:first-child>tr:first-child>td{border-top:0}.table>tbody+tbody{border-top:2px solid #ddd}.table .table{background-color:#fff}.table-condensed>thead>tr>th,.table-condensed>thead>tr>td,.table-condensed>tbody>tr>th,.table-condensed>tbody>tr>td,.table-condensed>tfoot>tr>th,.table-condensed>tfoot>tr>td{padding:5px}.table-bordered,.table-bordered>thead>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>th,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>th,.table-bordered>tfoot>tr>td{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}.table-hover>tbody>tr:hover>td,.table-hover>tbody>tr:hover>th{background-color:#f5f5f5}table col[class*="col-"]{position:static;float:none;display:table-column}table td[class*="col-"],table th[class*="col-"]{position:static;float:none;display:table-cell}.table>thead>tr>td.active,.table>thead>tr>th.active,.table>thead>tr.active>td,.table>thead>tr.active>th,.table>tbody>tr>td.active,.table>tbody>tr>th.active,.table>tbody>tr.active>td,.table>tbody>tr.active>th,.table>tfoot>tr>td.active,.table>tfoot>tr>th.active,.table>tfoot>tr.active>td,.table>tfoot>tr.active>th{background-color:#f5f5f5}.table-hover>tbody>tr>td.active:hover,.table-hover>tbody>tr>th.active:hover,.table-hover>tbody>tr.active:hover>td,.table-hover>tbody>tr:hover>.active,.table-hover>tbody>tr.active:hover>th{background-color:#e8e8e8}.table>thead>tr>td.success,.table>thead>tr>th.success,.table>thead>tr.success>td,.table>thead>tr.success>th,.table>tbody>tr>td.success,.table>tbody>tr>th.success,.table>tbody>tr.success>td,.table>tbody>tr.success>th,.table>tfoot>tr>td.success,.table>tfoot>tr>th.success,.table>tfoot>tr.success>td,.table>tfoot>tr.success>th{background-color:#dff0d8}.table-hover>tbody>tr>td.success:hover,.table-hover>tbody>tr>th.success:hover,.table-hover>tbody>tr.success:hover>td,.table-hover>tbody>tr:hover>.success,.table-hover>tbody>tr.success:hover>th{background-color:#d0e9c6}.table>thead>tr>td.info,.table>thead>tr>th.info,.table>thead>tr.info>td,.table>thead>tr.info>th,.table>tbody>tr>td.info,.table>tbody>tr>th.info,.table>tbody>tr.info>td,.table>tbody>tr.info>th,.table>tfoot>tr>td.info,.table>tfoot>tr>th.info,.table>tfoot>tr.info>td,.table>tfoot>tr.info>th{background-color:#d9edf7}.table-hover>tbody>tr>td.info:hover,.table-hover>tbody>tr>th.info:hover,.table-hover>tbody>tr.info:hover>td,.table-hover>tbody>tr:hover>.info,.table-hover>tbody>tr.info:hover>th{background-color:#c4e3f3}.table>thead>tr>td.warning,.table>thead>tr>th.warning,.table>thead>tr.warning>td,.table>thead>tr.warning>th,.table>tbody>tr>td.warning,.table>tbody>tr>th.warning,.table>tbody>tr.warning>td,.table>tbody>tr.warning>th,.table>tfoot>tr>td.warning,.table>tfoot>tr>th.warning,.table>tfoot>tr.warning>td,.table>tfoot>tr.warning>th{background-color:#fcf8e3}.table-hover>tbody>tr>td.warning:hover,.table-hover>tbody>tr>th.warning:hover,.table-hover>tbody>tr.warning:hover>td,.table-hover>tbody>tr:hover>.warning,.table-hover>tbody>tr.warning:hover>th{background-color:#faf2cc}.table>thead>tr>td.danger,.table>thead>tr>th.danger,.table>thead>tr.danger>td,.table>thead>tr.danger>th,.table>tbody>tr>td.danger,.table>tbody>tr>th.danger,.table>tbody>tr.danger>td,.table>tbody>tr.danger>th,.table>tfoot>tr>td.danger,.table>tfoot>tr>th.danger,.table>tfoot>tr.danger>td,.table>tfoot>tr.danger>th{background-color:#f2dede}.table-hover>tbody>tr>td.danger:hover,.table-hover>tbody>tr>th.danger:hover,.table-hover>tbody>tr.danger:hover>td,.table-hover>tbody>tr:hover>.danger,.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc}fieldset{border:0;min-width:0}legend{display:block;width:100%;margin-bottom:20px;font-size:21px;line-height:inherit;color:#333;border-bottom:1px solid #e5e5e5}label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700}input[type="radio"],input[type="checkbox"]{margin:4px 0 0;margin-top:1px \9;line-height:normal}input[type="file"]{display:block}input[type="range"]{display:block;width:100%}select[multiple],select[size]{height:auto}input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}output{padding-top:7px}output,.form-control{display:block;font-size:14px;line-height:1.4285714;color:#555}.form-control{width:100%;height:34px;padding:6px 12px;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.form-control:focus{border-color:#66afe9;outline:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.form-control::-moz-placeholder{color:#777;opacity:1}.form-control:-ms-input-placeholder{color:#777}.form-control::-webkit-input-placeholder{color:#777}.form-control[disabled],.form-control[readonly],fieldset[disabled] .form-control{cursor:not-allowed;background-color:#eee;opacity:1}textarea.form-control{height:auto}input[type="date"],input[type="time"],input[type="datetime-local"],input[type="month"]{line-height:34px;line-height:1.4285714 \0}input[type="date"].input-sm,.form-horizontal .form-group-sm input.form-control[type="date"],.input-group-sm>input.form-control[type="date"],.input-group-sm>input.input-group-addon[type="date"],.input-group-sm>.input-group-btn>input.btn[type="date"],input[type="time"].input-sm,.form-horizontal .form-group-sm input.form-control[type="time"],.input-group-sm>input.form-control[type="time"],.input-group-sm>input.input-group-addon[type="time"],.input-group-sm>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-sm,.form-horizontal .form-group-sm input.form-control[type="datetime-local"],.input-group-sm>input.form-control[type="datetime-local"],.input-group-sm>input.input-group-addon[type="datetime-local"],.input-group-sm>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-sm,.form-horizontal .form-group-sm input.form-control[type="month"],.input-group-sm>input.form-control[type="month"],.input-group-sm>input.input-group-addon[type="month"],.input-group-sm>.input-group-btn>input.btn[type="month"]{line-height:30px}input[type="date"].input-lg,.form-horizontal .form-group-lg input.form-control[type="date"],.input-group-lg>input.form-control[type="date"],.input-group-lg>input.input-group-addon[type="date"],.input-group-lg>.input-group-btn>input.btn[type="date"],input[type="time"].input-lg,.form-horizontal .form-group-lg input.form-control[type="time"],.input-group-lg>input.form-control[type="time"],.input-group-lg>input.input-group-addon[type="time"],.input-group-lg>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-lg,.form-horizontal .form-group-lg input.form-control[type="datetime-local"],.input-group-lg>input.form-control[type="datetime-local"],.input-group-lg>input.input-group-addon[type="datetime-local"],.input-group-lg>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-lg,.form-horizontal .form-group-lg input.form-control[type="month"],.input-group-lg>input.form-control[type="month"],.input-group-lg>input.input-group-addon[type="month"],.input-group-lg>.input-group-btn>input.btn[type="month"]{line-height:46px}.form-group{margin-bottom:15px}.radio,.checkbox{position:relative;display:block;min-height:20px;margin-top:10px;margin-bottom:10px}.radio label,.checkbox label{padding-left:20px;margin-bottom:0;font-weight:400;cursor:pointer}.radio input[type="radio"],.radio-inline input[type="radio"],.checkbox input[type="checkbox"],.checkbox-inline input[type="checkbox"]{position:absolute;margin-left:-20px;margin-top:4px \9}.radio+.radio,.checkbox+.checkbox{margin-top:-5px}.radio-inline,.checkbox-inline{display:inline-block;padding-left:20px;margin-bottom:0;vertical-align:middle;font-weight:400;cursor:pointer}.radio-inline+.radio-inline,.checkbox-inline+.checkbox-inline{margin-top:0;margin-left:10px}input[type="radio"][disabled],input[type="radio"].disabled,fieldset[disabled] input[type="radio"],input[type="checkbox"][disabled],input[type="checkbox"].disabled,fieldset[disabled] input[type="checkbox"],.radio-inline.disabled,fieldset[disabled] .radio-inline,.checkbox-inline.disabled,fieldset[disabled] .checkbox-inline,.radio.disabled label,fieldset[disabled] .radio label,.checkbox.disabled label,fieldset[disabled] .checkbox label{cursor:not-allowed}.form-control-static{padding-top:7px;padding-bottom:7px;margin-bottom:0}.form-control-static.input-lg,.form-horizontal .form-group-lg .form-control-static.form-control,.input-group-lg>.form-control-static.form-control,.input-group-lg>.form-control-static.input-group-addon,.input-group-lg>.input-group-btn>.form-control-static.btn,.form-control-static.input-sm,.form-horizontal .form-group-sm .form-control-static.form-control,.input-group-sm>.form-control-static.form-control,.input-group-sm>.form-control-static.input-group-addon,.input-group-sm>.input-group-btn>.form-control-static.btn{padding-left:0;padding-right:0}.input-sm,.form-horizontal .form-group-sm .form-control,.input-group-sm>.form-control{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}.input-group-sm>.input-group-addon{height:30px;line-height:1.5}.input-group-sm>.input-group-btn>.btn{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}select.input-sm,.form-horizontal .form-group-sm select.form-control,.input-group-sm>select.form-control,.input-group-sm>select.input-group-addon,.input-group-sm>.input-group-btn>select.btn{height:30px;line-height:30px}textarea.input-sm,.form-horizontal .form-group-sm textarea.form-control,.input-group-sm>textarea.form-control,.input-group-sm>textarea.input-group-addon,.input-group-sm>.input-group-btn>textarea.btn,select[multiple].input-sm,.form-horizontal .form-group-sm select.form-control[multiple],.input-group-sm>select.form-control[multiple],.input-group-sm>select.input-group-addon[multiple],.input-group-sm>.input-group-btn>select.btn[multiple]{height:auto}.input-lg,.form-horizontal .form-group-lg .form-control,.input-group-lg>.form-control{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.input-group-lg>.input-group-addon{height:46px;line-height:1.33}.input-group-lg>.input-group-btn>.btn{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}select.input-lg,.form-horizontal .form-group-lg select.form-control,.input-group-lg>select.form-control,.input-group-lg>select.input-group-addon,.input-group-lg>.input-group-btn>select.btn{height:46px;line-height:46px}textarea.input-lg,.form-horizontal .form-group-lg textarea.form-control,.input-group-lg>textarea.form-control,.input-group-lg>textarea.input-group-addon,.input-group-lg>.input-group-btn>textarea.btn,select[multiple].input-lg,.form-horizontal .form-group-lg select.form-control[multiple],.input-group-lg>select.form-control[multiple],.input-group-lg>select.input-group-addon[multiple],.input-group-lg>.input-group-btn>select.btn[multiple]{height:auto}.has-feedback{position:relative}.has-feedback .form-control{padding-right:42.5px}.form-control-feedback{position:absolute;top:25px;right:0;z-index:2;display:block;width:34px;height:34px;line-height:34px;text-align:center}.input-lg+.form-control-feedback,.form-horizontal .form-group-lg .form-control+.form-control-feedback,.input-group-lg>.form-control+.form-control-feedback,.input-group-lg>.input-group-addon+.form-control-feedback,.input-group-lg>.input-group-btn>.btn+.form-control-feedback{width:46px;height:46px;line-height:46px}.input-sm+.form-control-feedback,.form-horizontal .form-group-sm .form-control+.form-control-feedback,.input-group-sm>.form-control+.form-control-feedback,.input-group-sm>.input-group-addon+.form-control-feedback,.input-group-sm>.input-group-btn>.btn+.form-control-feedback{width:30px;height:30px;line-height:30px}.has-success .help-block,.has-success .control-label,.has-success .radio,.has-success .checkbox,.has-success .radio-inline,.has-success .checkbox-inline{color:#3c763d}.has-success .form-control{border-color:#3c763d;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-success .form-control:focus{border-color:#2b542c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168}.has-success .input-group-addon{color:#3c763d;border-color:#3c763d;background-color:#dff0d8}.has-success .form-control-feedback{color:#3c763d}.has-warning .help-block,.has-warning .control-label,.has-warning .radio,.has-warning .checkbox,.has-warning .radio-inline,.has-warning .checkbox-inline{color:#8a6d3b}.has-warning .form-control{border-color:#8a6d3b;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-warning .form-control:focus{border-color:#66512c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b}.has-warning .input-group-addon{color:#8a6d3b;border-color:#8a6d3b;background-color:#fcf8e3}.has-warning .form-control-feedback{color:#8a6d3b}.has-error .help-block,.has-error .control-label,.has-error .radio,.has-error .checkbox,.has-error .radio-inline,.has-error .checkbox-inline{color:#a94442}.has-error .form-control{border-color:#a94442;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-error .form-control:focus{border-color:#843534;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}.has-error .input-group-addon{color:#a94442;border-color:#a94442;background-color:#f2dede}.has-error .form-control-feedback{color:#a94442}.has-feedback label.sr-only~.form-control-feedback{top:0}.help-block{display:block;margin-top:5px;margin-bottom:10px;color:#737373}.form-horizontal .radio,.form-horizontal .checkbox,.form-horizontal .radio-inline,.form-horizontal .checkbox-inline{margin-top:0;margin-bottom:0;padding-top:7px}.form-horizontal .radio,.form-horizontal .checkbox{min-height:27px}.form-horizontal .form-group{margin-left:-15px;margin-right:-15px}.form-horizontal .form-group:before{content:" ";display:table}.form-horizontal .form-group:after{content:" ";display:table;clear:both}.form-horizontal .has-feedback .form-control-feedback{top:0;right:15px}.btn{display:inline-block;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.btn:focus,.btn:active:focus,.btn.active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:hover,.btn:focus{color:#333;text-decoration:none}.btn:active,.btn.active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;pointer-events:none;opacity:.65;filter:alpha(opacity=65);box-shadow:none}.btn-default{color:#333;background-color:#fff;border-color:#ccc}.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{color:#333;background-color:#e6e6e6;border-color:#adadad}.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{background-image:none}.btn-default.disabled,.btn-default.disabled:hover,.btn-default.disabled:focus,.btn-default.disabled:active,.btn-default.disabled.active,.btn-default[disabled],.btn-default[disabled]:hover,.btn-default[disabled]:focus,.btn-default[disabled]:active,.btn-default[disabled].active,fieldset[disabled] .btn-default,fieldset[disabled] .btn-default:hover,fieldset[disabled] .btn-default:focus,fieldset[disabled] .btn-default:active,fieldset[disabled] .btn-default.active{background-color:#fff;border-color:#ccc}.btn-default .badge{color:#fff;background-color:#333}.btn-primary{color:#fff;background-color:#428bca;border-color:#357ebd}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#3071a9;border-color:#285e8e}.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{background-image:none}.btn-primary.disabled,.btn-primary.disabled:hover,.btn-primary.disabled:focus,.btn-primary.disabled:active,.btn-primary.disabled.active,.btn-primary[disabled],.btn-primary[disabled]:hover,.btn-primary[disabled]:focus,.btn-primary[disabled]:active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary,fieldset[disabled] .btn-primary:hover,fieldset[disabled] .btn-primary:focus,fieldset[disabled] .btn-primary:active,fieldset[disabled] .btn-primary.active{background-color:#428bca;border-color:#357ebd}.btn-primary .badge{color:#428bca;background-color:#fff}.btn-success{color:#fff;background-color:#5cb85c;border-color:#4cae4c}.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{color:#fff;background-color:#449d44;border-color:#398439}.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{background-image:none}.btn-success.disabled,.btn-success.disabled:hover,.btn-success.disabled:focus,.btn-success.disabled:active,.btn-success.disabled.active,.btn-success[disabled],.btn-success[disabled]:hover,.btn-success[disabled]:focus,.btn-success[disabled]:active,.btn-success[disabled].active,fieldset[disabled] .btn-success,fieldset[disabled] .btn-success:hover,fieldset[disabled] .btn-success:focus,fieldset[disabled] .btn-success:active,fieldset[disabled] .btn-success.active{background-color:#5cb85c;border-color:#4cae4c}.btn-success .badge{color:#5cb85c;background-color:#fff}.btn-info{color:#fff;background-color:#5bc0de;border-color:#46b8da}.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{color:#fff;background-color:#31b0d5;border-color:#269abc}.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{background-image:none}.btn-info.disabled,.btn-info.disabled:hover,.btn-info.disabled:focus,.btn-info.disabled:active,.btn-info.disabled.active,.btn-info[disabled],.btn-info[disabled]:hover,.btn-info[disabled]:focus,.btn-info[disabled]:active,.btn-info[disabled].active,fieldset[disabled] .btn-info,fieldset[disabled] .btn-info:hover,fieldset[disabled] .btn-info:focus,fieldset[disabled] .btn-info:active,fieldset[disabled] .btn-info.active{background-color:#5bc0de;border-color:#46b8da}.btn-info .badge{color:#5bc0de;background-color:#fff}.btn-warning{color:#fff;background-color:#f0ad4e;border-color:#eea236}.btn-warning:hover,.btn-warning:focus,.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{color:#fff;background-color:#ec971f;border-color:#d58512}.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{background-image:none}.btn-warning.disabled,.btn-warning.disabled:hover,.btn-warning.disabled:focus,.btn-warning.disabled:active,.btn-warning.disabled.active,.btn-warning[disabled],.btn-warning[disabled]:hover,.btn-warning[disabled]:focus,.btn-warning[disabled]:active,.btn-warning[disabled].active,fieldset[disabled] .btn-warning,fieldset[disabled] .btn-warning:hover,fieldset[disabled] .btn-warning:focus,fieldset[disabled] .btn-warning:active,fieldset[disabled] .btn-warning.active{background-color:#f0ad4e;border-color:#eea236}.btn-warning .badge{color:#f0ad4e;background-color:#fff}.btn-danger{color:#fff;background-color:#d9534f;border-color:#d43f3a}.btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{color:#fff;background-color:#c9302c;border-color:#ac2925}.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{background-image:none}.btn-danger.disabled,.btn-danger.disabled:hover,.btn-danger.disabled:focus,.btn-danger.disabled:active,.btn-danger.disabled.active,.btn-danger[disabled],.btn-danger[disabled]:hover,.btn-danger[disabled]:focus,.btn-danger[disabled]:active,.btn-danger[disabled].active,fieldset[disabled] .btn-danger,fieldset[disabled] .btn-danger:hover,fieldset[disabled] .btn-danger:focus,fieldset[disabled] .btn-danger:active,fieldset[disabled] .btn-danger.active{background-color:#d9534f;border-color:#d43f3a}.btn-danger .badge{color:#d9534f;background-color:#fff}.btn-link{color:#428bca;font-weight:400;cursor:pointer;border-radius:0}.btn-link,.btn-link:active,.btn-link[disabled],fieldset[disabled] .btn-link{background-color:transparent;box-shadow:none}.btn-link,.btn-link:hover,.btn-link:focus,.btn-link:active{border-color:transparent}.btn-link:hover,.btn-link:focus{color:#2a6496;text-decoration:underline;background-color:transparent}.btn-link[disabled]:hover,.btn-link[disabled]:focus,fieldset[disabled] .btn-link:hover,fieldset[disabled] .btn-link:focus{color:#777;text-decoration:none}.btn-lg{padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.btn-sm{padding:5px 10px}.btn-sm,.btn-xs{font-size:12px;line-height:1.5;border-radius:3px}.btn-xs{padding:1px 5px}.btn-block{display:block;width:100%}.btn-block+.btn-block{margin-top:5px}input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"].btn-block{width:100%}.fade{opacity:0;transition:opacity .15s linear}.fade.in{opacity:1}.collapse{display:none}.collapse.in{display:block}tr.collapse.in{display:table-row}tbody.collapse.in{display:table-row-group}.collapsing{position:relative;height:0;overflow:hidden;transition:height .35s ease}.input-group{position:relative;display:table;border-collapse:separate}.input-group[class*="col-"]{float:none;padding-left:0;padding-right:0}.input-group .form-control{position:relative;z-index:2;float:left;width:100%;margin-bottom:0}.input-group-addon,.input-group-btn,.input-group .form-control{display:table-cell}.input-group-addon:not(:first-child):not(:last-child),.input-group-btn:not(:first-child):not(:last-child),.input-group .form-control:not(:first-child):not(:last-child){border-radius:0}.input-group-addon{white-space:nowrap}.input-group-addon,.input-group-btn{width:1%;vertical-align:middle}.input-group-addon{padding:6px 12px;font-size:14px;font-weight:400;line-height:1;color:#555;text-align:center;background-color:#eee;border:1px solid #ccc;border-radius:4px}.input-group-addon.input-sm,.form-horizontal .form-group-sm .input-group-addon.form-control,.input-group-sm>.input-group-addon,.input-group-sm>.input-group-btn>.input-group-addon.btn{padding:5px 10px;font-size:12px;border-radius:3px}.input-group-addon.input-lg,.form-horizontal .form-group-lg .input-group-addon.form-control,.input-group-lg>.input-group-addon,.input-group-lg>.input-group-btn>.input-group-addon.btn{padding:10px 16px;font-size:18px;border-radius:6px}.input-group-addon input[type="radio"],.input-group-addon input[type="checkbox"]{margin-top:0}.input-group .form-control:first-child,.input-group-addon:first-child,.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group>.btn,.input-group-btn:first-child>.dropdown-toggle,.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),.input-group-btn:last-child>.btn-group:not(:last-child)>.btn{border-bottom-right-radius:0;border-top-right-radius:0}.input-group-addon:first-child{border-right:0}.input-group .form-control:last-child,.input-group-addon:last-child,.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group>.btn,.input-group-btn:last-child>.dropdown-toggle,.input-group-btn:first-child>.btn:not(:first-child),.input-group-btn:first-child>.btn-group:not(:first-child)>.btn{border-bottom-left-radius:0;border-top-left-radius:0}.input-group-addon:last-child{border-left:0}.input-group-btn{font-size:0;white-space:nowrap}.input-group-btn,.input-group-btn>.btn{position:relative}.input-group-btn>.btn+.btn{margin-left:-1px}.input-group-btn>.btn:hover,.input-group-btn>.btn:focus,.input-group-btn>.btn:active{z-index:2}.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group{margin-right:-1px}.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group{margin-left:-1px}.pagination{display:inline-block;padding-left:0;margin:20px 0;border-radius:4px}.pagination>li{display:inline}.pagination>li>a,.pagination>li>span{position:relative;float:left;padding:6px 12px;line-height:1.4285714;text-decoration:none;color:#428bca;background-color:#fff;border:1px solid #ddd;margin-left:-1px}.pagination>li:first-child>a,.pagination>li:first-child>span{margin-left:0;border-bottom-left-radius:4px;border-top-left-radius:4px}.pagination>li:last-child>a,.pagination>li:last-child>span{border-bottom-right-radius:4px;border-top-right-radius:4px}.pagination>li>a:hover,.pagination>li>a:focus,.pagination>li>span:hover,.pagination>li>span:focus{color:#2a6496;background-color:#eee;border-color:#ddd}.pagination>.active>a,.pagination>.active>a:hover,.pagination>.active>a:focus,.pagination>.active>span,.pagination>.active>span:hover,.pagination>.active>span:focus{z-index:2;color:#fff;background-color:#428bca;border-color:#428bca;cursor:default}.pagination>.disabled>span,.pagination>.disabled>span:hover,.pagination>.disabled>span:focus,.pagination>.disabled>a,.pagination>.disabled>a:hover,.pagination>.disabled>a:focus{color:#777;background-color:#fff;border-color:#ddd;cursor:not-allowed}.pagination-lg>li>a,.pagination-lg>li>span{padding:10px 16px;font-size:18px}.pagination-lg>li:first-child>a,.pagination-lg>li:first-child>span{border-bottom-left-radius:6px;border-top-left-radius:6px}.pagination-lg>li:last-child>a,.pagination-lg>li:last-child>span{border-bottom-right-radius:6px;border-top-right-radius:6px}.pagination-sm>li>a,.pagination-sm>li>span{padding:5px 10px;font-size:12px}.pagination-sm>li:first-child>a,.pagination-sm>li:first-child>span{border-bottom-left-radius:3px;border-top-left-radius:3px}.pagination-sm>li:last-child>a,.pagination-sm>li:last-child>span{border-bottom-right-radius:3px;border-top-right-radius:3px}.close{float:right;font-size:21px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}.close:hover,.close:focus{color:#000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity=50)}button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}.modal-open,.modal{overflow:hidden}.modal{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}.modal.fade .modal-dialog{transform:translate3d(0,-25%,0);transition:transform .3s ease-out}.modal.in .modal-dialog{transform:translate3d(0,0,0)}.modal-open .modal{overflow-x:hidden;overflow-y:auto}.modal-dialog{position:relative;width:auto;margin:10px}.modal-content{position:relative;background-color:#fff;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 3px 9px rgba(0,0,0,.5);background-clip:padding-box;outline:0}.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:#000}.modal-backdrop.fade{opacity:0;filter:alpha(opacity=0)}.modal-backdrop.in{opacity:.5;filter:alpha(opacity=50)}.modal-header{padding:15px;border-bottom:1px solid #e5e5e5;min-height:16.4285714px}.modal-header .close{margin-top:-2px}.modal-title{margin:0;line-height:1.4285714}.modal-body{position:relative;padding:15px}.modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5}.modal-footer:before,.modal-footer:after{content:" ";display:table}.modal-footer:after{clear:both}.modal-footer .btn+.btn{margin-left:5px;margin-bottom:0}.modal-footer .btn-group .btn+.btn{margin-left:-1px}.modal-footer .btn-block+.btn-block{margin-left:0}.modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right!important}.pull-left{float:left!important}.hide{display:none!important}.show{display:block!important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none!important;visibility:hidden!important}.affix{position:fixed;transform:translate3d(0,0,0)}.hljs{display:block;overflow-x:auto;padding:.5em;background:#002b36;color:#839496;-webkit-text-size-adjust:none}.hljs-comment,.hljs-template_comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc{color:#586e75}.hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title{color:#859900}.hljs-number,.hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url{color:#2aa198}.hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-built_in,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function{color:#268bd2}.hljs-attribute,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number,.hljs-constant,.hljs-class .hljs-title,.hljs-parent,.hljs-type,.hljs-link_reference{color:#b58900}.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-pragma,.hljs-shebang,.hljs-symbol,.hljs-symbol .hljs-string,.diff .hljs-change,.hljs-special,.hljs-attr_selector,.hljs-subst,.hljs-cdata,.css .hljs-pseudo,.hljs-header{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#073642}*,*:before,*:after{box-sizing:border-box}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}images{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd{font-size:1em}code,kbd,pre,samp{font-family:monospace,monospace}samp{font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;margin-right:5px}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}.debug{background-color:#ffc0cb!important}.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ir{background-color:transparent;border:0;overflow:hidden}.ir::before{content:'';display:block;height:150%;width:0}html{font-size:.875em;background:#fff;color:#373D49}html,body{font-family:Georgia,Cambria,serif;height:100%}body{font-size:1rem;font-weight:400;line-height:2rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}li{font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-left:1rem}li>ul,li>ol{margin-bottom:0}p{padding-top:.66001rem;font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-top:0}p,pre{margin-bottom:1.33999rem}pre{font-size:1rem;padding:.66001rem 9.5px 9.5px;line-height:2rem;background:linear-gradient(to bottom,#fff 0,#fff .75rem,#f5f7fa .75rem,#f5f7fa 2.75rem,#fff 2.75rem,#fff 4rem);background-size:100% 4rem;border-color:#D3DAEA}blockquote{margin:0}blockquote p{font-size:1rem;margin-bottom:.33999rem;font-style:italic;padding:.66001rem 1rem 1rem;border-left:3px solid #A0AABF}th,td{padding:12px}h1,h2,h3,h4,h5,h6{font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-feature-settings:'dlig' 1,'liga' 1,'lnum' 1,'kern' 1;font-style:normal;font-weight:600;margin-top:0}h1{line-height:3rem;font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h2,h3{line-height:3rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}a{cursor:pointer;color:#35D7BB;text-decoration:none}a:hover,a:focus{border-bottom-color:#35D7BB;color:#dff9f4}img{height:auto;max-width:100%}dt{font-style:italic;font-weight:600}.g{display:block}.g:after{clear:both;content:'';display:table}.g-b{float:left;margin:0;width:100%}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--center{display:block;float:none;margin:0 auto}.g-b--right{float:right}.g-b--1of1{width:100%}.g-b--1of2,.g-b--2of4,.g-b--3of6,.g-b--4of8,.g-b--5of10,.g-b--6of12{width:50%}.g-b--1of3,.g-b--2of6,.g-b--4of12{width:33.333%}.g-b--2of3,.g-b--4of6,.g-b--8of12{width:66.666%}.g-b--1of4,.g-b--2of8,.g-b--3of12{width:25%}.g-b--3of4,.g-b--6of8,.g-b--9of12{width:75%}.g-b--1of5,.g-b--2of10{width:20%}.g-b--2of5,.g-b--4of10{width:40%}.g-b--3of5,.g-b--6of10{width:60%}.g-b--4of5,.g-b--8of10{width:80%}.g-b--1of6,.g-b--2of12{width:16.666%}.g-b--5of6,.g-b--10of12{width:83.333%}.g-b--1of8{width:12.5%}.g-b--3of8{width:37.5%}.g-b--5of8{width:62.5%}.g-b--7of8{width:87.5%}.g-b--1of10{width:10%}.g-b--3of10{width:30%}.g-b--7of10{width:70%}.g-b--9of10{width:90%}.g-b--1of12{width:8.333%}.g-b--5of12{width:41.666%}.g-b--7of12{width:58.333%}.g-b--11of12{width:91.666%}.g-b--push--1of1{margin-left:100%}.g-b--push--1of2,.g-b--push--2of4,.g-b--push--3of6,.g-b--push--4of8,.g-b--push--5of10,.g-b--push--6of12{margin-left:50%}.g-b--push--1of3,.g-b--push--2of6,.g-b--push--4of12{margin-left:33.333%}.g-b--push--2of3,.g-b--push--4of6,.g-b--push--8of12{margin-left:66.666%}.g-b--push--1of4,.g-b--push--2of8,.g-b--push--3of12{margin-left:25%}.g-b--push--3of4,.g-b--push--6of8,.g-b--push--9of12{margin-left:75%}.g-b--push--1of5,.g-b--push--2of10{margin-left:20%}.g-b--push--2of5,.g-b--push--4of10{margin-left:40%}.g-b--push--3of5,.g-b--push--6of10{margin-left:60%}.g-b--push--4of5,.g-b--push--8of10{margin-left:80%}.g-b--push--1of6,.g-b--push--2of12{margin-left:16.666%}.g-b--push--5of6,.g-b--push--10of12{margin-left:83.333%}.g-b--push--1of8{margin-left:12.5%}.g-b--push--3of8{margin-left:37.5%}.g-b--push--5of8{margin-left:62.5%}.g-b--push--7of8{margin-left:87.5%}.g-b--push--1of10{margin-left:10%}.g-b--push--3of10{margin-left:30%}.g-b--push--7of10{margin-left:70%}.g-b--push--9of10{margin-left:90%}.g-b--push--1of12{margin-left:8.333%}.g-b--push--5of12{margin-left:41.666%}.g-b--push--7of12{margin-left:58.333%}.g-b--push--11of12{margin-left:91.666%}.g-b--pull--1of1{margin-right:100%}.g-b--pull--1of2,.g-b--pull--2of4,.g-b--pull--3of6,.g-b--pull--4of8,.g-b--pull--5of10,.g-b--pull--6of12{margin-right:50%}.g-b--pull--1of3,.g-b--pull--2of6,.g-b--pull--4of12{margin-right:33.333%}.g-b--pull--2of3,.g-b--pull--4of6,.g-b--pull--8of12{margin-right:66.666%}.g-b--pull--1of4,.g-b--pull--2of8,.g-b--pull--3of12{margin-right:25%}.g-b--pull--3of4,.g-b--pull--6of8,.g-b--pull--9of12{margin-right:75%}.g-b--pull--1of5,.g-b--pull--2of10{margin-right:20%}.g-b--pull--2of5,.g-b--pull--4of10{margin-right:40%}.g-b--pull--3of5,.g-b--pull--6of10{margin-right:60%}.g-b--pull--4of5,.g-b--pull--8of10{margin-right:80%}.g-b--pull--1of6,.g-b--pull--2of12{margin-right:16.666%}.g-b--pull--5of6,.g-b--pull--10of12{margin-right:83.333%}.g-b--pull--1of8{margin-right:12.5%}.g-b--pull--3of8{margin-right:37.5%}.g-b--pull--5of8{margin-right:62.5%}.g-b--pull--7of8{margin-right:87.5%}.g-b--pull--1of10{margin-right:10%}.g-b--pull--3of10{margin-right:30%}.g-b--pull--7of10{margin-right:70%}.g-b--pull--9of10{margin-right:90%}.g-b--pull--1of12{margin-right:8.333%}.g-b--pull--5of12{margin-right:41.666%}.g-b--pull--7of12{margin-right:58.333%}.g-b--pull--11of12{margin-right:91.666%}.splashscreen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#373D49;z-index:22}.splashscreen-dillinger{width:260px;height:auto;display:block;margin:0 auto;padding-bottom:3rem}.splashscreen p{font-size:1.25rem;padding-top:.56251rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;text-align:center;max-width:500px;margin:0 auto;color:#FFF}.sp-center{position:relative;transform:translateY(-50%);top:50%}.open-menu>.wrapper{overflow-x:hidden}.page{margin:0 auto;position:relative;top:0;left:0;width:100%;height:100%;z-index:2;transition:all .25s ease-in-out;background-color:#fff;padding-top:51px;will-change:left}.open-menu .page{left:270px}.title{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;color:#A0AABF;letter-spacing:1px;text-transform:uppercase;padding-left:16px;padding-right:16px;margin-top:1rem}.split-preview .title{padding-left:0}.title-document{line-height:1rem;font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem;font-weight:400;font-family:"Ubuntu Mono",Monaco;color:#373D49;padding-left:16px;padding-right:16px;width:80%;min-width:300px;outline:0;border:none}.icon{display:block;margin:0 auto;width:36px;height:36px;border-radius:3px;text-align:center}.icon svg{display:inline-block;margin-left:auto;margin-right:auto}.icon-preview{background-color:#373D49;line-height:40px}.icon-preview svg{width:19px;height:12px}.icon-settings{background-color:#373D49;line-height:44px}.icon-settings svg{width:18px;height:18px}.icon-link{width:16px;height:16px;line-height:1;margin-right:24px;text-align:right}.navbar{background-color:#373D49;height:51px;width:100%;position:fixed;top:0;left:0;z-index:6;transition:all .25s ease-in-out;will-change:left}.navbar:after{content:"";display:table;clear:both}.open-menu .navbar{left:270px}.navbar-brand{float:left;margin:0 0 0 24px;padding:0;line-height:42px}.navbar-brand svg{width:85px;height:11px}.nav-left{float:left}.nav-right{float:right}.nav-sidebar{width:100%}.menu{list-style:none;margin:0;padding:0}.menu a{border:0;color:#A0AABF;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;outline:none;text-transform:uppercase}.menu a:hover{color:#35D7BB}.menu .menu-item{border:0;display:none;float:left;margin:0;position:relative}.menu .menu-item>a{display:block;font-size:12px;height:51px;letter-spacing:1px;line-height:51px;padding:0 24px}.menu .menu-item--settings,.menu .menu-item--preview,.menu .menu-item--save-to.in-sidebar,.menu .menu-item--import-from.in-sidebar,.menu .menu-item--link-unlink.in-sidebar,.menu .menu-item--documents.in-sidebar{display:block}.menu .menu-item--documents{padding-bottom:1rem}.menu .menu-item.open>a{background-color:#1D212A}.menu .menu-item-icon>a{height:auto;padding:0}.menu .menu-item-icon:hover>a{background-color:transparent}.menu .menu-link.open i{background-color:#1D212A}.menu .menu-link.open g{fill:#35D7BB}.menu .menu-link-preview,.menu .menu-link-settings{margin-top:8px;width:51px}.menu-sidebar{width:100%}.menu-sidebar .menu-item{float:none;margin-bottom:1px;width:100%}.menu-sidebar .menu-item.open>a{background-color:#373D49}.menu-sidebar .open .caret{transform:rotate(180deg)}.menu-sidebar>.menu-item:hover .dropdown a,.menu-sidebar>.menu-item:hover .settings a{background-color:transparent}.menu-sidebar .menu-link{background-color:#373D49;font-weight:600}.menu-sidebar .menu-link:after{content:"";display:table;clear:both}.menu-sidebar .menu-link>span{float:left}.menu-sidebar .menu-link>.caret{float:right;text-align:right;top:22px}.menu-sidebar .dropdown,.menu-sidebar .settings{background-color:transparent;position:static;width:100%}.dropdown{position:absolute;right:0;top:51px;width:188px}.dropdown,.settings{display:none;background-color:#1D212A}.dropdown{padding:0}.dropdown,.settings,.sidebar-list{list-style:none;margin:0}.sidebar-list{padding:0}.dropdown li{margin:32px 0;padding:0 0 0 32px}.dropdown li,.settings li{line-height:1}.sidebar-list li{line-height:1;margin:32px 0;padding:0 0 0 32px}.dropdown a{color:#D0D6E2}.dropdown a,.settings a,.sidebar-list a{display:block;text-transform:none}.sidebar-list a{color:#D0D6E2}.dropdown a:after,.settings a:after,.sidebar-list a:after{content:"";display:table;clear:both}.dropdown .icon,.settings .icon,.sidebar-list .icon{float:right}.open .dropdown,.open .settings,.open .sidebar-list{display:block}.open .dropdown.collapse,.open .collapse.settings,.open .sidebar-list.collapse{display:none}.open .dropdown.collapse.in,.open .collapse.in.settings,.open .sidebar-list.collapse.in{display:block}.dropdown .unlinked .icon,.settings .unlinked .icon,.sidebar-list .unlinked .icon{opacity:.3}.dropdown.documents li,.documents.settings li,.sidebar-list.documents li{background-image:url("../img/icons/file.svg");background-position:240px center;background-repeat:no-repeat;background-size:14px 16px;padding:3px 32px}.dropdown.documents li.octocat,.documents.settings li.octocat,.sidebar-list.documents li.octocat{background-image:url("../img/icons/octocat.svg");background-position:234px center;background-size:24px 24px}.dropdown.documents li:last-child,.documents.settings li:last-child,.sidebar-list.documents li:last-child{margin-bottom:1rem}.dropdown.documents li.active a,.documents.settings li.active a,.sidebar-list.documents li.active a{color:#35D7BB}.settings{position:fixed;top:67px;right:16px;border-radius:3px;width:288px;background-color:#373D49;padding:16px;z-index:7}.show-settings .settings{display:block}.settings .has-checkbox{float:left}.settings form{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.settings input{width:20%}.settings a{font-size:1.25rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:28px;color:#D0D6E2}.settings a:after{content:"";display:table;clear:both}.settings a:hover{color:#35D7BB}.settings li{border-bottom:1px solid #4F535B;margin:0;padding:16px 0}.settings li:last-child{border-bottom:none}.brand{border:none;display:block}.brand:hover g{fill:#35D7BB}.toggle{display:block;float:left;height:16px;padding:25px 16px 26px;width:40px}.toggle span:after,.toggle span:before{content:'';left:0;position:absolute;top:-6px}.toggle span:after{top:6px}.toggle span{display:block;position:relative}.toggle span,.toggle span:after,.toggle span:before{-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:#D3DAEA;height:2px;transition:all .3s;width:20px}.open-menu .toggle span{background-color:transparent}.open-menu .toggle span:before{transform:rotate(45deg) translate(3px,3px)}.open-menu .toggle span:after{transform:rotate(-45deg) translate(5px,-6px)}.caret{display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;position:relative;top:-1px;border-top:4px solid;border-right:4px solid transparent;border-left:4px solid transparent}.sidebar{overflow:auto;height:100%;padding-right:15px;padding-bottom:15px;width:285px}.sidebar-wrapper{-webkit-overflow-scrolling:touch;background-color:#2B2F36;left:0;height:100%;overflow-y:hidden;position:fixed;top:0;width:285px;z-index:1}.sidebar-branding{width:160px;padding:0;margin:16px auto}.header{border-bottom:1px solid #E8E8E8;position:relative}.words,.characters{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;color:#A0AABF;letter-spacing:1px;text-transform:uppercase;z-index:5;position:absolute;right:16px;top:0}.words span,.characters span{color:#000}.words+.characters{top:22px}.btn{text-align:center;display:inline-block;width:100%;text-transform:uppercase;font-weight:600;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;text-shadow:0 1px 0 #1b8b77;padding:16px 24px;background-color:#35D7BB;border-radius:3px;margin:0 auto 16px;line-height:1;color:#fff;transition:all .15s linear;-webkit-font-smoothing:antialiased}.btn--new,.btn--save{display:block;width:238px}.btn--new:hover,.btn--new:focus,.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 3px #24b59c;text-shadow:0 1px 0 #24b59c}.btn--save{background-color:#4A5261;text-shadow:0 1px 1px #1e2127}.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 5px #08090a;text-shadow:none}.btn--delete{display:block;width:238px;background-color:transparent;font-size:12px;text-shadow:none}.btn--delete:hover,.btn--delete:focus{color:#fff;border-bottom-color:transparent;text-shadow:0 1px 0 #08090a;opacity:.8}.btn--delete-modal,.btn--ok,.btn--close{border-top:0;background-color:#4A5261;text-shadow:0 1px 0 #08090a;margin:0}.btn--delete-modal:hover,.btn--delete-modal:focus,.btn--ok:hover,.btn--ok:focus,.btn--close:hover,.btn--close:focus{color:#fff;background-color:#292d36;text-shadow:none}.btn--delete-modal{display:inline;width:auto}.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(55,61,73,.8);transition:all .25s ease-in-out;transition-timing-function:ease-out;will-change:left,opacity,visibility;z-index:5;opacity:0;visibility:hidden}.show-settings .overlay{visibility:visible;opacity:1}.switch{float:right;line-height:1}.switch input{display:none}.switch small{display:inline-block;cursor:pointer;padding:0 24px 0 0;transition:all ease .2s;background-color:#2B2F36;border-color:#2B2F36}.switch small,.switch small:before{border-radius:30px;box-shadow:inset 0 0 2px 0 #14171F}.switch small:before{display:block;content:'';width:28px;height:28px;background:#fff}.switch.checked small{padding-right:0;padding-left:24px;background-color:#35D7BB;box-shadow:none}.modal--dillinger.about .modal-dialog{font-size:1.25rem;max-width:500px}.modal--dillinger.scope .modal-dialog{max-width:300px;margin:5rem auto}.modal--dillinger .modal-dialog{max-width:600px;width:auto;margin:5rem auto}.modal--dillinger .modal-content{background:#373D49;border-radius:3px;box-shadow:0 2px 5px 0 #2C3B59;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;padding:2rem}.modal--dillinger ul{list-style-type:disc;margin:1rem 0;padding:0 0 0 1rem}.modal--dillinger li{padding:0;margin:0}.modal--dillinger .modal-header{border:0;padding:0}.modal--dillinger .modal-body{padding:0}.modal--dillinger .modal-footer{border:0;padding:0}.modal--dillinger .close{color:#fff;opacity:1}.modal-backdrop{background-color:#373D49}.pagination--dillinger{padding:0!important;margin:1.5rem 0!important;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:stretch;align-content:stretch}.pagination--dillinger li{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;text-align:center}.pagination--dillinger li:first-child>a,.pagination--dillinger li.disabled>a,.pagination--dillinger li.disabled>a:hover,.pagination--dillinger li.disabled>a:focus,.pagination--dillinger li>a{background-color:transparent;border-color:#4F535B;border-right-color:transparent}.pagination--dillinger li.active>a,.pagination--dillinger li.active>a:hover,.pagination--dillinger li.active>a:focus{border-color:#4A5261;background-color:#4A5261;color:#fff}.pagination--dillinger li>a{float:none;color:#fff;width:100%;display:block;text-align:center;margin:0;border-right-color:transparent;padding:6px}.pagination--dillinger li>a:hover,.pagination--dillinger li>a:focus{border-color:#35D7BB;background-color:#35D7BB;color:#fff}.pagination--dillinger li:last-child a{border-color:#4F535B}.pagination--dillinger li:first-child a{border-right-color:transparent}.diNotify{position:absolute;z-index:9999;left:0;right:0;top:0;margin:0 auto;max-width:400px;text-align:center;transition:top .5s ease-in-out,opacity .5s ease-in-out;visibility:hidden}.diNotify-body{-webkit-font-smoothing:antialiased;background-color:#35D7BB;background:#666E7F;border-radius:3px;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;overflow:hidden;padding:1rem 2rem .5rem;display:-ms-flexbox;display:flex;-ms-flex-align:baseline;align-items:baseline;-ms-flex-pack:center;justify-content:center}.diNotify-icon{display:block;width:16px;height:16px;line-height:16px;position:relative;top:3px}.diNotify-message{padding-left:1rem}.zen-wrapper{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:10;background-color:#FFF;opacity:0;transition:opacity .25s ease-in-out}.zen-wrapper.on{opacity:1}.enter-zen-mode{background-image:url("../img/icons/enter-zen.svg");right:.5rem;top:.313rem;display:none}.enter-zen-mode,.close-zen-mode{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute}.close-zen-mode{background-image:url("../img/icons/exit-zen.svg");right:1rem;top:1rem}.zen-page{position:relative;top:0;bottom:0;z-index:11;height:100%;width:100%}#zen{font-size:1.25rem;width:300px;height:80%;margin:0 auto;position:relative;top:10%}#zen:before,#zen:after{content:"";position:absolute;height:10%;width:100%;z-index:12;pointer-events:none}#preview .table{width:auto}.ui-resizable{position:relative}.ui-resizable-handle{position:absolute;font-size:.1px;z-index:99999;display:block}.ui-resizable-e{background-color:#666;border-right:8px solid #e8e8e8;border-left:1px solid #222;width:10px;z-index:88!important;position:relative}.ui-resizable-e:after{content:"-";display:block;position:absolute;top:calc(50% - 16px);left:0;height:25px;width:2px;background-color:rgba(0,0,0,.4);margin:3px}#editor{cursor:ew-resize;position:relative;z-index:auto}.profile-pic{float:left;width:250px}#_default_ a::before{color:#A0AABF}#_default_ img{display:none}#_default_ #_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ .default-ad{display:none}#_default_ ._default_{display:block}#_default_ a{color:#35d7bb;text-decoration:none}#_default_ a:hover{color:#8ae8d8}#_default_ .default-image{display:none}#_default_ .default-title:after{content:" — "}#_default_ .default-title,#_default_ .default-text,#_default_ .default-description{display:inline}#_default_ .default-title{position:relative;font-weight:600;display:none}#_default_ a:before{position:relative;top:0;padding:5px;color:#a0aabf;content:"Ad";text-transform:uppercase;font-size:8px;font-family:Verdana,sans-serif}#_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ ._default_{display:block;font-size:.75rem;height:51px;letter-spacing:1px;line-height:1rem;padding:18px 24px}body{max-width:1024px;margin:0 auto;overflow:auto;padding:2%}.split{overflow:scroll;padding:0!important;-webkit-overflow-scrolling:touch}.split-editor{padding-left:0;padding-right:0;position:relative;z-index:3}.show-preview .split-editor{display:none}.split-preview{background-color:#fff;display:none;top:0;position:relative;z-index:4}.show-preview .split-preview{display:block}#editor{font-size:1rem;font-family:"Ubuntu Mono",Monaco;font-weight:400;line-height:2rem;width:100%;height:100%}#editor .ace_gutter{-webkit-font-smoothing:antialiased}.editor-header{width:50%;float:left;border-bottom:1px solid #E8E8E8;position:relative}.editor-header--first{border-right:1px solid #E8E8E8}.editor-header .title{display:inline-block}.preview-html{padding:15px}.preview-html a{color:#A0AABF;text-decoration:underline}.preview-src{white-space:normal}.preview-mode-toggle-src{background-image:url("../img/icons/code.svg")}.preview-mode-toggle-src,.preview-mode-toggle-html{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute;right:.5rem;top:.5rem;display:none}.preview-mode-toggle-html{background-image:url("../img/icons/eye.svg")}.sr-only{visibility:hidden;text-overflow:110%;overflow:hidden;top:-100px;position:absolute}.mnone{margin:0!important}@media screen and (min-width:27.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--m1of1{width:100%}.g-b--m1of2,.g-b--m2of4,.g-b--m3of6,.g-b--m4of8,.g-b--m5of10,.g-b--m6of12{width:50%}.g-b--m1of3,.g-b--m2of6,.g-b--m4of12{width:33.333%}.g-b--m2of3,.g-b--m4of6,.g-b--m8of12{width:66.666%}.g-b--m1of4,.g-b--m2of8,.g-b--m3of12{width:25%}.g-b--m3of4,.g-b--m6of8,.g-b--m9of12{width:75%}.g-b--m1of5,.g-b--m2of10{width:20%}.g-b--m2of5,.g-b--m4of10{width:40%}.g-b--m3of5,.g-b--m6of10{width:60%}.g-b--m4of5,.g-b--m8of10{width:80%}.g-b--m1of6,.g-b--m2of12{width:16.666%}.g-b--m5of6,.g-b--m10of12{width:83.333%}.g-b--m1of8{width:12.5%}.g-b--m3of8{width:37.5%}.g-b--m5of8{width:62.5%}.g-b--m7of8{width:87.5%}.g-b--m1of10{width:10%}.g-b--m3of10{width:30%}.g-b--m7of10{width:70%}.g-b--m9of10{width:90%}.g-b--m1of12{width:8.333%}.g-b--m5of12{width:41.666%}.g-b--m7of12{width:58.333%}.g-b--m11of12{width:91.666%}.g-b--push--m1of1{margin-left:100%}.g-b--push--m1of2,.g-b--push--m2of4,.g-b--push--m3of6,.g-b--push--m4of8,.g-b--push--m5of10,.g-b--push--m6of12{margin-left:50%}.g-b--push--m1of3,.g-b--push--m2of6,.g-b--push--m4of12{margin-left:33.333%}.g-b--push--m2of3,.g-b--push--m4of6,.g-b--push--m8of12{margin-left:66.666%}.g-b--push--m1of4,.g-b--push--m2of8,.g-b--push--m3of12{margin-left:25%}.g-b--push--m3of4,.g-b--push--m6of8,.g-b--push--m9of12{margin-left:75%}.g-b--push--m1of5,.g-b--push--m2of10{margin-left:20%}.g-b--push--m2of5,.g-b--push--m4of10{margin-left:40%}.g-b--push--m3of5,.g-b--push--m6of10{margin-left:60%}.g-b--push--m4of5,.g-b--push--m8of10{margin-left:80%}.g-b--push--m1of6,.g-b--push--m2of12{margin-left:16.666%}.g-b--push--m5of6,.g-b--push--m10of12{margin-left:83.333%}.g-b--push--m1of8{margin-left:12.5%}.g-b--push--m3of8{margin-left:37.5%}.g-b--push--m5of8{margin-left:62.5%}.g-b--push--m7of8{margin-left:87.5%}.g-b--push--m1of10{margin-left:10%}.g-b--push--m3of10{margin-left:30%}.g-b--push--m7of10{margin-left:70%}.g-b--push--m9of10{margin-left:90%}.g-b--push--m1of12{margin-left:8.333%}.g-b--push--m5of12{margin-left:41.666%}.g-b--push--m7of12{margin-left:58.333%}.g-b--push--m11of12{margin-left:91.666%}.g-b--pull--m1of1{margin-right:100%}.g-b--pull--m1of2,.g-b--pull--m2of4,.g-b--pull--m3of6,.g-b--pull--m4of8,.g-b--pull--m5of10,.g-b--pull--m6of12{margin-right:50%}.g-b--pull--m1of3,.g-b--pull--m2of6,.g-b--pull--m4of12{margin-right:33.333%}.g-b--pull--m2of3,.g-b--pull--m4of6,.g-b--pull--m8of12{margin-right:66.666%}.g-b--pull--m1of4,.g-b--pull--m2of8,.g-b--pull--m3of12{margin-right:25%}.g-b--pull--m3of4,.g-b--pull--m6of8,.g-b--pull--m9of12{margin-right:75%}.g-b--pull--m1of5,.g-b--pull--m2of10{margin-right:20%}.g-b--pull--m2of5,.g-b--pull--m4of10{margin-right:40%}.g-b--pull--m3of5,.g-b--pull--m6of10{margin-right:60%}.g-b--pull--m4of5,.g-b--pull--m8of10{margin-right:80%}.g-b--pull--m1of6,.g-b--pull--m2of12{margin-right:16.666%}.g-b--pull--m5of6,.g-b--pull--m10of12{margin-right:83.333%}.g-b--pull--m1of8{margin-right:12.5%}.g-b--pull--m3of8{margin-right:37.5%}.g-b--pull--m5of8{margin-right:62.5%}.g-b--pull--m7of8{margin-right:87.5%}.g-b--pull--m1of10{margin-right:10%}.g-b--pull--m3of10{margin-right:30%}.g-b--pull--m7of10{margin-right:70%}.g-b--pull--m9of10{margin-right:90%}.g-b--pull--m1of12{margin-right:8.333%}.g-b--pull--m5of12{margin-right:41.666%}.g-b--pull--m7of12{margin-right:58.333%}.g-b--pull--m11of12{margin-right:91.666%}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{margin-bottom:.89999rem;padding-top:.10001rem}.title-document,.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#zen{width:400px}#editor{font-size:1rem}}@media screen and (min-width:46.25em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--t1of1{width:100%}.g-b--t1of2,.g-b--t2of4,.g-b--t3of6,.g-b--t4of8,.g-b--t5of10,.g-b--t6of12{width:50%}.g-b--t1of3,.g-b--t2of6,.g-b--t4of12{width:33.333%}.g-b--t2of3,.g-b--t4of6,.g-b--t8of12{width:66.666%}.g-b--t1of4,.g-b--t2of8,.g-b--t3of12{width:25%}.g-b--t3of4,.g-b--t6of8,.g-b--t9of12{width:75%}.g-b--t1of5,.g-b--t2of10{width:20%}.g-b--t2of5,.g-b--t4of10{width:40%}.g-b--t3of5,.g-b--t6of10{width:60%}.g-b--t4of5,.g-b--t8of10{width:80%}.g-b--t1of6,.g-b--t2of12{width:16.666%}.g-b--t5of6,.g-b--t10of12{width:83.333%}.g-b--t1of8{width:12.5%}.g-b--t3of8{width:37.5%}.g-b--t5of8{width:62.5%}.g-b--t7of8{width:87.5%}.g-b--t1of10{width:10%}.g-b--t3of10{width:30%}.g-b--t7of10{width:70%}.g-b--t9of10{width:90%}.g-b--t1of12{width:8.333%}.g-b--t5of12{width:41.666%}.g-b--t7of12{width:58.333%}.g-b--t11of12{width:91.666%}.g-b--push--t1of1{margin-left:100%}.g-b--push--t1of2,.g-b--push--t2of4,.g-b--push--t3of6,.g-b--push--t4of8,.g-b--push--t5of10,.g-b--push--t6of12{margin-left:50%}.g-b--push--t1of3,.g-b--push--t2of6,.g-b--push--t4of12{margin-left:33.333%}.g-b--push--t2of3,.g-b--push--t4of6,.g-b--push--t8of12{margin-left:66.666%}.g-b--push--t1of4,.g-b--push--t2of8,.g-b--push--t3of12{margin-left:25%}.g-b--push--t3of4,.g-b--push--t6of8,.g-b--push--t9of12{margin-left:75%}.g-b--push--t1of5,.g-b--push--t2of10{margin-left:20%}.g-b--push--t2of5,.g-b--push--t4of10{margin-left:40%}.g-b--push--t3of5,.g-b--push--t6of10{margin-left:60%}.g-b--push--t4of5,.g-b--push--t8of10{margin-left:80%}.g-b--push--t1of6,.g-b--push--t2of12{margin-left:16.666%}.g-b--push--t5of6,.g-b--push--t10of12{margin-left:83.333%}.g-b--push--t1of8{margin-left:12.5%}.g-b--push--t3of8{margin-left:37.5%}.g-b--push--t5of8{margin-left:62.5%}.g-b--push--t7of8{margin-left:87.5%}.g-b--push--t1of10{margin-left:10%}.g-b--push--t3of10{margin-left:30%}.g-b--push--t7of10{margin-left:70%}.g-b--push--t9of10{margin-left:90%}.g-b--push--t1of12{margin-left:8.333%}.g-b--push--t5of12{margin-left:41.666%}.g-b--push--t7of12{margin-left:58.333%}.g-b--push--t11of12{margin-left:91.666%}.g-b--pull--t1of1{margin-right:100%}.g-b--pull--t1of2,.g-b--pull--t2of4,.g-b--pull--t3of6,.g-b--pull--t4of8,.g-b--pull--t5of10,.g-b--pull--t6of12{margin-right:50%}.g-b--pull--t1of3,.g-b--pull--t2of6,.g-b--pull--t4of12{margin-right:33.333%}.g-b--pull--t2of3,.g-b--pull--t4of6,.g-b--pull--t8of12{margin-right:66.666%}.g-b--pull--t1of4,.g-b--pull--t2of8,.g-b--pull--t3of12{margin-right:25%}.g-b--pull--t3of4,.g-b--pull--t6of8,.g-b--pull--t9of12{margin-right:75%}.g-b--pull--t1of5,.g-b--pull--t2of10{margin-right:20%}.g-b--pull--t2of5,.g-b--pull--t4of10{margin-right:40%}.g-b--pull--t3of5,.g-b--pull--t6of10{margin-right:60%}.g-b--pull--t4of5,.g-b--pull--t8of10{margin-right:80%}.g-b--pull--t1of6,.g-b--pull--t2of12{margin-right:16.666%}.g-b--pull--t5of6,.g-b--pull--t10of12{margin-right:83.333%}.g-b--pull--t1of8{margin-right:12.5%}.g-b--pull--t3of8{margin-right:37.5%}.g-b--pull--t5of8{margin-right:62.5%}.g-b--pull--t7of8{margin-right:87.5%}.g-b--pull--t1of10{margin-right:10%}.g-b--pull--t3of10{margin-right:30%}.g-b--pull--t7of10{margin-right:70%}.g-b--pull--t9of10{margin-right:90%}.g-b--pull--t1of12{margin-right:8.333%}.g-b--pull--t5of12{margin-right:41.666%}.g-b--pull--t7of12{margin-right:58.333%}.g-b--pull--t11of12{margin-right:91.666%}.splashscreen-dillinger{width:500px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem}.menu .menu-item--save-to,.menu .menu-item--import-from{display:block}.menu .menu-item--preview,.menu .menu-item--save-to.in-sidebar,.menu .menu-item--import-from.in-sidebar{display:none}.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog{font-size:1.25rem}.enter-zen-mode{display:block}.close-zen-mode{right:3rem;top:3rem}#zen{font-size:1.25rem;width:500px}.split-editor{border-right:1px solid #E8E8E8;float:left;padding-right:16px;width:50%}.show-preview .split-editor{display:block}.split-preview{display:block;float:right;position:relative;top:0;width:50%}#editor{font-size:1rem}.preview-mode-toggle-src,.preview-mode-toggle-html{display:block}}@media screen and (min-width:62.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--d1of1{width:100%}.g-b--d1of2,.g-b--d2of4,.g-b--d3of6,.g-b--d4of8,.g-b--d5of10,.g-b--d6of12{width:50%}.g-b--d1of3,.g-b--d2of6,.g-b--d4of12{width:33.333%}.g-b--d2of3,.g-b--d4of6,.g-b--d8of12{width:66.666%}.g-b--d1of4,.g-b--d2of8,.g-b--d3of12{width:25%}.g-b--d3of4,.g-b--d6of8,.g-b--d9of12{width:75%}.g-b--d1of5,.g-b--d2of10{width:20%}.g-b--d2of5,.g-b--d4of10{width:40%}.g-b--d3of5,.g-b--d6of10{width:60%}.g-b--d4of5,.g-b--d8of10{width:80%}.g-b--d1of6,.g-b--d2of12{width:16.666%}.g-b--d5of6,.g-b--d10of12{width:83.333%}.g-b--d1of8{width:12.5%}.g-b--d3of8{width:37.5%}.g-b--d5of8{width:62.5%}.g-b--d7of8{width:87.5%}.g-b--d1of10{width:10%}.g-b--d3of10{width:30%}.g-b--d7of10{width:70%}.g-b--d9of10{width:90%}.g-b--d1of12{width:8.333%}.g-b--d5of12{width:41.666%}.g-b--d7of12{width:58.333%}.g-b--d11of12{width:91.666%}.g-b--push--d1of1{margin-left:100%}.g-b--push--d1of2,.g-b--push--d2of4,.g-b--push--d3of6,.g-b--push--d4of8,.g-b--push--d5of10,.g-b--push--d6of12{margin-left:50%}.g-b--push--d1of3,.g-b--push--d2of6,.g-b--push--d4of12{margin-left:33.333%}.g-b--push--d2of3,.g-b--push--d4of6,.g-b--push--d8of12{margin-left:66.666%}.g-b--push--d1of4,.g-b--push--d2of8,.g-b--push--d3of12{margin-left:25%}.g-b--push--d3of4,.g-b--push--d6of8,.g-b--push--d9of12{margin-left:75%}.g-b--push--d1of5,.g-b--push--d2of10{margin-left:20%}.g-b--push--d2of5,.g-b--push--d4of10{margin-left:40%}.g-b--push--d3of5,.g-b--push--d6of10{margin-left:60%}.g-b--push--d4of5,.g-b--push--d8of10{margin-left:80%}.g-b--push--d1of6,.g-b--push--d2of12{margin-left:16.666%}.g-b--push--d5of6,.g-b--push--d10of12{margin-left:83.333%}.g-b--push--d1of8{margin-left:12.5%}.g-b--push--d3of8{margin-left:37.5%}.g-b--push--d5of8{margin-left:62.5%}.g-b--push--d7of8{margin-left:87.5%}.g-b--push--d1of10{margin-left:10%}.g-b--push--d3of10{margin-left:30%}.g-b--push--d7of10{margin-left:70%}.g-b--push--d9of10{margin-left:90%}.g-b--push--d1of12{margin-left:8.333%}.g-b--push--d5of12{margin-left:41.666%}.g-b--push--d7of12{margin-left:58.333%}.g-b--push--d11of12{margin-left:91.666%}.g-b--pull--d1of1{margin-right:100%}.g-b--pull--d1of2,.g-b--pull--d2of4,.g-b--pull--d3of6,.g-b--pull--d4of8,.g-b--pull--d5of10,.g-b--pull--d6of12{margin-right:50%}.g-b--pull--d1of3,.g-b--pull--d2of6,.g-b--pull--d4of12{margin-right:33.333%}.g-b--pull--d2of3,.g-b--pull--d4of6,.g-b--pull--d8of12{margin-right:66.666%}.g-b--pull--d1of4,.g-b--pull--d2of8,.g-b--pull--d3of12{margin-right:25%}.g-b--pull--d3of4,.g-b--pull--d6of8,.g-b--pull--d9of12{margin-right:75%}.g-b--pull--d1of5,.g-b--pull--d2of10{margin-right:20%}.g-b--pull--d2of5,.g-b--pull--d4of10{margin-right:40%}.g-b--pull--d3of5,.g-b--pull--d6of10{margin-right:60%}.g-b--pull--d4of5,.g-b--pull--d8of10{margin-right:80%}.g-b--pull--d1of6,.g-b--pull--d2of12{margin-right:16.666%}.g-b--pull--d5of6,.g-b--pull--d10of12{margin-right:83.333%}.g-b--pull--d1of8{margin-right:12.5%}.g-b--pull--d3of8{margin-right:37.5%}.g-b--pull--d5of8{margin-right:62.5%}.g-b--pull--d7of8{margin-right:87.5%}.g-b--pull--d1of10{margin-right:10%}.g-b--pull--d3of10{margin-right:30%}.g-b--pull--d7of10{margin-right:70%}.g-b--pull--d9of10{margin-right:90%}.g-b--pull--d1of12{margin-right:8.333%}.g-b--pull--d5of12{margin-right:41.666%}.g-b--pull--d7of12{margin-right:58.333%}.g-b--pull--d11of12{margin-right:91.666%}.splashscreen-dillinger{width:700px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem}.menu .menu-item--export-as{display:block}.menu .menu-item--preview{display:none}.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#zen{width:700px}#editor{font-size:1rem}}@media screen and (min-width:87.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.splashscreen-dillinger{width:800px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{margin-bottom:.89999rem;padding-top:.10001rem}.title-document,.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#editor{font-size:1rem}}@media (min-width:768px){.form-inline .form-group{display:inline-block;margin-bottom:0;vertical-align:middle}.form-inline .form-control{display:inline-block;width:auto;vertical-align:middle}.form-inline .input-group{display:inline-table;vertical-align:middle}.form-inline .input-group .input-group-addon,.form-inline .input-group .input-group-btn,.form-inline .input-group .form-control{width:auto}.form-inline .input-group>.form-control{width:100%}.form-inline .control-label{margin-bottom:0;vertical-align:middle}.form-inline .radio,.form-inline .checkbox{display:inline-block;margin-top:0;margin-bottom:0;vertical-align:middle}.form-inline .radio label,.form-inline .checkbox label{padding-left:0}.form-inline .radio input[type="radio"],.form-inline .checkbox input[type="checkbox"]{position:relative;margin-left:0}.form-inline .has-feedback .form-control-feedback{top:0}.form-horizontal .control-label{text-align:right;margin-bottom:0;padding-top:7px}.form-horizontal .form-group-lg .control-label{padding-top:14.3px}.form-horizontal .form-group-sm .control-label{padding-top:6px}.modal-dialog{width:600px;margin:30px auto}.modal-content{box-shadow:0 5px 15px rgba(0,0,0,.5)}.modal-sm{width:300px}}@media (min-width:992px){.modal-lg{width:900px}}@media screen and (max-width:1200px){#_default_{max-width:30%}#_default_ ._default_{font-size:.825rem;line-height:.875rem;padding:12px 12px 6px 24px;text-align:justify}}@media screen and (max-width:1100px){#_default_{max-width:27%}#_default_ ._default_{font-size:.8rem;line-height:.85rem;padding:12px 6px 6px 24px;text-align:justify}}@media screen and (max-width:1000px){#_default_{max-width:24%}#_default_ ._default_{font-size:.775rem;line-height:.8rem;padding:12px 6px 6px 24px;text-align:justify}}@media screen and (max-width:900px){#_default_{max-width:30%}}@media screen and (max-width:767px){.table-responsive{width:100%;margin-bottom:15px;overflow-y:hidden;overflow-x:auto;-ms-overflow-style:-ms-autohiding-scrollbar;border:1px solid #ddd;-webkit-overflow-scrolling:touch}.table-responsive>.table{margin-bottom:0}.table-responsive>.table>thead>tr>th,.table-responsive>.table>thead>tr>td,.table-responsive>.table>tbody>tr>th,.table-responsive>.table>tbody>tr>td,.table-responsive>.table>tfoot>tr>th,.table-responsive>.table>tfoot>tr>td{white-space:nowrap}.table-responsive>.table-bordered{border:0}.table-responsive>.table-bordered>thead>tr>th:first-child,.table-responsive>.table-bordered>thead>tr>td:first-child,.table-responsive>.table-bordered>tbody>tr>th:first-child,.table-responsive>.table-bordered>tbody>tr>td:first-child,.table-responsive>.table-bordered>tfoot>tr>th:first-child,.table-responsive>.table-bordered>tfoot>tr>td:first-child{border-left:0}.table-responsive>.table-bordered>thead>tr>th:last-child,.table-responsive>.table-bordered>thead>tr>td:last-child,.table-responsive>.table-bordered>tbody>tr>th:last-child,.table-responsive>.table-bordered>tbody>tr>td:last-child,.table-responsive>.table-bordered>tfoot>tr>th:last-child,.table-responsive>.table-bordered>tfoot>tr>td:last-child{border-right:0}.table-responsive>.table-bordered>tbody>tr:last-child>th,.table-responsive>.table-bordered>tbody>tr:last-child>td,.table-responsive>.table-bordered>tfoot>tr:last-child>th,.table-responsive>.table-bordered>tfoot>tr:last-child>td{border-bottom:0}}@media screen and (max-width:720px){#_default_{max-width:60%}#_default_ ._default_{font-size:.75rem;line-height:1rem;padding:12px 24px}}@media screen and (max-width:620px){#_default_{max-width:50%}#_default_ ._default_{font-size:.66rem;letter-spacing:1px;line-height:1rem;padding:10px 24px}}@media screen and (max-width:520px){#_default_ ._default_{font-size:.4rem;line-height:.875rem;padding:6px 12px 6px 24px;text-align:justify}}@media screen and (max-width:460px){#_default_{display:none}}@media screen and (max-width:46.1875em){.editor-header{display:none}.editor-header--first{display:block;width:100%}}</style></head><body id="preview">
+<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="1_Hallo_world_0"></a>1. Hallo world</h2>
+<blockquote>
+<ul>
+<li class="has-line-data" data-line-start="1" data-line-end="2"><strong>Object</strong>: Account</li>
+<li class="has-line-data" data-line-start="2" data-line-end="3"><strong>DML operation</strong>: before insert, before update</li>
+<li class="has-line-data" data-line-start="3" data-line-end="4"><strong>Action</strong>: This trigger will update custom field <code>Hello__c</code> of Account object with word <code>World</code> if it is not already</li>
+</ul>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="5" data-line-end="9" class="language-java">   <span class="hljs-function">trigger HelloWorldTrigger on <span class="hljs-title">Account</span> <span class="hljs-params">(before insert)</span> </span>{
+      System.debug(<span class="hljs-string">'Hello World!'</span>);
+   }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="10" data-line-end="19" class="language-java">   <span class="hljs-function">trigger HelloWorld on <span class="hljs-title">Account</span><span class="hljs-params">(before insert, before update)</span> </span>{
+      List &lt; Account &gt; accs = Trigger.new;
+      <span class="hljs-keyword">for</span> (Account a: accs) {
+         <span class="hljs-keyword">if</span> (a.Hello__c != <span class="hljs-string">'World'</span>) {
+            a.Hello__c = <span class="hljs-string">'World'</span>;
+         }
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=19 data-line-end=20 ><a id="2_Trigger_for_automation_19"></a>2. Trigger for automation:</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="20" data-line-end="21">Send mail on create/update object</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="22" data-line-end="38" class="language-java">   <span class="hljs-function">trigger ExampleTrigger on <span class="hljs-title">Contact</span> <span class="hljs-params">(after insert, after delete)</span> </span>{
+      <span class="hljs-keyword">if</span> (Trigger.isInsert) {
+         Integer recordCount = Trigger.New.size();
+         <span class="hljs-comment">// Call a utility method from another class</span>
+         EmailManager.sendMail(<span class="hljs-string">'Your email address'</span>, <span class="hljs-string">'Trailhead Trigger Tutorial'</span>, 
+                     recordCount + <span class="hljs-string">' contact(s) were inserted.'</span>);
+      }
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Trigger.isDelete) {
+         <span class="hljs-comment">// Process after delete</span>
+      }
+   }
+
+   <span class="hljs-comment">// to test open console and run</span>
+   Contact c = <span class="hljs-keyword">new</span> Contact(LastName=<span class="hljs-string">'Test Contact'</span>);
+   insert c;
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="38" data-line-end="39">Add prefix on create/update object</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="40" data-line-end="47" class="language-java">   <span class="hljs-function">trigger PrefixDoctor on <span class="hljs-title">Lead</span><span class="hljs-params">(before insert, before update)</span> </span>{
+      List &lt; Lead &gt; leadList = trigger.new;
+      <span class="hljs-keyword">for</span> (Lead l: leadList) {
+         l.firstname = <span class="hljs-string">'Dr.'</span> + l.firstname;
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="47" data-line-end="48">Calculate and set discount on insert/update on final price</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="49" data-line-end="57" class="language-java">   <span class="hljs-function">trigger DiscountTrigger on <span class="hljs-title">Book__c</span><span class="hljs-params">(before insert, before update)</span> </span>{
+      List &lt; Book__c &gt; books = Trigger.new;
+      <span class="hljs-keyword">for</span> (Book__c b: books) {
+         <span class="hljs-comment">//b.Price__c = b.Price__c * 0.9;</span>
+         b.Price__c *= <span class="hljs-number">0.9</span>;
+      }
+   }
+</code></pre>
+<ol start="3">
+<li class="has-line-data" data-line-start="57" data-line-end="62">036 - test class for trigger
+<blockquote>
+<p class="has-line-data" data-line-start="58" data-line-end="59">Getting started with trigger.</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="60" data-line-end="62" class="language-java">
+</code></pre>
+</li>
+</ol>
+<h2 class="code-line" data-line-start=62 data-line-end=63 ><a id="4_Segregation_of_logic_from_trigger_code_62"></a>4. Segregation of logic from trigger code</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="63" data-line-end="64">Use external class to write logic for trigger</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="65" data-line-end="72" class="language-java">   <span class="hljs-comment">// Trigger</span>
+   <span class="hljs-function">trigger HelloWorld on <span class="hljs-title">Account</span><span class="hljs-params">(before insert, before update)</span> </span>{
+      List &lt; Account &gt; accs = Trigger.new;
+      MyHelloWorld my = <span class="hljs-keyword">new</span> MyHelloWorld(); <span class="hljs-comment">// class instanciated to access function under it</span>
+      my.addHelloWorld(accs); <span class="hljs-comment">// function invocked/called</span>
+   }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="73" data-line-end="84" class="language-java">   <span class="hljs-comment">// Logic</span>
+   <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHelloWorld</span> </span>{
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addHelloWorld</span><span class="hljs-params">(List &lt; Account &gt; accs)</span> </span>{
+         <span class="hljs-keyword">for</span> (Account a: accs) {
+               <span class="hljs-keyword">if</span> (a.Hello__c != <span class="hljs-string">'World'</span>) {
+                  a.Hello__c = <span class="hljs-string">'World'</span>;
+               }
+         }
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=84 data-line-end=85 ><a id="5_Benifit_of_logic_segregation_84"></a>5. Benifit of logic segregation</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="85" data-line-end="86">Contact object operations initited by different triggers</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="87" data-line-end="93" class="language-java">   <span class="hljs-function">trigger AccountTrigger on <span class="hljs-title">Account</span><span class="hljs-params">(after insert)</span> </span>{
+      <span class="hljs-keyword">if</span> (trigger.isafter &amp;&amp; trigger.isinsert) {
+         ContactNameUpdate.newContactCreated(Trigger.new); <span class="hljs-comment">// static method called without instanciation</span>
+      }
+   }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="94" data-line-end="100" class="language-java">   <span class="hljs-function">trigger ContactTrigger on <span class="hljs-title">Contact</span><span class="hljs-params">(after insert)</span> </span>{
+      <span class="hljs-keyword">if</span> (trigger.isafter &amp;&amp; trigger.isinsert) {
+         ContactNameUpdate.updateCheckboxOnAccount(Trigger.new);<span class="hljs-comment">// static method called without instanciation</span>
+      }
+   }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="101" data-line-end="140" class="language-java">   <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContactNameUpdate</span> </span>{
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">newContactCreated</span><span class="hljs-params">(List &lt; Account &gt; accList)</span> </span>{
+         <span class="hljs-comment">// logic will come here like bellow</span>
+         <span class="hljs-comment">/*
+         List &lt; Contact &gt; conList = new List &lt; Contact &gt; ();
+         for (Account acc: accList) {
+               Contact con = new Contact(AccountId = acc.Id);
+               List &lt; String &gt; nameStr = acc.Name.split(' ');
+               if (nameStr.size() &gt; 0)
+                  con.LastName = nameStr[0];
+               if (nameStr.size() &gt; 1)
+                  con.FirstName = nameStr[1];
+   
+               con.Email = 'info@websitedomain.tld';
+               con.Only_Default_Contact__c = TRUE;
+               conList.add(con);
+         }
+         insert conList;
+         */</span>
+      }
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateCheckboxOnAccount</span><span class="hljs-params">(List &lt; Contact &gt; contactList)</span> </span>{
+         <span class="hljs-comment">// logic will come here like bellow</span>
+         <span class="hljs-comment">/*
+         Set &lt; Id &gt; accountIds = new Set &lt; Id &gt; ();
+         for (Contact con: contactList) {
+               accountIds.add(con.AccountId);
+         }
+   
+         List &lt; Account &gt; updatedAccounts = new List &lt; Account &gt; ();
+         for (AggregateResult ar: [select count(id), AccountId from Contact where AccountId IN: accountIds group by AccountId having count(id) &gt; 1]) {
+               updatedAccounts.add(new Account(Id = (Id) ar.get('AccountId'), Only_Default_Contact__c = false));
+         }
+   
+         if (!updatedAccounts.isEmpty())
+               update updatedAccounts;
+         */</span>
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=140 data-line-end=141 ><a id="6_Trigger_for_DML_operationsfor_the_case_when_trigger_is_written_to_serve_multiple_dml_operation_140"></a>6. Trigger for DML operations(for the case when trigger is written to serve multiple dml operation)</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="141" data-line-end="142">Identify the DML operation using nested condition</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="143" data-line-end="174" class="language-java">   <span class="hljs-function">trigger Accountall on <span class="hljs-title">Account</span><span class="hljs-params">(before insert, before update, before delete, after insert, after update, after delete, after undelete)</span>
+   </span>{
+      <span class="hljs-comment">//before</span>
+      <span class="hljs-keyword">if</span> (trigger.IsBefore) {
+         <span class="hljs-keyword">if</span> (trigger.isinsert) {
+               <span class="hljs-comment">// before insert code here    </span>
+         }
+         <span class="hljs-keyword">if</span> (trigger.isupdate) {
+               <span class="hljs-comment">// before update code here</span>
+         }
+         <span class="hljs-keyword">if</span> (trigger.IsDelete) {
+               <span class="hljs-comment">// before delete code here</span>
+         }
+      }
+      <span class="hljs-comment">//after</span>
+      <span class="hljs-keyword">if</span> (trigger.IsAfter) {
+         <span class="hljs-keyword">if</span> (trigger.isinsert) {
+               <span class="hljs-comment">// after insert code here    </span>
+         }
+         <span class="hljs-keyword">if</span> (trigger.isupdate) {
+               <span class="hljs-comment">// after update code here</span>
+         }
+         <span class="hljs-keyword">if</span> (trigger.IsDelete) {
+               <span class="hljs-comment">// after delete code here</span>
+         }
+         <span class="hljs-keyword">if</span> (trigger.UnDelete) {
+               <span class="hljs-comment">// after delete code here</span>
+         }
+      } 
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="174" data-line-end="175">Identify the DML operation using switch case</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="176" data-line-end="203" class="language-java">   <span class="hljs-function">trigger Accountall on <span class="hljs-title">Account</span><span class="hljs-params">(before insert, before update, before delete, after insert, after update, after delete, after undelete)</span>
+   </span>{
+      <span class="hljs-keyword">switch</span> on System.TriggerOperation {
+         when <span class="hljs-string">'BEFORE_INSERT'</span> {
+            <span class="hljs-comment">// before insert code here</span>
+         }
+         when <span class="hljs-string">'BEFORE_UPDATE'</span> {
+            <span class="hljs-comment">// before update code here</span>
+         }
+         when <span class="hljs-string">'BEFORE_DELETE'</span> {
+            <span class="hljs-comment">// before delete code here</span>
+         }
+         when <span class="hljs-string">'AFTER_INSERT'</span> {
+            <span class="hljs-comment">// after insert code here</span>
+         }
+         when <span class="hljs-string">'AFTER_UPDATE'</span> {
+            <span class="hljs-comment">// after update code here</span>
+         }
+         when <span class="hljs-string">'AFTER_DELETE'</span> {
+            <span class="hljs-comment">// after delete code here</span>
+         }
+         when <span class="hljs-string">'AFTER_UNDELETE'</span> {
+            <span class="hljs-comment">// after undelete code here</span>
+         }
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=203 data-line-end=204 ><a id="7_Building_blocks_for_trigger_203"></a>7. Building blocks for trigger</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="204" data-line-end="205">Get the list of changed(insert/ update/delete) records of connected sObject</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="206" data-line-end="214" class="language-java">   <span class="hljs-comment">// to get new version. </span>
+   <span class="hljs-comment">// available in : insert, update and undelete</span>
+   Trigger.new
+
+   <span class="hljs-comment">// to get old version</span>
+   <span class="hljs-comment">// available in : update and delete</span>
+   Trigger.old
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="214" data-line-end="215">Get list of sObject using SOQL query</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="216" data-line-end="225" class="language-java">   <span class="hljs-comment">// Get all accounts which are connected to opportunity (account 1--* opportunity)</span>
+   List&lt;Account&gt; accounts = [<span class="hljs-function">SELECT Id FROM Account WHERE Id <span class="hljs-title">IN</span> <span class="hljs-params">(SELECT AccountId FROM Opportunity)</span>]
+   <span class="hljs-comment">// like above but only changed records (Trigger.old holds list of about to delete Account sObject records )</span>
+   List&lt;Account&gt; accounts </span>= [<span class="hljs-function">SELECT Id FROM Account WHERE Id <span class="hljs-title">IN</span> <span class="hljs-params">(SELECT AccountId FROM Opportunity)</span> AND Id IN :Trigger.old]
+   <span class="hljs-comment">// get Account sObjects records which are about to delete</span>
+   List&lt;Account&gt; accounts </span>= [SELECT Id, AccountName FROM Account WHERE Id IN :Trigger.old]
+   <span class="hljs-comment">// get Opportunity sObject records related to Account sObjects records which are about to delete</span>
+   List&lt;Account&gt; accounts = [SELECT Id, OpportunityName FROM Opportunity WHERE Account IN :Trigger.old]
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="225" data-line-end="226">Get the related opportunities (as Map) for the accounts in this trigger</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="227" data-line-end="229" class="language-java">   Map&lt;Id,Account&gt; acctsWithOpps = <span class="hljs-keyword">new</span> Map&lt;Id,Account&gt;([SELECT Id,(SELECT Id FROM Opportunities) FROM Account WHERE Id IN :Trigger.New]);
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="229" data-line-end="230">Get list of account Ids (may contains duplicate) of changed Contacts sObject records</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="231" data-line-end="238" class="language-java">   List&lt;Id&gt; lstAccIds = <span class="hljs-keyword">new</span> List&lt;Id&gt;();
+   <span class="hljs-keyword">for</span>(Contact contact : Trigger.new) {
+      <span class="hljs-keyword">if</span>(contact.Accountid != <span class="hljs-keyword">null</span>) {
+         lstAccIds.add(con.AccountId);
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="238" data-line-end="239">Get list of unique account Ids of changed Contacts sObject records</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="240" data-line-end="247" class="language-java">   Set&lt;Id&gt; setAccIds = <span class="hljs-keyword">new</span> Set&lt;Id&gt;();
+   <span class="hljs-keyword">for</span>(Contact contact : Trigger.new) {
+      <span class="hljs-keyword">if</span>(contact.Accountid != <span class="hljs-keyword">null</span>) {
+         setAccIds.add(con.AccountId);
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="247" data-line-end="248">Check whether the prepared list/set has data or not</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="249" data-line-end="267" class="language-java">   <span class="hljs-comment">// test for data availability</span>
+   <span class="hljs-keyword">if</span>(!setAccIds.isEmpty()){
+      <span class="hljs-comment">// data there</span>
+   }
+   <span class="hljs-comment">// or</span>
+   <span class="hljs-keyword">if</span>(setAccIds.size() &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// data there</span>
+   }
+
+   <span class="hljs-comment">// test for data unavailability</span>
+   <span class="hljs-keyword">if</span>(setAccIds.isEmpty()){
+      <span class="hljs-comment">// data not there</span>
+   }
+   <span class="hljs-comment">// or</span>
+   <span class="hljs-keyword">if</span>(setAccIds.size() &lt;= <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// data not there</span>
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="267" data-line-end="268">Programic DMl operation</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="269" data-line-end="301" class="language-java">   <span class="hljs-comment">// create sObject(Account)</span>
+   Account newAccount = <span class="hljs-keyword">new</span> Account();
+   <span class="hljs-comment">// create and fill data to new account</span>
+   Account newAccount = <span class="hljs-keyword">new</span> Account();
+   newAccount.phone=<span class="hljs-string">'87482758745'</span>;
+   newAccount.Rating=<span class="hljs-string">'warm'</span>;
+   newAccount.Industry=<span class="hljs-string">'clould computing'</span>;
+   <span class="hljs-comment">// create, fill and insert new account</span>
+   Account newAccount = <span class="hljs-keyword">new</span> Account();
+   newAccount.phone=<span class="hljs-string">'87482758745'</span>;
+   newAccount.Rating=<span class="hljs-string">'warm'</span>;
+   newAccount.Industry=<span class="hljs-string">'clould computing'</span>;
+   Insert newAccount;
+
+   <span class="hljs-comment">// create multiple contacts and insert based on account records</span>
+      <span class="hljs-comment">// here accountList holds a list of account records</span>
+      <span class="hljs-keyword">for</span> (Account account: accountList){
+         Contact newContact = <span class="hljs-keyword">new</span> Contact();
+         newContact.FirstName = account.FirstName;
+         Insert newContact; <span class="hljs-comment">// DML operation in for loop</span>
+      }
+      <span class="hljs-comment">// optimized version of previous example</span>
+      List&lt;Contact&gt; lstContact = <span class="hljs-keyword">new</span> List&lt;contact&gt;();
+      <span class="hljs-keyword">for</span> (Account account: accountList){
+         Contact newContact = <span class="hljs-keyword">new</span> Contact();
+         newContact.FirstName = account.FirstName;
+         lstContact = newContact; <span class="hljs-comment">// prepare list for single DML</span>
+      }
+      <span class="hljs-keyword">if</span> (lstContact.size() &gt; <span class="hljs-number">0</span>) { <span class="hljs-comment">// test of content before DML as DML with blank list throw error</span>
+         Insert lstContact;
+      }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="302" data-line-end="323" class="language-java">   Account a = <span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">'Acme'</span>);
+   insert a;  <span class="hljs-comment">// Inserting the record automatically assigns a </span>
+            <span class="hljs-comment">// value to its ID field</span>
+   Contact c = <span class="hljs-keyword">new</span> Contact(LastName = <span class="hljs-string">'Weissman'</span>);
+   c.AccountId = a.Id;
+   <span class="hljs-comment">// The new contact now points at the new account</span>
+   insert c;
+
+   <span class="hljs-comment">// A SOQL query accesses data for the inserted contact, </span>
+   <span class="hljs-comment">// including a populated c.account field</span>
+   c = [SELECT Account.Name FROM Contact WHERE Id = :c.Id];
+
+   <span class="hljs-comment">// Now fields in both records can be changed through the contact</span>
+   c.Account.Name = <span class="hljs-string">'salesforce.com'</span>;
+   c.LastName = <span class="hljs-string">'Roth'</span>;
+
+   <span class="hljs-comment">// To update the database, the two types of records must be </span>
+   <span class="hljs-comment">// updated separately</span>
+   update c;         <span class="hljs-comment">// This only changes the contact's last name</span>
+   update c.Account; <span class="hljs-comment">// This updates the account name</span>
+</code></pre>
+<pre><code class="has-line-data" data-line-start="324" data-line-end="334" class="language-java">   <span class="hljs-comment">// type 1:</span>
+   Account refAcct = <span class="hljs-keyword">new</span> Account(externalId__c = <span class="hljs-string">'12345'</span>);
+   Contact c = <span class="hljs-keyword">new</span> Contact(Account = refAcct, LastName = <span class="hljs-string">'Kay'</span>);
+   insert c;
+
+   <span class="hljs-comment">// type 2:</span>
+   Account refAcct = [SELECT Id FROM Account WHERE externalId__c=<span class="hljs-string">'12345'</span>];
+   Contact c = <span class="hljs-keyword">new</span> Contact(Account = refAcct.Id);
+   insert c;
+</code></pre>
+<pre><code class="has-line-data" data-line-start="335" data-line-end="344" class="language-java">   <span class="hljs-keyword">for</span> (Account a : [SELECT Id, Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = <span class="hljs-string">'Acme'</span>]) {
+      Contact[] cons = a.Contacts; <span class="hljs-comment">// children are stored as plural name of the object</span>
+   }
+
+   <span class="hljs-comment">//The following example also works because we limit to only 1 contact</span>
+   <span class="hljs-keyword">for</span> (Account a : [SELECT Id, Name, (SELECT LastName FROM Contacts LIMIT <span class="hljs-number">1</span>) FROM Account WHERE Name = <span class="hljs-string">'testAgg'</span>]) {
+      Contact c = a.Contacts;
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="344" data-line-end="345">Using Agregarion</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="346" data-line-end="352" class="language-java">   AggregateResult[] groupedResults = [SELECT CampaignId, AVG(Amount)aver FROM Opportunity GROUP BY CampaignId];
+   <span class="hljs-keyword">for</span> (AggregateResult ar : groupedResults)  {
+      System.debug(<span class="hljs-string">'Campaign ID'</span> + ar.get(<span class="hljs-string">'CampaignId'</span>));
+      System.debug(<span class="hljs-string">'Average amount'</span> + ar.get(<span class="hljs-string">'aver'</span>));
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="352" data-line-end="353">Bulk update</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="354" data-line-end="361" class="language-java">   <span class="hljs-comment">// Use this format for efficiency if you are executing DML statements </span>
+   <span class="hljs-comment">// within the for loop</span>
+   <span class="hljs-keyword">for</span> (List&lt;Account&gt; accts : [SELECT Id, Name FROM Account WHERE Name LIKE <span class="hljs-string">'Acme%'</span>]) {
+      <span class="hljs-comment">// Your code here</span>
+      update accts;
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="361" data-line-end="362">Variable in SOQL</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="363" data-line-end="442" class="language-java">   Account A = <span class="hljs-keyword">new</span> Account(Name=<span class="hljs-string">'xxx'</span>);
+   insert A;
+   Account B;
+
+   <span class="hljs-comment">// A simple bind</span>
+   B = [SELECT Id FROM Account WHERE Id = :A.Id];
+
+   <span class="hljs-comment">// A bind with arithmetic</span>
+   B = [SELECT Id FROM Account 
+      WHERE Name = :(<span class="hljs-string">'x'</span> + <span class="hljs-string">'xx'</span>)];
+
+   String s = <span class="hljs-string">'XXX'</span>;
+
+   <span class="hljs-comment">// A bind with expressions</span>
+   B = [SELECT Id FROM Account 
+      WHERE Name = :<span class="hljs-string">'XXXX'</span>.substring(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>)];
+
+   <span class="hljs-comment">// A bind with an expression that is itself a query result</span>
+   B = [SELECT Id FROM Account
+      WHERE Name = :[SELECT Name FROM Account
+                     WHERE Id = :A.Id].Name];
+
+   Contact C = <span class="hljs-keyword">new</span> Contact(LastName=<span class="hljs-string">'xxx'</span>, AccountId=A.Id);
+   insert <span class="hljs-keyword">new</span> Contact[]{C, <span class="hljs-keyword">new</span> Contact(LastName=<span class="hljs-string">'yyy'</span>, 
+                                       accountId=A.id)};
+
+   <span class="hljs-comment">// Binds in both the parent and aggregate queries</span>
+   B = [SELECT Id, (SELECT Id FROM Contacts
+                  WHERE Id = :C.Id)
+      FROM Account
+      WHERE Id = :A.Id];
+
+   <span class="hljs-comment">// One contact returned</span>
+   Contact D = B.Contacts;
+
+   <span class="hljs-comment">// A limit bind</span>
+   Integer i = <span class="hljs-number">1</span>;
+   B = [SELECT Id FROM Account LIMIT :i];
+
+   <span class="hljs-comment">// An OFFSET bind</span>
+   Integer offsetVal = <span class="hljs-number">10</span>;
+   List&lt;Account&gt; offsetList = [SELECT Id FROM Account OFFSET :offsetVal];
+
+   <span class="hljs-comment">// An IN-bind with an Id list. Note that a list of sObjects</span>
+   <span class="hljs-comment">// can also be used--the Ids of the objects are used for </span>
+   <span class="hljs-comment">// the bind</span>
+   Contact[] cc = [SELECT Id FROM Contact LIMIT <span class="hljs-number">2</span>];
+   Task[] tt = [SELECT Id FROM Task WHERE WhoId IN :cc];
+
+   <span class="hljs-comment">// An IN-bind with a String list</span>
+   String[] ss = <span class="hljs-keyword">new</span> String[]{<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>};
+   Account[] aa = [SELECT Id FROM Account 
+                  WHERE AccountNumber IN :ss];
+
+   <span class="hljs-comment">// A SOSL query with binds in all possible clauses</span>
+
+   String myString1 = <span class="hljs-string">'aaa'</span>;
+   String myString2 = <span class="hljs-string">'bbb'</span>;
+   Integer myInt3 = <span class="hljs-number">11</span>;
+   String myString4 = <span class="hljs-string">'ccc'</span>;
+   Integer myInt5 = <span class="hljs-number">22</span>;
+
+   List&lt;List&lt;SObject&gt;&gt; searchList = [FIND :<span class="hljs-function">myString1 IN ALL FIELDS 
+                                    RETURNING 
+                                       <span class="hljs-title">Account</span> <span class="hljs-params">(Id, Name WHERE Name LIKE :myString2
+                                                LIMIT :myInt3)</span>, 
+                                       Contact, 
+                                       Opportunity, 
+                                       Lead 
+                                    WITH DIVISION </span>=:myString4 
+                                    LIMIT :myInt5];
+
+<span class="hljs-comment">// distance function</span>
+String units = <span class="hljs-string">'mi'</span>;
+List&lt;Account&gt; accountList = 
+   [SELECT ID, Name, BillingLatitude, <span class="hljs-function">BillingLongitude 
+   FROM Account 
+   WHERE <span class="hljs-title">DISTANCE</span><span class="hljs-params">(My_Location_Field__c, GEOLOCATION(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)</span>, :units) &lt; 10]</span>; 
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="442" data-line-end="443">loop SOQL</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="444" data-line-end="460" class="language-java">   <span class="hljs-comment">// wrong way</span>
+   <span class="hljs-keyword">for</span> (Account acct : [SELECT Id, Name, (SELECT Id, Name FROM Contacts) 
+                     <span class="hljs-function">FROM Account WHERE Id <span class="hljs-title">IN</span> <span class="hljs-params">(<span class="hljs-string">'&lt;ID value&gt;'</span>)</span>]) </span>{ 
+      List&lt;Contact&gt; contactList = acct.Contacts; <span class="hljs-comment">// Causes an error</span>
+      Integer count = acct.Contacts.size(); <span class="hljs-comment">// Causes an error</span>
+   }
+
+   <span class="hljs-comment">// correct way</span>
+   <span class="hljs-keyword">for</span> (Account acct : [SELECT Id, Name, (SELECT Id, Name FROM Contacts) 
+                     <span class="hljs-function">FROM Account WHERE Id <span class="hljs-title">IN</span> <span class="hljs-params">(<span class="hljs-string">'&lt;ID value&gt;'</span>)</span>]) </span>{ 
+      Integer count=<span class="hljs-number">0</span>;
+      <span class="hljs-keyword">for</span> (Contact c : acct.Contacts) {
+         count++;
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="460" data-line-end="461">Expanding sObject and List Expressions</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="462" data-line-end="465" class="language-java">   Integer acctNameLength = <span class="hljs-keyword">new</span> Account[]{<span class="hljs-keyword">new</span> Account(Name=<span class="hljs-string">'Acme'</span>)}[<span class="hljs-number">0</span>].Name.length();
+   String nameChange = [SELECT Name FROM Account][<span class="hljs-number">0</span>].Name.toLowerCase();
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="465" data-line-end="466">Auto populate Map from SOQL</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="467" data-line-end="475" class="language-java">   <span class="hljs-comment">// Populate map from SOQL query</span>
+   Map&lt;ID, Account&gt; m = <span class="hljs-keyword">new</span> Map&lt;ID, Account&gt;([SELECT Id, Name FROM Account LIMIT <span class="hljs-number">10</span>]);
+   <span class="hljs-comment">// After populating the map, iterate through the map entries</span>
+   <span class="hljs-keyword">for</span> (ID idKey : m.keyset()) {
+      Account a = m.get(idKey);
+      System.debug(a);
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=475 data-line-end=476 ><a id="8_Trigger_for_validation_475"></a>8. Trigger for validation</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="476" data-line-end="477">Account with account number present cannot be deleted</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="478" data-line-end="488" class="language-java">   <span class="hljs-function">trigger Accountnumbervalidation on <span class="hljs-title">Account</span> <span class="hljs-params">(before delete)</span> </span>{
+      <span class="hljs-keyword">for</span>(Account acc: trigger.old)
+      {
+         <span class="hljs-keyword">if</span>(acc.accountnumber!=<span class="hljs-keyword">null</span>)
+         {
+            acc.AccountNumber.addError(<span class="hljs-string">'Account which having account number cannot be deleted'</span>);
+         }
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="488" data-line-end="489">Prevent the deletion of accounts if they have related opportunities.</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="490" data-line-end="499" class="language-java">   <span class="hljs-function">trigger AccountDeletion on <span class="hljs-title">Account</span> <span class="hljs-params">(before delete)</span> </span>{
+      <span class="hljs-keyword">for</span> (Account a : [<span class="hljs-function">SELECT Id FROM Account
+                        WHERE Id <span class="hljs-title">IN</span> <span class="hljs-params">(SELECT AccountId FROM Opportunity)</span> AND
+                        Id IN :Trigger.old]) </span>{
+         Trigger.oldMap.get(a.Id).addError(
+               <span class="hljs-string">'Cannot delete account with related opportunities.'</span>);
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=499 data-line-end=500 ><a id="9__007__Duplication_checkNeed_to_work_on_map_499"></a>9.  007 - Duplication check(!!!Need to work on map)</h2>
+<pre><code>&gt; Check availablity of the same name of newly created account
+</code></pre>
+<pre><code class="has-line-data" data-line-start="502" data-line-end="524" class="language-java">   <span class="hljs-function">trigger DuplicateAccount on <span class="hljs-title">Account</span><span class="hljs-params">(before insert)</span> </span>{
+      <span class="hljs-comment">// build teh set of names to make single query</span>
+      Set &lt; String &gt; accset = <span class="hljs-keyword">new</span> Set &lt; String &gt; ();
+      <span class="hljs-keyword">for</span> (Account acc: Trigger.new) {
+            accset.add(acc.name);
+      }
+
+      <span class="hljs-comment">// build map to lookup quickly</span>
+      Map &lt; String, id &gt; mapacc = <span class="hljs-keyword">new</span> Map &lt; String, id &gt; ();
+      <span class="hljs-keyword">for</span> (Account acc: [select id, name from Account where name IN accset]) { <span class="hljs-comment">// single query made</span>
+            mapacc.put(acc.name, acc.id);
+      }
+
+      <span class="hljs-comment">// check each insertable account name with teh map created</span>
+      <span class="hljs-keyword">for</span> (Account acc: trigger.new) {
+            id accountid = mapacc.get(acc.name);
+            <span class="hljs-keyword">if</span> (accountid != <span class="hljs-keyword">null</span>) { <span class="hljs-comment">// account name availability check</span>
+               acc.name.addError(<span class="hljs-string">'duplicate account'</span>);
+            }
+      }
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=524 data-line-end=525 ><a id="11_002__before_save_fill_some_data_524"></a>11. 002 - before save, fill some data</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="525" data-line-end="526">Before creating new Account record change the field values.</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="527" data-line-end="535" class="language-java">   <span class="hljs-function">trigger Updateindusty on <span class="hljs-title">Account</span> <span class="hljs-params">(before insert)</span> </span>{
+      <span class="hljs-keyword">for</span>(Account acc:trigger.new) {
+         acc.phone=<span class="hljs-string">'87482758745'</span>;
+         acc.Rating=<span class="hljs-string">'warm'</span>;
+         acc.Industry=<span class="hljs-string">'clould computing'</span>;
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="535" data-line-end="536">Before insert account or update owner of a account fill owner name as <code>sales_Rep__c</code> derived from owner</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="537" data-line-end="549" class="language-java">   <span class="hljs-function">triggerUpdateSalesRep on <span class="hljs-title">Account</span><span class="hljs-params">(Before insert, Before Update)</span> </span>{
+      Set &lt;Id&gt; setAccOwner = <span class="hljs-keyword">new</span> Set&lt;Id&gt;();
+      <span class="hljs-keyword">for</span>(Account Acc: trigger.new) {
+         setAccOwner.add(Acc.OwnerId);
+      }
+      Map&lt;Id, User&gt; User_map = <span class="hljs-keyword">new</span> Map&lt;Id, User&gt;(<span class="hljs-string">"select Name from User where id in: setAccOwner"</span>);
+      <span class="hljs-keyword">for</span>(Account Acc: Trigger.new) {
+         User usr = User_map.get(Acc.OwnerId);
+         Acc.sales_Rep__c = usr.Name;
+      }
+   }      
+</code></pre>
+<h2 class="code-line" data-line-start=549 data-line-end=550 ><a id="12_026__add_child_on_parent_add_549"></a>12. 026 - add child on parent add</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="550" data-line-end="551">On new account insert, create a default contact against each account</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="552" data-line-end="566" class="language-java">   <span class="hljs-function">trigger NewContactCreateByAccount on <span class="hljs-title">Account</span> <span class="hljs-params">(After insert)</span> </span>{
+      List&lt;Contact&gt; contacts=<span class="hljs-keyword">new</span> List&lt;Contact&gt;();
+      For(Account acc:trigger.new){
+         Contact cont=<span class="hljs-keyword">new</span> Contact();
+         cont.FirstName=<span class="hljs-string">'Info'</span>;
+         cont.LastName=<span class="hljs-string">'Default'</span>;
+         cont.Email=<span class="hljs-string">'info@websitedomain.tld'</span>;
+         contacts.add(cont);
+      }
+      <span class="hljs-keyword">if</span>(contacts.size()&gt;<span class="hljs-number">0</span>){
+         Insert contacts; <span class="hljs-comment">// single DML for multiple records      </span>
+      }
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="566" data-line-end="567">On new account insert, create a default contact against each account if createDefaultContact is checked in</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="568" data-line-end="584" class="language-java">   <span class="hljs-function">trigger NewContactCreateByAccount on <span class="hljs-title">Account</span> <span class="hljs-params">(After insert)</span> </span>{
+      List&lt;Contact&gt; contacts=<span class="hljs-keyword">new</span> List&lt;Contact&gt;();
+      For(Account acc:trigger.new){
+         <span class="hljs-keyword">if</span>(acc.createDefaultContact__c){ 
+            Contact cont=<span class="hljs-keyword">new</span> Contact();
+            cont.FirstName=<span class="hljs-string">'Info'</span>;
+            cont.LastName=<span class="hljs-string">'Default'</span>;
+            cont.Email=<span class="hljs-string">'info@websitedomain.tld'</span>;
+            contacts.add(cont);
+         }
+      }
+      <span class="hljs-keyword">if</span>(!contacts.isEmpty()){
+         Insert contacts; <span class="hljs-comment">// single DML for multiple records      </span>
+      }      
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=584 data-line-end=585 ><a id="15_004__on_addupdate_create_other_object_entry_584"></a>15. 004 - on add/update create other object entry</h2>
+<pre><code>&gt; Keep a copy of a account before update
+</code></pre>
+<pre><code class="has-line-data" data-line-start="587" data-line-end="603" class="language-java">   <span class="hljs-function">trigger UpdateCopyAccount on <span class="hljs-title">Account</span> <span class="hljs-params">(before update)</span> </span>{
+      List&lt;CopyAccount__c&gt; lstCopyAccount__c = <span class="hljs-keyword">new</span> List&lt;CopyAccount__c&gt;();
+      <span class="hljs-keyword">for</span>(Account acc : trigger.new) {
+         System.debug(<span class="hljs-string">'new value'</span>+acc.name);
+      }
+      <span class="hljs-keyword">for</span>(Account acc : trigger.old) {
+         CopyAccount__c ca = <span class="hljs-keyword">new</span> CopyAccount__c();
+         ca.name=  acc.name;
+         System.debug(<span class="hljs-string">'old value'</span>+acc.name);
+         lstCopyAccount__c.add(ca);
+      }
+      <span class="hljs-keyword">if</span>(!lstCopyAccount__c.isEmpty()){
+         Insert lstCopyAccount__c;
+      }
+   }
+</code></pre>
+<ol start="16">
+<li class="has-line-data" data-line-start="603" data-line-end="605">034 - like 004 with condition
+<blockquote>
+<p class="has-line-data" data-line-start="604" data-line-end="605">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="606" data-line-end="608" class="language-java">
+</code></pre>
+<ol start="17">
+<li class="has-line-data" data-line-start="608" data-line-end="610">008 - update all children by value from parent
+<blockquote>
+<p class="has-line-data" data-line-start="609" data-line-end="610">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="611" data-line-end="613" class="language-java">
+</code></pre>
+<h2 class="code-line" data-line-start=613 data-line-end=614 ><a id="18_010__update_all_parent_by_the_valueof_child_613"></a>18. 010 - update all parent by the valueof child</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="614" data-line-end="617">Create the object called “Customer Project” and create Status field under this object with picklist data type (Values=Active, Inactive). Create the relationship between this custom object and Opportunity so that “Customer Project” is related list to the Opportunity.<br>
+Create “Active Customer project”‑ field on Opportunity object (Data Type=Checkbox)<br>
+The logic is when we create Customer Project for an Opportunity with the Status=Active, then “Active Customer project” check box on the Opportunity Detail page is automatically checked.</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="618" data-line-end="631" class="language-java">   <span class="hljs-function">trigger UpdateCPActivenOnOppty on <span class="hljs-title">Customer_Project__c</span><span class="hljs-params">(after insert)</span> </span>{
+      List &lt; Opportunity &gt; opps = <span class="hljs-keyword">new</span> List &lt; Opportunity &gt; ();
+      <span class="hljs-keyword">for</span> (Customer_Project__c cp: Trigger.New) {
+         <span class="hljs-keyword">if</span> (cp.Status__c == <span class="hljs-string">'Active'</span>) {
+               Opportunity opp = <span class="hljs-keyword">new</span> Opportunity(id = cp.Opportunity__c);
+               opp.Active_Customer_Project__c = True;
+               <span class="hljs-comment">//update opp;</span>
+               opps.add(opp);
+         }
+      }
+      update opps;
+   }
+</code></pre>
+<blockquote>
+<p class="has-line-data" data-line-start="631" data-line-end="632">Update phone number of account from Contact</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="633" data-line-end="651" class="language-java">   <span class="hljs-function">trigger updatephone on <span class="hljs-title">Contact</span><span class="hljs-params">(after insert, after update)</span> </span>{
+      set &lt;id&gt; ids = <span class="hljs-keyword">new</span> set &lt;id&gt; ();
+      List &lt;account&gt; acclist = <span class="hljs-keyword">new</span> List &lt;account&gt; ();
+      <span class="hljs-keyword">for</span> (contact con: trigger.new) {
+         ids.add(con.AccountId);
+      }
+
+      Map &lt;Id, Account&gt; accountMap = <span class="hljs-keyword">new</span> Map &lt;Id, Account&gt;([Select Id, Phone From Account Where Id In: ids]);
+      <span class="hljs-keyword">for</span> (contact c: trigger.new) {
+         Account acc = accountMap.get(c.AccountId);
+         <span class="hljs-keyword">if</span> (acc != <span class="hljs-keyword">null</span>) {
+            acc.Phone = c.Phone;
+            acclist.add(acc);
+         }
+      }
+      update acclist;
+   }
+</code></pre>
+<h2 class="code-line" data-line-start=651 data-line-end=652 ><a id="19_009__rollup_summery_651"></a>19. 009 - rollup summery</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="652" data-line-end="653">On Contact record create, update account field which holds teh underline contacts count</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="654" data-line-end="671" class="language-java">   <span class="hljs-function">trigger NoOfcontacts on <span class="hljs-title">Contact</span><span class="hljs-params">(after insert)</span> </span>{
+      Set&lt;id&gt; relAccIds = <span class="hljs-keyword">new</span> Set&lt;id&gt;();
+      <span class="hljs-keyword">for</span> (Contact contact: trigger.new) {
+         relAccIds.add(contact.AccountId);
+      }
+      Map&lt;Id,Account&gt; acctsWithOpps = <span class="hljs-keyword">new</span> Map&lt;Id,Account&gt;([SELECT Id, Name,(SELECT Id, Name FROM Contacts) FROM Account WHERE ID IN relAccIds]);
+      List&lt;Account&gt; accounts =  New List&lt;Account&gt;();
+      <span class="hljs-keyword">for</span>(Id key: acctsWithOpps.keyset()){
+         Account acc = acctsWithOpps.get(key)
+         acc.No_of_contacts__c = acc.Contacts.size();
+         accounts.add(acc);
+      }
+      <span class="hljs-keyword">if</span>(accounts.size()&gt;<span class="hljs-number">0</span>){
+         Update accounts;
+      }
+   }
+</code></pre>
+<pre><code class="has-line-data" data-line-start="672" data-line-end="709" class="language-java">   <span class="hljs-comment">// Lengthy way</span>
+   <span class="hljs-function">trigger Noofcontacts on <span class="hljs-title">Contact</span><span class="hljs-params">(after insert)</span> </span>{
+      Set&lt;id&gt; ids = <span class="hljs-keyword">new</span> Set&lt;id&gt;();
+      List&lt;Account&gt; acclist = <span class="hljs-keyword">new</span> List&lt;Account&gt;();
+      List&lt;Account&gt; listofacc = <span class="hljs-keyword">new</span> List&lt;Account&gt;();
+      List&lt;Contact&gt; conlist = <span class="hljs-keyword">new</span> List&lt;Contact&gt;();
+      List&lt;COntact&gt; listofcon = <span class="hljs-keyword">new</span> List&lt;Contact&gt;();
+      Map&lt;id, integer&gt; mapcount = <span class="hljs-keyword">new</span> Map&lt;id, integer&gt;();
+      <span class="hljs-keyword">for</span> (contact con: trigger.new) {
+         ids.add(con.accountid);
+      }
+   
+      acclist = [select id, name from account where id in: ids];
+      conlist = [select id, name, accountid from contact where accountid in: ids];
+      <span class="hljs-keyword">for</span>(account acc: acclist) {
+         <span class="hljs-keyword">for</span>(contact con: conlist) {
+            <span class="hljs-keyword">if</span>(con.accountid == acc.id) {
+               listofcon.add(con);
+               mapcount.put(con.AccountId, listofcon.size());
+            }
+         }
+      }
+      <span class="hljs-keyword">if</span>(acclist.size() &gt; <span class="hljs-number">0</span>) {
+         <span class="hljs-keyword">for</span>(Account acc: acclist){
+            <span class="hljs-keyword">if</span>(mapcount.get(acc.id) == <span class="hljs-keyword">null</span>) {
+               acc.No_of_contacts__c = <span class="hljs-number">0</span>;
+            }<span class="hljs-keyword">else</span> {
+               acc.No_of_contacts__c = mapcount.get(acc.id);
+               listofacc.add(acc);
+            }
+         }
+      }
+      <span class="hljs-keyword">if</span>(listofacc.size() &gt; <span class="hljs-number">0</span>){
+         update listofacc;
+      }
+   }
+</code></pre>
+<ol start="20">
+<li class="has-line-data" data-line-start="709" data-line-end="711">011 - update other filed on change of one from other object
+<blockquote>
+<p class="has-line-data" data-line-start="710" data-line-end="711">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="712" data-line-end="714" class="language-java">
+</code></pre>
+<ol start="21">
+<li class="has-line-data" data-line-start="714" data-line-end="716">
+<p class="has-line-data" data-line-start="714" data-line-end="715">Restrict delete opereation in presense of related child data</p>
+</li>
+<li class="has-line-data" data-line-start="716" data-line-end="718">
+<p class="has-line-data" data-line-start="716" data-line-end="717">014 - delete children on parent delete</p>
+<blockquote>
+<p class="has-line-data" data-line-start="717" data-line-end="718">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="719" data-line-end="721" class="language-java">
+</code></pre>
+<ol start="22">
+<li class="has-line-data" data-line-start="721" data-line-end="723">019 - like 011 but delete operation
+<blockquote>
+<p class="has-line-data" data-line-start="722" data-line-end="723">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="724" data-line-end="726" class="language-java">
+</code></pre>
+<ol start="23">
+<li class="has-line-data" data-line-start="726" data-line-end="728">006 - Mark row for undelete
+<blockquote>
+<p class="has-line-data" data-line-start="727" data-line-end="728">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="729" data-line-end="731" class="language-java">
+</code></pre>
+<ol start="24">
+<li class="has-line-data" data-line-start="731" data-line-end="733">015 - undelete children on parent undelete
+<blockquote>
+<p class="has-line-data" data-line-start="732" data-line-end="733">Getting started with trigger.</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="734" data-line-end="736" class="language-java">
+</code></pre>
+<h2 class="code-line" data-line-start=736 data-line-end=737 ><a id="25_Examples_736"></a>25. Examples</h2>
+<blockquote>
+<p class="has-line-data" data-line-start="737" data-line-end="739">Create the object called “Customer” and create the Master-Detail Relationship on Customer object so that Customer will be the related list to Account record. Create the field called “Account Manager” on Customer object which is lookup to the user object.<br>
+Now Logic is when we create Customer record for account record, then the user in Account Manager field will be automatically added to Account Team of that associated account.</p>
+</blockquote>
+<pre><code class="has-line-data" data-line-start="740" data-line-end="773" class="language-java">   <span class="hljs-function">trigger InsertAccountTeam on <span class="hljs-title">Customer__c</span><span class="hljs-params">(after insert)</span> </span>{
+      List &lt; AccountTeamMember &gt; atm_list = <span class="hljs-keyword">new</span> List &lt; AccountTeamMember &gt; ();
+      AccountTeamMember atm = <span class="hljs-keyword">new</span> AccountTeamMember();
+      List &lt; AccountShare &gt; newShare = <span class="hljs-keyword">new</span> List &lt; AccountShare &gt; ();
+      <span class="hljs-keyword">if</span> (trigger.isInsert)
+      {
+         For(Customer__c c: Trigger.new)
+         {
+            <span class="hljs-keyword">if</span> (c.Account_Manager__c != <span class="hljs-keyword">null</span>) {
+               <span class="hljs-comment">// create Account member with pre fill data</span>
+               atm = <span class="hljs-keyword">new</span> AccountTeamMember(accountid=c.Account__c, teamMemberRole=<span class="hljs-string">'Account Manager'</span>, UserId = c.Account_Manager__c);
+               atm_list.add(atm);
+               
+               <span class="hljs-comment">// create AccountShare blank and then fill data</span>
+               AccountShare shares = <span class="hljs-keyword">new</span> AccountShare();
+               shares.AccountId = c.Account__c;
+               shares.UserOrGroupId = c.Account_Manager__c;
+               shares.AccountAccessLevel = <span class="hljs-string">'Read/Write'</span>;
+               shares.OpportunityAccessLevel = <span class="hljs-string">'Read Only'</span>;
+               shares.CaseAccessLevel = <span class="hljs-string">'Read Only'</span>;
+               newShare.add(shares);
+            }
+         }
+         <span class="hljs-keyword">if</span> (atm_list != <span class="hljs-keyword">null</span>)
+            Insert atm_list; <span class="hljs-comment">// Insert using insert method</span>
+         <span class="hljs-keyword">if</span> (newShare != <span class="hljs-keyword">null</span> &amp;&amp; newShare.size() &gt; <span class="hljs-number">0</span>)
+            List &lt; Database.saveresult &gt; sr = Database.insert(newShare, <span class="hljs-keyword">false</span>); <span class="hljs-comment">// Insert using Database method and return</span>
+      }
+   }
+
+   <span class="hljs-comment">// practice:</span>
+   <span class="hljs-comment">// 1. When we create the Opportunity with the Probability=20, then the opportunity owner will be automatically added to Account Team of the associated account for that Opportunity.</span>
+</code></pre>
+<p class="has-line-data" data-line-start="776" data-line-end="799">027 - update by prefix on each entry<br>
+036 - test class for trigger<br>
+035 - logic in external class<br>
+033 - common object update by more trigger<br>
+005 - All DML operations<br>
+003 - Validation<br>
+030 - delete confirmation<br>
+001 - Duplication check<br>
+007 - optimized duplicate check<br>
+002 - before save, fill some data<br>
+026 - add child on parent add<br>
+017 - like 011 but return of DML operation<br>
+021 - like 017 with aditional condition<br>
+004 - on add/update create other object entry<br>
+034 - like 004 with condition<br>
+008 - update all children by value from parent<br>
+010 - update all parent by the valueof child<br>
+009 - rollup summery<br>
+011 - update other filed on change of one from other object<br>
+014 - delete children on parent delete<br>
+019 - like 011 but delete operation<br>
+006 - Mark row for undelete<br>
+015 - undelete children on parent undelete</p>
+<p class="has-line-data" data-line-start="800" data-line-end="802"><a href="https://trailhead.salesforce.com/en/content/learn/modules/apex_triggers/apex_triggers_intro">https://trailhead.salesforce.com/en/content/learn/modules/apex_triggers/apex_triggers_intro</a><br>
+<a href="https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers.htm">https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers.htm</a></p>
+
+</body></html>
