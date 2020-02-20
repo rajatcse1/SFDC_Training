@@ -299,6 +299,180 @@
             Insert lstContact;
          }
    ```
+   ```java
+      Account a = new Account(Name = 'Acme');
+      insert a;  // Inserting the record automatically assigns a 
+               // value to its ID field
+      Contact c = new Contact(LastName = 'Weissman');
+      c.AccountId = a.Id;
+      // The new contact now points at the new account
+      insert c;
+
+      // A SOQL query accesses data for the inserted contact, 
+      // including a populated c.account field
+      c = [SELECT Account.Name FROM Contact WHERE Id = :c.Id];
+
+      // Now fields in both records can be changed through the contact
+      c.Account.Name = 'salesforce.com';
+      c.LastName = 'Roth';
+
+      // To update the database, the two types of records must be 
+      // updated separately
+      update c;         // This only changes the contact's last name
+      update c.Account; // This updates the account name
+   ```
+   ```java
+      // type 1:
+      Account refAcct = new Account(externalId__c = '12345');
+      Contact c = new Contact(Account = refAcct, LastName = 'Kay');
+      insert c;
+
+      // type 2:
+      Account refAcct = [SELECT Id FROM Account WHERE externalId__c='12345'];
+      Contact c = new Contact(Account = refAcct.Id);
+      insert c;
+   ```
+   ```java
+      for (Account a : [SELECT Id, Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'Acme']) {
+         Contact[] cons = a.Contacts; // children are stored as plural name of the object
+      }
+
+      //The following example also works because we limit to only 1 contact
+      for (Account a : [SELECT Id, Name, (SELECT LastName FROM Contacts LIMIT 1) FROM Account WHERE Name = 'testAgg']) {
+         Contact c = a.Contacts;
+      }
+   ```
+   > Using Agregarion
+   ```java
+      AggregateResult[] groupedResults = [SELECT CampaignId, AVG(Amount)aver FROM Opportunity GROUP BY CampaignId];
+      for (AggregateResult ar : groupedResults)  {
+         System.debug('Campaign ID' + ar.get('CampaignId'));
+         System.debug('Average amount' + ar.get('aver'));
+      }
+   ```
+   > Bulk update
+   ```java
+      // Use this format for efficiency if you are executing DML statements 
+      // within the for loop
+      for (List<Account> accts : [SELECT Id, Name FROM Account WHERE Name LIKE 'Acme%']) {
+         // Your code here
+         update accts;
+      }
+   ```
+   > Variable in SOQL
+   ```java
+      Account A = new Account(Name='xxx');
+      insert A;
+      Account B;
+
+      // A simple bind
+      B = [SELECT Id FROM Account WHERE Id = :A.Id];
+
+      // A bind with arithmetic
+      B = [SELECT Id FROM Account 
+         WHERE Name = :('x' + 'xx')];
+
+      String s = 'XXX';
+
+      // A bind with expressions
+      B = [SELECT Id FROM Account 
+         WHERE Name = :'XXXX'.substring(0,3)];
+
+      // A bind with an expression that is itself a query result
+      B = [SELECT Id FROM Account
+         WHERE Name = :[SELECT Name FROM Account
+                        WHERE Id = :A.Id].Name];
+
+      Contact C = new Contact(LastName='xxx', AccountId=A.Id);
+      insert new Contact[]{C, new Contact(LastName='yyy', 
+                                          accountId=A.id)};
+
+      // Binds in both the parent and aggregate queries
+      B = [SELECT Id, (SELECT Id FROM Contacts
+                     WHERE Id = :C.Id)
+         FROM Account
+         WHERE Id = :A.Id];
+
+      // One contact returned
+      Contact D = B.Contacts;
+
+      // A limit bind
+      Integer i = 1;
+      B = [SELECT Id FROM Account LIMIT :i];
+
+      // An OFFSET bind
+      Integer offsetVal = 10;
+      List<Account> offsetList = [SELECT Id FROM Account OFFSET :offsetVal];
+
+      // An IN-bind with an Id list. Note that a list of sObjects
+      // can also be used--the Ids of the objects are used for 
+      // the bind
+      Contact[] cc = [SELECT Id FROM Contact LIMIT 2];
+      Task[] tt = [SELECT Id FROM Task WHERE WhoId IN :cc];
+
+      // An IN-bind with a String list
+      String[] ss = new String[]{'a', 'b'};
+      Account[] aa = [SELECT Id FROM Account 
+                     WHERE AccountNumber IN :ss];
+
+      // A SOSL query with binds in all possible clauses
+
+      String myString1 = 'aaa';
+      String myString2 = 'bbb';
+      Integer myInt3 = 11;
+      String myString4 = 'ccc';
+      Integer myInt5 = 22;
+
+      List<List<SObject>> searchList = [FIND :myString1 IN ALL FIELDS 
+                                       RETURNING 
+                                          Account (Id, Name WHERE Name LIKE :myString2
+                                                   LIMIT :myInt3), 
+                                          Contact, 
+                                          Opportunity, 
+                                          Lead 
+                                       WITH DIVISION =:myString4 
+                                       LIMIT :myInt5];
+   
+   // distance function
+   String units = 'mi';
+   List<Account> accountList = 
+      [SELECT ID, Name, BillingLatitude, BillingLongitude 
+      FROM Account 
+      WHERE DISTANCE(My_Location_Field__c, GEOLOCATION(10,10), :units) < 10]; 
+   ```
+   > loop SOQL
+   ```java
+      // wrong way
+      for (Account acct : [SELECT Id, Name, (SELECT Id, Name FROM Contacts) 
+                        FROM Account WHERE Id IN ('<ID value>')]) { 
+         List<Contact> contactList = acct.Contacts; // Causes an error
+         Integer count = acct.Contacts.size(); // Causes an error
+      }
+
+      // correct way
+      for (Account acct : [SELECT Id, Name, (SELECT Id, Name FROM Contacts) 
+                        FROM Account WHERE Id IN ('<ID value>')]) { 
+         Integer count=0;
+         for (Contact c : acct.Contacts) {
+            count++;
+         }
+      }
+   ```
+   > Expanding sObject and List Expressions
+   ```java
+      Integer acctNameLength = new Account[]{new Account(Name='Acme')}[0].Name.length();
+      String nameChange = [SELECT Name FROM Account][0].Name.toLowerCase();
+   ```
+   > Auto populate Map from SOQL
+   ```java
+      // Populate map from SOQL query
+      Map<ID, Account> m = new Map<ID, Account>([SELECT Id, Name FROM Account LIMIT 10]);
+      // After populating the map, iterate through the map entries
+      for (ID idKey : m.keyset()) {
+         Account a = m.get(idKey);
+         System.debug(a);
+      }
+   ```
 ## 8. Trigger for validation
    > Account with account number present cannot be deleted
    ```java
@@ -323,40 +497,109 @@
          }
       }
    ``` 
-9.  001 - Duplication check
-    > Getting started with trigger.
+9.  007 - Duplication check(!!!Need to work on map)
+    > Check availablity of the same name of newly created account
    ```java
+      trigger DuplicateAccount on Account(before insert) {
+         // build teh set of names to make single query
+         Set < String > accset = new Set < String > ();
+         for (Account acc: Trigger.new) {
+               accset.add(acc.name);
+         }
 
-   ```
-11. 007 - optimized duplicate check
-    > Getting started with trigger.
-   ```java
+         // build map to lookup quickly
+         Map < String, id > mapacc = new Map < String, id > ();
+         for (Account acc: [select id, name from Account where name IN accset]) { // single query made
+               mapacc.put(acc.name, acc.id);
+         }
 
+         // check each insertable account name with teh map created
+         for (Account acc: trigger.new) {
+               id accountid = mapacc.get(acc.name);
+               if (accountid != null) { // account name availability check
+                  acc.name.addError('duplicate account');
+               }
+         }
+      }
    ```
 11. 002 - before save, fill some data
-    > Getting started with trigger.
+   > Before creating new Account record change the field values.
    ```java
-
+      trigger Updateindusty on Account (before insert) {
+         for(Account acc:trigger.new) {
+            acc.phone='87482758745';
+            acc.Rating='warm';
+            acc.Industry='clould computing';
+         }
+      }
+   ```
+   > Before insert account or update owner of a account fill owner name as `sales_Rep__c` derived from owner
+   ```java
+      triggerUpdateSalesRep on Account(Before insert, Before Update) {
+         Set <Id> setAccOwner = new Set<Id>();
+         for(Account Acc: trigger.new) {
+            setAccOwner.add(Acc.OwnerId);
+         }
+         Map<Id, User> User_map = new Map<Id, User>("select Name from User where id in: setAccOwner");
+         for(Account Acc: Trigger.new) {
+            User usr = User_map.get(Acc.OwnerId);
+            Acc.sales_Rep__c = usr.Name;
+         }
+      }      
    ```
 12. 026 - add child on parent add
-    > Getting started with trigger.
+   > On new account insert, create a default contact against each account
    ```java
-
+      trigger NewContactCreateByAccount on Account (After insert) {
+         List<Contact> contacts=new List<Contact>();
+         For(Account acc:trigger.new){
+            Contact cont=new Contact();
+            cont.FirstName='Info';
+            cont.LastName='Default';
+            cont.Email='info@websitedomain.tld';
+            contacts.add(cont);
+         }
+         if(contacts.size()>0){
+            Insert contacts; // single DML for multiple records      
+         }
+      }
    ```
-13. 017 - like 011 but return of DML operation
-    > Getting started with trigger.
+   > On new account insert, create a default contact against each account if createDefaultContact is checked in
    ```java
-
-   ```
-14. 021 - like 017 with aditional condition
-    > Getting started with trigger.
-   ```java
-
+      trigger NewContactCreateByAccount on Account (After insert) {
+         List<Contact> contacts=new List<Contact>();
+         For(Account acc:trigger.new){
+            if(acc.createDefaultContact__c){ 
+               Contact cont=new Contact();
+               cont.FirstName='Info';
+               cont.LastName='Default';
+               cont.Email='info@websitedomain.tld';
+               contacts.add(cont);
+            }
+         }
+         if(!contacts.isEmpty()){
+            Insert contacts; // single DML for multiple records      
+         }      
+      }
    ```
 15. 004 - on add/update create other object entry
-    > Getting started with trigger.
+    > Keep a copy of a account before update
    ```java
-
+      trigger UpdateCopyAccount on Account (before update) {
+         List<CopyAccount__c> lstCopyAccount__c = new List<CopyAccount__c>();
+         for(Account acc : trigger.new) {
+            System.debug('new value'+acc.name);
+         }
+         for(Account acc : trigger.old) {
+            CopyAccount__c ca = new CopyAccount__c();
+            ca.name=  acc.name;
+            System.debug('old value'+acc.name);
+            lstCopyAccount__c.add(ca);
+         }
+         if(!lstCopyAccount__c.isEmpty()){
+            Insert lstCopyAccount__c;
+         }
+      }
    ```
 16. 034 - like 004 with condition
     > Getting started with trigger.
@@ -369,14 +612,100 @@
 
    ```
 18. 010 - update all parent by the valueof child
-    > Getting started with trigger.
+   > Create the object called “Customer Project” and create Status field under this object with picklist data type (Values=Active, Inactive). Create the relationship between this custom object and Opportunity so that "Customer Project" is related list to the Opportunity.
+   > Create "Active Customer project"‑ field on Opportunity object (Data Type=Checkbox)
+   > The logic is when we create Customer Project for an Opportunity with the Status=Active, then "Active Customer project" check box on the Opportunity Detail page is automatically checked.
    ```java
+      trigger UpdateCPActivenOnOppty on Customer_Project__c(after insert) {
+         List < Opportunity > opps = new List < Opportunity > ();
+         for (Customer_Project__c cp: Trigger.New) {
+            if (cp.Status__c == 'Active') {
+                  Opportunity opp = new Opportunity(id = cp.Opportunity__c);
+                  opp.Active_Customer_Project__c = True;
+                  //update opp;
+                  opps.add(opp);
+            }
+         }
+         update opps;
+      }
+   ```
+   > Update phone number of account from Contact
+   ```java
+      trigger updatephone on Contact(after insert, after update) {
+         set <id> ids = new set <id> ();
+         List <account> acclist = new List <account> ();
+         for (contact con: trigger.new) {
+            ids.add(con.AccountId);
+         }
 
+         Map <Id, Account> accountMap = new Map <Id, Account>([Select Id, Phone From Account Where Id In: ids]);
+         for (contact c: trigger.new) {
+            Account acc = accountMap.get(c.AccountId);
+            if (acc != null) {
+               acc.Phone = c.Phone;
+               acclist.add(acc);
+            }
+         }
+         update acclist;
+      }
    ```
 19. 009 - rollup summery
-    > Getting started with trigger.
+   > On Contact record create, update account field which holds teh underline contacts count
    ```java
-
+      trigger NoOfcontacts on Contact(after insert) {
+         Set<id> relAccIds = new Set<id>();
+         for (Contact contact: trigger.new) {
+            relAccIds.add(contact.AccountId);
+         }
+         Map<Id,Account> acctsWithOpps = new Map<Id,Account>([SELECT Id, Name,(SELECT Id, Name FROM Contacts) FROM Account WHERE ID IN relAccIds]);
+         List<Account> accounts =  New List<Account>();
+         for(Id key: acctsWithOpps.keyset()){
+            Account acc = acctsWithOpps.get(key)
+            acc.No_of_contacts__c = acc.Contacts.size();
+            accounts.add(acc);
+         }
+         if(accounts.size()>0){
+            Update accounts;
+         }
+      }
+   ```
+   ```java
+      // Lengthy way
+      trigger Noofcontacts on Contact(after insert) {
+         Set<id> ids = new Set<id>();
+         List<Account> acclist = new List<Account>();
+         List<Account> listofacc = new List<Account>();
+         List<Contact> conlist = new List<Contact>();
+         List<COntact> listofcon = new List<Contact>();
+         Map<id, integer> mapcount = new Map<id, integer>();
+         for (contact con: trigger.new) {
+            ids.add(con.accountid);
+         }
+      
+         acclist = [select id, name from account where id in: ids];
+         conlist = [select id, name, accountid from contact where accountid in: ids];
+         for(account acc: acclist) {
+            for(contact con: conlist) {
+               if(con.accountid == acc.id) {
+                  listofcon.add(con);
+                  mapcount.put(con.AccountId, listofcon.size());
+               }
+            }
+         }
+         if(acclist.size() > 0) {
+            for(Account acc: acclist){
+               if(mapcount.get(acc.id) == null) {
+                  acc.No_of_contacts__c = 0;
+               }else {
+                  acc.No_of_contacts__c = mapcount.get(acc.id);
+                  listofacc.add(acc);
+               }
+            }
+         }
+         if(listofacc.size() > 0){
+            update listofacc;
+         }
+      }
    ```
 20. 011 - update other filed on change of one from other object
     > Getting started with trigger.
@@ -405,7 +734,44 @@
    ```java
 
    ```
-25. 
+25. Examples
+   > Create the object called "Customer" and create the Master-Detail Relationship on Customer object so that Customer will be the related list to Account record. Create the field called "Account Manager" on Customer object which is lookup to the user object.
+   > Now Logic is when we create Customer record for account record, then the user in Account Manager field will be automatically added to Account Team of that associated account.
+   ```java
+      trigger InsertAccountTeam on Customer__c(after insert) {
+         List < AccountTeamMember > atm_list = new List < AccountTeamMember > ();
+         AccountTeamMember atm = new AccountTeamMember();
+         List < AccountShare > newShare = new List < AccountShare > ();
+         if (trigger.isInsert)
+         {
+            For(Customer__c c: Trigger.new)
+            {
+               if (c.Account_Manager__c != null) {
+                  // create Account member with pre fill data
+                  atm = new AccountTeamMember(accountid=c.Account__c, teamMemberRole='Account Manager', UserId = c.Account_Manager__c);
+                  atm_list.add(atm);
+                  
+                  // create AccountShare blank and then fill data
+                  AccountShare shares = new AccountShare();
+                  shares.AccountId = c.Account__c;
+                  shares.UserOrGroupId = c.Account_Manager__c;
+                  shares.AccountAccessLevel = 'Read/Write';
+                  shares.OpportunityAccessLevel = 'Read Only';
+                  shares.CaseAccessLevel = 'Read Only';
+                  newShare.add(shares);
+               }
+            }
+            if (atm_list != null)
+               Insert atm_list; // Insert using insert method
+            if (newShare != null && newShare.size() > 0)
+               List < Database.saveresult > sr = Database.insert(newShare, false); // Insert using Database method and return
+         }
+      }
+
+      // practice:
+      // 1. When we create the Opportunity with the Probability=20, then the opportunity owner will be automatically added to Account Team of the associated account for that Opportunity.
+   ```
+
 
 
 027 - update by prefix on each entry
