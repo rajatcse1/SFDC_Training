@@ -497,7 +497,7 @@
          }
       }
    ``` 
-9.  007 - Duplication check(!!!Need to work on map)
+## 9.  007 - Duplication check(!!!Need to work on map)
     > Check availablity of the same name of newly created account
    ```java
       trigger DuplicateAccount on Account(before insert) {
@@ -522,7 +522,7 @@
          }
       }
    ```
-11. 002 - before save, fill some data
+## 11. 002 - before save, fill some data
    > Before creating new Account record change the field values.
    ```java
       trigger Updateindusty on Account (before insert) {
@@ -547,7 +547,7 @@
          }
       }      
    ```
-12. 026 - add child on parent add
+## 12. 026 - add child on parent add
    > On new account insert, create a default contact against each account
    ```java
       trigger NewContactCreateByAccount on Account (After insert) {
@@ -582,7 +582,7 @@
          }      
       }
    ```
-15. 004 - on add/update create other object entry
+## 15. 004 - on add/update create other object entry
     > Keep a copy of a account before update
    ```java
       trigger UpdateCopyAccount on Account (before update) {
@@ -611,7 +611,7 @@
    ```java
 
    ```
-18. 010 - update all parent by the valueof child
+## 18. 010 - update all parent by the valueof child
    > Create the object called “Customer Project” and create Status field under this object with picklist data type (Values=Active, Inactive). Create the relationship between this custom object and Opportunity so that "Customer Project" is related list to the Opportunity.
    > Create "Active Customer project"‑ field on Opportunity object (Data Type=Checkbox)
    > The logic is when we create Customer Project for an Opportunity with the Status=Active, then "Active Customer project" check box on the Opportunity Detail page is automatically checked.
@@ -649,7 +649,7 @@
          update acclist;
       }
    ```
-19. 009 - rollup summery
+## 19. 009 - rollup summery
    > On Contact record create, update account field which holds teh underline contacts count
    ```java
       trigger NoOfcontacts on Contact(after insert) {
@@ -734,7 +734,7 @@
    ```java
 
    ```
-25. Examples
+## 25. Examples
    > Create the object called "Customer" and create the Master-Detail Relationship on Customer object so that Customer will be the related list to Account record. Create the field called "Account Manager" on Customer object which is lookup to the user object.
    > Now Logic is when we create Customer record for account record, then the user in Account Manager field will be automatically added to Account Team of that associated account.
    ```java
