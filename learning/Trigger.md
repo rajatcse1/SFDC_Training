@@ -221,7 +221,7 @@
       // get Account sObjects records which are about to delete
       List<Account> accounts = [SELECT Id, AccountName FROM Account WHERE Id IN :Trigger.old]
       // get Opportunity sObject records related to Account sObjects records which are about to delete
-      List<Account> accounts = [SELECT Id, OpportunityName FROM Opportunity WHERE Account IN :Trigger.old]
+      List<Opportunity> opportunities = [SELECT Id, OpportunityName FROM Opportunity WHERE Account IN :Trigger.old]
    ```
    > Get the related opportunities (as Map) for the accounts in this trigger 
    ```java
