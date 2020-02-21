@@ -232,7 +232,7 @@
       List<Id> lstAccIds = new List<Id>();
       for(Contact contact : Trigger.new) {
          if(contact.Accountid != null) {
-            lstAccIds.add(con.AccountId);
+            lstAccIds.add(contact.AccountId);
          }
       }
    ```
@@ -241,7 +241,7 @@
       Set<Id> setAccIds = new Set<Id>();
       for(Contact contact : Trigger.new) {
          if(contact.Accountid != null) {
-            setAccIds.add(con.AccountId);
+            setAccIds.add(contact.AccountId);
          }
       }
    ```
@@ -265,15 +265,17 @@
          // data not there
       }
    ``` 
-   > Programic DMl operation
+   > Programic DML operation
    ```java
       // create sObject(Account)
       Account newAccount = new Account();
+      
       // create and fill data to new account
       Account newAccount = new Account();
       newAccount.phone='87482758745';
       newAccount.Rating='warm';
       newAccount.Industry='clould computing';
+      
       // create, fill and insert new account
       Account newAccount = new Account();
       newAccount.phone='87482758745';
@@ -293,7 +295,7 @@
          for (Account account: accountList){
             Contact newContact = new Contact();
             newContact.FirstName = account.FirstName;
-            lstContact = newContact; // prepare list for single DML
+            lstContact.add(newContact); // prepare list for single DML
          }
          if (lstContact.size() > 0) { // test of content before DML as DML with blank list throw error
             Insert lstContact;
@@ -304,7 +306,7 @@
       insert a;  // Inserting the record automatically assigns a 
                // value to its ID field
       Contact c = new Contact(LastName = 'Weissman');
-      c.AccountId = a.Id;
+      c.Account = a.Id;
       // The new contact now points at the new account
       insert c;
 
@@ -553,7 +555,7 @@
       trigger NewContactCreateByAccount on Account (After insert) {
          List<Contact> contacts=new List<Contact>();
          For(Account acc:trigger.new){
-            Contact cont=new Contact();
+            Contact cont=new Contact(Account=acc);
             cont.FirstName='Info';
             cont.LastName='Default';
             cont.Email='info@websitedomain.tld';
@@ -570,7 +572,7 @@
          List<Contact> contacts=new List<Contact>();
          For(Account acc:trigger.new){
             if(acc.createDefaultContact__c){ 
-               Contact cont=new Contact();
+               Contact cont=new Contact(Account=acc);
                cont.FirstName='Info';
                cont.LastName='Default';
                cont.Email='info@websitedomain.tld';
