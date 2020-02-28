@@ -1833,7 +1833,7 @@ So we follow below steps
 
 **Scenario2: If there are no pre existing records in the Obj2 then?**
 
-####4)Consider a scenario
+#### 4)Consider a scenario
 
 I’m trying to implement Pagination. Initially i want to display 50 records and when user click on Next button, the records stating from 51 to 100 should get displayed. How do I accomplish this.
 Answer:
@@ -1845,7 +1845,7 @@ where Price__c > 5
 Order by Name Limit 100
 OFFSET 50
 
-####5) Consider a scenario
+#### 5) Consider a scenario
 
 I have two workflow Rules and two fields F1 and F2.
 When ever F1 is updated to value= 10, WF1 fires and updates F1 value to 20 and F2 value to 30
@@ -1855,7 +1855,7 @@ Answer:
 
 This scenario will cause recursive Workflow rule
 This will exhaust the governor limit and result in error
-####6)Consider a scenario
+#### 6)Consider a scenario
 
 I have a User, Who will leave the organization tomorrow. He is basically a manager and there are 15 users below him.
 Now when this user leaves the organization I would generally inactivate the User.
@@ -1871,7 +1871,7 @@ Note:
 
 2. Freezing user accounts doesn’t frees the user licenses available for use in your organization. We have to de activate the user to free the license.
 
-####7)Consider the scenario
+#### 7)Consider the scenario
 
 I want to delete 20000 records and I don’t want them to be recovered from recycle bin.
 OR
@@ -1881,7 +1881,7 @@ I want to do a mass delete on set of records and don’t what them getting into 
 Answer:
 
 Yes this is possible, Use Hard Delete Option
-####8)Consider the scenario:
+#### 8)Consider the scenario:
 
 Let say I have a page which displays the set of records from Account object and I’m using a standard controller.
 Now I have two users belonging to same Profile. When they login and view this page, they get a message “Insufficient privileges”.
@@ -1893,7 +1893,7 @@ Question speaks about standard Object and Standard Controller.
 Also remember permission to a object is given by Profile.
 So we need to check if the user has permission to read data of this Object.
 Only if the permission is given to the user,he’ll be able at access them else he will get an error message as “Insufficient privileges”
-####9)Consider the scenario:
+#### 9)Consider the scenario:
 
 I have Standard Controller and Controller Extension.
 You can write all that logic in Controller Extension which can be written in Custom Controller. Also both Controller Extension and Custom controller execute in System Mode.
