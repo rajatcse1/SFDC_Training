@@ -1393,18 +1393,18 @@ There’s also an older example of callout unit testing that uses a static varia
 Answer :
 To find out if a particular user has Edit access to a record, use the UserRecordAccess object. This object is available in API version 24.0 and later. You can use SOQL to query this object to find out if the user has edit access to the record in question.
 
-SELECT RecordId, HasEditAccess FROM UserRecordAccess WHERE UserId = [single ID] AND RecordId = [single ID]
+`SELECT RecordId, HasEditAccess FROM UserRecordAccess WHERE UserId = [single ID] AND RecordId = [single ID]`
 
 If you want to check a batch of records you can use
 
-SELECT RecordId FROM UserRecordAccess WHERE UserId=:UserInfo.getUserId() AND HasReadAccess = true ANDRecordId IN :allRecordIds LIMIT 200
+`SELECT RecordId FROM UserRecordAccess WHERE UserId=:UserInfo.getUserId() AND HasReadAccess = true ANDRecordId IN :allRecordIds LIMIT 200`
 
 But make sure that allRecordIds is a LIST of IDs. It doesn’t work if allRecordIds is a SET of IDs. I guess that’s a bug.
 
 Also, only a maximum amount of 200 recordIds can be checked in one query.
 
 ## 30 Salesforce Admin Interview Questions
-General Cloud Computing
+#### General Cloud Computing
 **1. What is cloud computing?**
 
 **2. What is SaaS?**
@@ -1413,7 +1413,7 @@ General Cloud Computing
 
 **4. What are the benefits of cloud computing?**
 
-User Management
+#### User Management
 **5. What is a Role?**
 
 **6. What is a Profile?**
@@ -1422,7 +1422,7 @@ User Management
 
 **8. What is a permission set?**
 
-Fields and Objects
+#### Fields and Objects
 **9. How many relationship types are in Salesforce and what are they?**
 
 **10. What is a lookup relationship?**
@@ -1437,7 +1437,7 @@ Fields and Objects
 
 **15. How can one create a roll-up summary field?**
 
-Security Setting
+#### Security Setting
 **16. Is it possible to limit Salesforce via an I.P address, if so how?**
 
 **17. Can more than one-person log into the same user at the same time?**
@@ -1446,7 +1446,7 @@ Security Setting
 
 **19. What is the difference between sharing rules and permission sets?**
 
-Automation and Validation
+#### Automation and Validation
 **20. What is a workflow rule?**
 
 **21. What business problems do approval processes solve?**
@@ -1459,7 +1459,7 @@ Automation and Validation
 
 **25. How is Apex used within Salesforce?**
 
-Reporting and Dashboards
+#### Reporting and Dashboards
 **26. How many types of reports does Salesforce support?**
 
 **27. What kind of report can be used in a Salesforce dashboard?**
@@ -1471,21 +1471,21 @@ Reporting and Dashboards
 **30. Talk me through step by step how to create a report?**
 
 
-30 Salesforce Developer Interview Questions & Answers
-General Questions
+## 30 Salesforce Developer Interview Questions & Answers
+####General Questions
 **1. What is the difference between a role and a profile?**
 Profiles are both features that can be added to a user record in Salesforce. Roles are optionally added while Profiles are a basic requirement of setting up a user.
 
-Profiles help to control object privileges such as CRED (Create, Read, Edit, Delete). They also contain system permissions that a user can carry out such as exporting data.
+**Profiles** help to control object privileges such as CRED (Create, Read, Edit, Delete). They also contain system permissions that a user can carry out such as exporting data.
 
-Roles on the other hand help with sharing records across an organisation. They work in a hierarchical fashion, giving users access to records that are owned by people lower down in the hierarchy.
+**Roles** on the other hand help with sharing records across an organisation. They work in a hierarchical fashion, giving users access to records that are owned by people lower down in the hierarchy.
 
 **2. Can you name three types of object relationships available in Salesforce?**
 There are three main relationship types in Salesforce…
 
-A lookup relationship can be used to link two objects together. It is the most basic type of relationship that creates a child-parent relationship between two objects.
-A master-detail relationship can also be used to link two objects together. A master-detail relationship creates a tight relationship between the parent and the child. The child record inherits security of the parent, and if the parent is deleted, all associated child records will also be deleted. Master-detail relationships created some extra functionality such as roll-up summary fields that allow you to calculate data on the parent from the children.
-A many-to-many relationship (Also referred to as a junction object), allows you to create a relationship between two objects that need to model a many-to-many relationship. These are created with an object that has two master-detail relationships to two parent objects.
+A `lookup relationship` can be used to link two objects together. It is the most basic type of relationship that creates a child-parent relationship between two objects.
+A `master-detail relationship` can also be used to link two objects together. A master-detail relationship creates a tight relationship between the parent and the child. The child record inherits security of the parent, and if the parent is deleted, all associated child records will also be deleted. Master-detail relationships created some extra functionality such as roll-up summary fields that allow you to calculate data on the parent from the children.
+A `many-to-many relationship` (Also referred to as a junction object), allows you to create a relationship between two objects that need to model a many-to-many relationship. These are created with an object that has two master-detail relationships to two parent objects.
 **3. What is SOQL used for?**
 SOQL stands for Salesforce Object Query Language. It is very similar to the widely used language SQL (Structured Query Language), to query databases. SOQL is specifically designed for Salesforce data and is used to query the Salesforce platform to retrieve data. SOQL is used within Apex & Visualforce to return sets of data.
 
@@ -1498,7 +1498,7 @@ There are various ways to deploy from Sandbox to Production. The main way is to 
 **6. How are bucket fields used in Salesforce?**
 Bucket fields can be used in Salesforce reports to group together field values. These fields are not created on the Salesforce platform and only exist in in the report itself.
 
-Apex Questions
+####Apex Questions
 **7. What is Apex?**
 Apex is a strongly typed, object-oriented programming language that allows developers to extend the Salesforce platform by writing their own business logic into the platform. Apex looks similar to Java and can be launched through a variety of user-initiated events such as record updates, button clicks, triggers on objects, or external web service requests.
 
@@ -1521,7 +1521,7 @@ Total number of SOQL queries issued — 100 (Synchronous) 200 (Asynchronous)
 Total number of DML statements issued — 150
 Total number of callouts (HTTP requests or Web services calls) in a transaction — 100
 Maximum CPU time on the Salesforce servers — 10,000ms (Synchronous) 60,000ms (Asynchronous)
-**12. What is Apex test coverage?** What’s the minimum test coverage required to deploy?**
+**12. What is Apex test coverage? What’s the minimum test coverage required to deploy?**
 To ensure that your code meets certain standards, Apex Code coverage shows you how many executable lines of code in your classes and triggers have been exercised by test methods. Code coverage percentage is a calculation of the number of covered lines divided by the sum of the number of covered lines and uncovered lines. The minimum test coverage required to deploy to production is 75%
 
 **13. What are some Apex best practices?**
@@ -1537,9 +1537,9 @@ You can use email services to process the contents, headers, and attachments of 
 **15. What are the different type of Collections you can have in Apex?**
 There are three main types of collections…
 
-Lists — A list is an ordered collection of elements that are distinguished by their indices. List elements can be of any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
-Sets — A set is an unordered collection of elements that do not contain any duplicates. Set elements can be of any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
-Maps — A map is a collection of key-value pairs where each unique key maps to a single value. Keys and values can be any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
+**Lists :** A list is an ordered collection of elements that are distinguished by their indices. List elements can be of any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
+**Sets:**  A set is an unordered collection of elements that do not contain any duplicates. Set elements can be of any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
+**Maps:** A map is a collection of key-value pairs where each unique key maps to a single value. Keys and values can be any data type — primitive types, collections, sObjects, user-defined types, and built-in Apex types.
 Visualforce Questions
 **16. What is Visualforce?**
 Visualforce is the component-based user interface framework for the Force.com platform. The framework includes a tag-based markup language, similar to HTML. Each Visualforce tag corresponds to a coarse or fine-grained user interface component, such as a section of a page, or a field. Visualforce boasts about 100 built-in components and a mechanism whereby developers can create their own components.
@@ -1556,7 +1556,7 @@ Custom Controllers can be written by a developer to override the standard functi
 The Lightning Component framework is a UI framework for developing dynamic web apps for mobile and desktop devices. It’s a modern framework for building single-page applications engineered for growth.
 The framework supports partitioned multi-tier component development that bridges the client and server. It uses JavaScript on the client side and Apex on the server side.
 
-Config Questions
+#### Config Questions
 **20. Explain the differences between Workflow and Process Builder?**
 Workflows and the Process Builder are declarative automation tools that can be used to extend the Salesforce platforms functionality. Both have point and click functionality and have a variety of functionality and features to automate business processes.
 
@@ -1570,13 +1570,13 @@ Sharing rules can be set up in order extend sharing, and to grant users access t
 **22. Can you explain the use of custom settings?**
 Custom settings are similar to custom objects and enable application developers to create custom sets of data, as well as create and associate custom data for an organization, profile, or specific user. You can use custom settings to store a variety of information that can be accessed easily by other Salesforce tools.
 
-23. Explain the use of a roll-up summary field and where it can be used
+**23. Explain the use of a roll-up summary field and where it can be used**
 Roll-up summary fields can be used to calculate information based off of a parent records child records. While a formula field can calculate information within a single record, roll-up summary fields can calculate data from a set of child records. For example, a roll-up summary field could be used to calculate the total value of all closed won opportunities on an account. Roll-up summary fields can only be used on a master-detail relationship.
 
-24. What’s the difference between Record Types & Page Layouts
+**24. What’s the difference between Record Types & Page Layouts**
 Whilst a page layout is used to define which fields, sections and related lists are displayed to a user, a record type can extend this by defining different business processes. See a full description of the differences here.
 
-Integration Questions
+#### Integration Questions
 **25. Explain the use of an Outbound Message?**
 An outbound message is one automation function that can fire from a workflow rule. They can send a message to external web services which can contain field values, this can subsequently kick off additional processes in external systems.
 
@@ -1789,7 +1789,7 @@ A. By Lightning Container, we can access third party framework such as angularJS
 A. Salesforce Lightning Inspector
 
 ## SFDC scenario based interview Questions
-1) Consider the scenario
+####1) Consider the scenario
 
 I have a profile by name ‘ProvideReadAccess’ and two users U1 and U2 assigned to it. And I have object X.
 My Question is I want to have ReadWrite access for U1 and ReadOnly access for U2 for the object X.
@@ -1799,7 +1799,8 @@ Answer:
 Read Access for both users is common hence in the Profile settings give ‘Read’ access for the object ‘X’
 By doing this User U2 will be able to read all the records( One condition satisfied) but U1 will also be able to only read the records(Second condition not satisfied).
 So next what do we do is we create a permission set say ‘GrantWriteAccess’ and in this permission set we give the object ‘X’ the Write access and assign the user U1 to this permission set.(2nd condition satisfied).
-2) Consider the scenario
+
+#### 2) Consider the scenario
 
 I have not given any CRUD permission in the profile ‘P1’ for an object O1, yet I’m able to create records for object ‘O1’. How could this be **possible?**
 Answer:
@@ -1807,7 +1808,7 @@ Answer:
 Any permission with respect to creation /deletion/Updating/viewing of object is possible only through permission set or Profile.
 Meaning If we are able to create records in a object then the Create Permission in either Profile or in Permission Set should be enables. If its not enabled in the Profile then it has be in the Permission set.
 So check for the permission set.
-3)Consider a scenario
+#### 3)Consider a scenario
 
 I have two objects Obj1 and Obj2 which are not related to each other.Now I want to create a Master Detail Relationship(MDR) between these **objects How can I do this?**
 Answer:
@@ -1832,7 +1833,7 @@ So we follow below steps
 
 **Scenario2: If there are no pre existing records in the Obj2 then?**
 
-4)Consider a scenario
+####4)Consider a scenario
 
 I’m trying to implement Pagination. Initially i want to display 50 records and when user click on Next button, the records stating from 51 to 100 should get displayed. How do I accomplish this.
 Answer:
@@ -1844,7 +1845,7 @@ where Price__c > 5
 Order by Name Limit 100
 OFFSET 50
 
-5) Consider a scenario
+####5) Consider a scenario
 
 I have two workflow Rules and two fields F1 and F2.
 When ever F1 is updated to value= 10, WF1 fires and updates F1 value to 20 and F2 value to 30
@@ -1854,7 +1855,7 @@ Answer:
 
 This scenario will cause recursive Workflow rule
 This will exhaust the governor limit and result in error
-6)Consider a scenario
+####6)Consider a scenario
 
 I have a User, Who will leave the organization tomorrow. He is basically a manager and there are 15 users below him.
 Now when this user leaves the organization I would generally inactivate the User.
@@ -1870,7 +1871,7 @@ Note:
 
 2. Freezing user accounts doesn’t frees the user licenses available for use in your organization. We have to de activate the user to free the license.
 
-7)Consider the scenario
+####7)Consider the scenario
 
 I want to delete 20000 records and I don’t want them to be recovered from recycle bin.
 OR
@@ -1880,7 +1881,7 @@ I want to do a mass delete on set of records and don’t what them getting into 
 Answer:
 
 Yes this is possible, Use Hard Delete Option
-8)Consider the scenario:
+####8)Consider the scenario:
 
 Let say I have a page which displays the set of records from Account object and I’m using a standard controller.
 Now I have two users belonging to same Profile. When they login and view this page, they get a message “Insufficient privileges”.
@@ -1892,7 +1893,7 @@ Question speaks about standard Object and Standard Controller.
 Also remember permission to a object is given by Profile.
 So we need to check if the user has permission to read data of this Object.
 Only if the permission is given to the user,he’ll be able at access them else he will get an error message as “Insufficient privileges”
-9)Consider the scenario:
+####9)Consider the scenario:
 
 I have Standard Controller and Controller Extension.
 You can write all that logic in Controller Extension which can be written in Custom Controller. Also both Controller Extension and Custom controller execute in System Mode.
