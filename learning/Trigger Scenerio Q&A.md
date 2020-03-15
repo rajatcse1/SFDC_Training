@@ -1,3 +1,4 @@
+
 # Trigger Scenarios: 
 
 ### Questions: 
@@ -49,7 +50,8 @@
 > 1. Create two objects credit card and Application . 
 > 2. Create lookup field on Application choosing Credit card as parent
 > 3. When we delete any credit card record all corresponding application records also be deleted.
-
+#### Trigger Scenario 30 :
+> 
 ### Answer:
 ---
 ##### Trigger Scenario 1:
@@ -565,3 +567,1489 @@ trigger creditcardDeletion on CreditCard__c(before delete) {
  delete apps;
 }
 ```
+#### Trigger Scenario 23:
+
+> Create “Top X Designation” custom object which is the related list to
+> Opportunity (Look up Relationship). In the Top X Designation object,
+> create the fields
+> -   Type (Picklist),
+> -   Document Attached (Checkbox) Create one field Handoff Attached with pick list type with values are Yes, No on Opportunity Object.
+> 
+> **Logic :-** If Type (Top X Designation) = "Contract Flow Down/Handoff", and "Document Attached” = True then "Handoff Attached"
+> = True, otherwise false.
+
+```
+trigger updateHandoffattached on Top_X_Designation__c (after insert, after update,after delete) {
+
+map maptop = new map();
+
+set oppid = new set();
+
+map maptopfalse = new map();//faslecase map
+
+set oppIdInFalseCase = new set();//falsecase set
+
+map deletecase = new map();
+
+set delcaseid = new set();//deletecase set
+
+list opplist = new list(); // query list
+
+list listtoupdate = new list(); //for update
+
+for(Top_X_Designation__c top : trigger.isdelete? trigger.old :trigger.new)
+
+{
+
+if(trigger.isInsert || trigger.isUpdate)
+
+{
+
+if(top.Document_Attached__c == true &&
+
+((top.Type__c==’Contract Flow Down’) || (top.Type__c==’Handoff’)))
+
+{
+
+maptop.put(top.Opp_top_x_designation__c, top.Id);
+
+oppid.add(top.Opp_top_x_designation__c);
+
+system.debug(‘here ‘+ top.Opp_top_x_designation__c);
+
+}
+
+else
+
+maptopfalse.put(top.Opp_top_x_designation__c,top.id);
+
+oppid.add(top.Opp_top_x_designation__c);
+
+system.debug(‘here in else part ‘+ top.Opp_top_x_designation__c);
+
+}
+
+if(trigger.isDelete){
+
+deletecase.put(top.Opp_top_x_designation__c,top.Id);
+
+delcaseid.add(top.Opp_top_x_designation__c);
+
+oppid.add(top.Opp_top_x_designation__c);
+
+}
+
+}
+
+opplist = [select Id,Handoff_Attached__c from opportunity where id in:oppid];
+
+for( opportunity opp : opplist){
+
+if(maptop.containsKey(opp.id))
+
+{
+
+opp.Handoff_Attached__c =’yes’;
+
+//listtoupdate.add(opp);
+
+}
+
+if(maptopfalse.containsKey(opp.id)){
+
+opp.Handoff_Attached__c =’no’;
+
+// listtoupdate.add(opp);
+
+}
+
+if(delcaseid.contains(opp.Id)){
+
+opp.Handoff_Attached__c =”;
+
+}
+
+listtoupdate.add(opp) ;
+
+}
+
+if( listtoupdate.size()>0){
+
+update listtoupdate;
+
+system.debug(‘testL’+listtoupdate);}
+
+}
+```
+and its test class
+```
+@istest
+
+public class testforhandoff {
+
+@istest static void methodhandoff(){
+
+opportunity opp = new opportunity();
+
+opp.Name =’test opp’;
+
+opp.StageName =’Needs Analysis’;
+
+opp.CloseDate = system.today();
+
+insert opp;
+
+Top_X_Designation__c tx = new Top_X_Designation__c();
+
+tx.Opp_top_x_designation__c = opp.Id;
+
+tx.Document_Attached__c = true;
+
+tx.Type__c = ‘Handoff’;
+
+insert tx;
+
+}
+
+@istest
+
+static void testmethod1(){
+
+opportunity opp1 = new opportunity();
+
+opp1.Name =’test opp’;
+
+opp1.StageName =’Needs Analysis’;
+
+opp1.CloseDate = system.today();
+
+insert opp1;
+
+Top_X_Designation__c tx1 = new Top_X_Designation__c();
+
+tx1.Opp_top_x_designation__c = opp1.id;
+
+tx1.Document_Attached__c = false;
+
+tx1.Type__c =’Handoff’;
+
+insert tx1;
+
+}
+
+@istest
+
+static void deletemethod(){
+
+opportunity opp1 = new opportunity();
+
+opp1.Name =’test opp’;
+
+opp1.StageName =’Needs Analysis’;
+
+opp1.CloseDate = system.today();
+
+insert opp1;
+
+Top_X_Designation__c tx1 = new Top_X_Designation__c();
+
+tx1.Opp_top_x_designation__c = opp1.id;
+
+tx1.Document_Attached__c = false;
+
+tx1.Type__c =’Handoff’;
+
+insert tx1;
+
+delete tx1;
+
+}
+
+}
+```
+
+### Trigger Scenario 24:-
+
+> The following Trigger will fires when we try to create the account
+> with same name i.e. Preventing the users to create Duplicate Accounts
+```
+trigger AccountDuplicateTrigger on Account (before insert, before update)
+
+{
+
+ for(Account a:Trigger.new)
+
+ {
+
+ List<Account> acc=“Select id from Account where Name=:a.Name and Rating=:a.Rating
+
+ “;
+
+ if(acc.size()>0)
+
+ {
+
+ acc.Name.addError('You Cannot Create the Duplicate Account');
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 25:-
+
+> The following trigger updates the field called “Hello” by the value
+> “World” whenever we are creating an account or updating an account
+> record. Create the field called “Hello” on the Account Object (Data
+> Type = Text)
+``` java
+trigger HelloWorld on Account (before insert, before update)
+
+{
+
+ List<Account> accs = Trigger.new;
+
+ MyHelloWorld my= new MyHelloWorld(); //creating instance of apex class
+
+ my.addHelloWorld(accs); // calling method from the apex class
+
+ }
+```
+**Class:**
+``` java
+public class MyHelloWorld
+
+ {
+
+ public void addHelloWorld(List<Account> accs)
+
+ {
+
+ for (Account a:accs)
+
+ {
+
+ if (a.Hello__c != 'World')
+
+ {
+
+ a.Hello__c = 'World';
+
+ }
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 26:-
+
+> The following trigger describes when the leads are inserted into the
+> data base it would add Doctor prefixed for all lead names. This is
+> applicable for both inserting and updating the lead records.
+``` java
+trigger PrefixDoctor on Lead (before insert,before update)
+
+{
+
+ List<Lead> leadList = trigger.new;
+
+ for(Lead l: leadList)
+
+ {
+
+ l.firstname = 'Dr.'+ l.firstname;
+
+ }
+
+ }
+```
+### Trigger Scenario 27:-
+
+> The following trigger adds the Opportunity Owner into the sales team
+> automatically whenever the Opportunity is created.
+``` java
+trigger OppTeam on Opportunity (after insert) {
+
+ List<OpportunityShare> sharesToCreate = new List<OpportunityShare>();
+
+ List<OpportunityTeamMember> oppteam = new List<OpportunityTeamMember
+
+ > ();
+
+ OpportunityShare oshare = new OpportunityShare();
+
+ oshare.OpportunityAccessLevel = 'Edit';
+
+ oshare.OpportunityId = trigger.new”0”.Id;
+
+ oshare.UserOrGroupId = trigger.new”0”.createdbyid;
+
+ sharesToCreate.add(oshare);
+
+ OpportunityTeamMember ot = new OpportunityTeamMember();
+
+ ot.OpportunityId = trigger.new”0”.Id;
+
+ ot.UserId = trigger.new”0”.OwnerId;
+
+ ot.TeamMemberRole = 'Account Manager';
+
+ oppteam.add(ot);
+
+ if(Oppteam!=null && Oppteam.size()>0)
+
+ {
+
+ insert Oppteam;
+
+ }
+
+ if(sharesToCreate!=null && sharesToCreate.size()>0)
+
+ {
+
+ list<Database.SaveResult> sr = Database.insert(sharesToCreate,false);
+
+}
+
+ }
+```
+### Trigger Scenario 28:-
+
+> Create the object called “Books” and create field “Price”(data type is
+> Currency) under this object. Whenever we enter some amount of money in the Price field and once we
+> click on save button, the value we entered in the Price field is 10% less than the
+> actual price. This is applicable for while both inserting and updating records.
+``` java 
+trigger DiscountTrigger on Book__c (before insert, before update) {
+
+ List<Book__c> books = Trigger.new;
+
+ PriceDiscount.applyDiscount(books);
+
+ }
+```
+
+**Class**
+``` java
+public class PriceDiscount {
+
+ public static void applyDiscount(List<Book__c> books) {
+
+ for (Book__c b :books){
+
+ b.Price__c *= 0.9;
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 29:-
+
+> The following trigger will prevent the users from deleting the
+> Accounts. This is because System Administrator has all the
+> permissions, we cannot change the permissions.
+``` java
+trigger AccountDelete on Account (before delete) {
+
+ for(Account Acc:trigger.old)
+
+ {
+
+ acc.adderror('You Cannot Delete the Account Record');
+
+ }
+
+ }
+```
+### Trigger Scenario 30:-
+
+> Create Custom field called “Number of Locations” on the Account Object
+> (Data Type=Number) The following trigger creates the number of contacts which are equal
+> to the number which we will enter in the Number of Locations field on
+> the Account Object
+
+**Code:**
+``` java
+trigger ContactsCreation on Account (after insert) {
+
+ list<contact> listContact = new list<contact>();
+
+ map<id,decimal> mapAcc=new map<id,decimal>();
+
+ for(Account acc:trigger.new){
+
+ mapAcc.put(acc.id,acc.Number_of_Locations__c);
+
+ }
+
+ if(mapAcc.size()>0 && mapAcc!=null){
+
+ for(Id accId:mapAcc.keyset()){
+
+ for(integer i=0;i<mapAcc.get(accId);i++){
+
+ contact newContact=new contact();
+
+ newContact.accountid=accId;
+
+ newContact.lastname='contact'+i;
+
+ listContact.add(newContact);
+
+ }
+
+ }
+
+ }
+
+ if(listContact.size()>0 && listContact!=null)
+
+ insert listContact;
+
+ }
+```
+### Trigger Scenario 31:-
+
+> Create the object called “Customer Project” and create Status field
+> under this object with picklist data type (Values=Active, Inactive).
+> Create the relationship between this custom object and Opportunity so
+> that Customer Project is related list to the Opportunity. Create 
+> Active Customer project‑ field on Opportunity object (Data
+> Type=Checkbox) The logic is when we create Customer Project for an
+> Opportunity with the Status=Active, then  Active Customer project
+> check box on the Opportunity Detail page is automatically checked.
+
+**Code:-**
+``` java
+trigger UpdateCPActivenOnOppty on Customer_Project__c (after insert)
+
+ {
+
+ List<Opportunity> opps=new List<Opportunity>();
+
+ for(Customer_Project__c cp:Trigger.New){
+
+ if(cp.Status__c=='Active'){
+
+ Opportunity opp= new Opportunity(id=cp.Opportunity__c);
+
+ opp.Active_Customer_Project__c = True;
+
+ opps.add(opp);
+
+ }
+
+ }
+
+ update opps;
+
+ }
+```
+### Trigger Scenario 32:-
+
+**Description:**
+
+> We have Stakeholder object that is the related list to Opportunity and
+> Contact. On Contact detail page, we have NPS ID field on the Contact
+> detail page that is look up to the Voice of NPS object (Customer
+> Object). The following code will get the NPS ID field value from the
+> Contact detail page in the Stackholders page which we can able to
+> clickable.
+> 
+> Create NPS Id 1 field on the stackholders object which is the look up
+> to the Voice of NPS object (Customer Object)
+> 
+> **Note:-**
+> 
+> ‑ we can also get the NPS Id 1 on the Stakeholder’s page using the
+> formula field but will not able to clickable.
+
+**Code Single Record:-**
+``` java
+triggerUpdateNPSid on Stakeholder__c (before insert, before update){
+
+ List<id>ConList=new List<id>();
+
+ for(Stakeholder__csh:Trigger.New){
+
+ConList.add(sh.Contact_Name__c);
+
+ }
+
+ List<Contact>lc=“Select NPS_Id__c From Contact Where id IN : ConList”;
+
+ for(Stakeholder__csh:Trigger.New){
+
+ sh.NPS_Id1__c=lc”0”.NPS_Id__c;
+
+ }
+
+ }
+```
+**Code Bulk Records:-**
+``` java
+trigger UpdateNPSid on Stakeholder__c (before insert, before update){
+
+ List<id> ConList=new List<id>();
+
+ map<id,id>map_NPS_Cont = new map<id,id>();
+
+ for(Stakeholder__c sh:Trigger.New)
+
+ {
+
+ if(sh.Contact_Name__c!=null)
+
+ ConList.add(sh.Contact_Name__c);
+
+ }
+
+ List<Contact> lc=“Select Id,NPS_Id__c From Contact Where id IN : ConList”;
+
+ if(lc!=null && lc.size()>0)
+
+ {
+
+ for(Contact c:lc){
+
+ If(c.NPS_Id__c!=null){
+
+ map_NPS_Cont.put(c.Id,c.NPS_Id__c);
+
+ }
+
+ }
+
+ for(Stakeholder__c sh:Trigger.New){
+
+ if(sh.Contact_Name__c!=null)
+
+ sh.NPS_Id1__c = map_NPS_Cont.get(sh.Contact_Name__c);
+
+ else
+
+ sh.NPS_Id1__c = null;
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 33:-
+
+> Create “Sales Rep” field with data type (Text) on the Account Object.
+> When we create the Account record, the Account Owner will be
+> automatically added to Sales Rep field. When we update the Account
+> owner of the record, then also the Sales Rep will be automatically
+> updated.
+``` java
+triggerUpdateSalesRep on Account (Before insert,Before Update){
+
+ Set<Id>setAccOwner=new Set<Id>();
+
+ for(Account Acc: trigger.new)
+
+ {
+
+ setAccOwner.add(Acc.OwnerId);
+
+ }
+
+ Map<Id,User>User_map = new Map<Id,User>(“select Name from User where id
+
+ in:setAccOwner”);
+
+ for(Account Acc: Trigger.new)
+
+ {
+
+ User usr=User_map.get(Acc.OwnerId);
+
+ Acc.sales_Rep1__c=usr.Name;
+
+ }
+
+ }
+```
+### Trigger Scenario 34:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the related object called “Contact Relationship”
+> which is related list to the Contacts.(Look Up Relationship).
+> 
+> Now logic is when we create contact by checking Contact Relationship
+> checkbox, then Contact Relationship will be created automatically for
+> that contact.
+
+**Code:**
+``` java
+trigger CreateCRonContactCreation on Contact (after insert) {
+
+ if(trigger.isAfter)
+
+ {
+
+ if(trigger.isInsert)
+
+ {
+
+ ContactMasterHandler ConIns = New ContactMasterHandler();
+
+ ConIns.createContactRelationshipByContact(trigger.New);
+
+}
+
+ }
+
+ }
+```
+**Class:**
+``` java
+Public Class ContactMasterHandler {
+
+ public void createContactRelationshipByContact(list<Contact> List_Contacts)
+
+ {
+
+ list<Contact_Relationship__c> ConList= new list<Contact_Relationship__c>();
+
+ for(Contact newconts:List_Contacts)
+
+ {
+
+ if(newconts.Contact_Relationship__c== true)
+
+ {
+
+ Contact_Relationship__c CR = new Contact_Relationship__c();
+
+ CR.Name=newconts.Lastname;
+
+ CR.Contact__c= newconts.id;
+
+ ConList.add(CR);
+
+ }
+
+ }
+
+ insert ConList;
+
+ }
+```
+### Trigger Scenario 35:-
+
+> When we change the Owner of the Contact Relationship, then the Owner
+> name will be automatically populated in the Contact Relationship Name
+> field.
+
+**Trigger:**
+``` java
+trigger ContactRelationshipMasterTrigger on Contact_Relationship__c(before update)
+
+ {
+
+ if(trigger.isBefore)
+
+ {
+
+ if(trigger.isUpdate)
+
+ {
+
+ //call the handler for the before update trigger event
+
+ updateCROwnerName ConRelUpd = New updateCROwnerName();
+
+ ConRelUpd.updateContactRelationshipNameByOwner(trigger.New);
+
+ }
+
+ }
+
+ }
+```
+**Class:**
+``` java
+Public Class updateCROwnerName{
+
+ public void updateContactRelationshipNameByOwner(list<Contact_Relationship__c> co
+
+ nt_Rel)
+
+ {
+
+ map<Id,Id> map_Id_Own = new map<id,id>();
+
+ map<Id,string> map_id_Name = new map<id,string>();
+
+ set<id> Idset = new set<id>();
+
+ for(Contact_Relationship__c List_recs:cont_Rel)
+
+ {
+
+ Idset.add(List_recs.Ownerid);
+
+ }
+
+ list<user> u=“select id,Name from user where id in:Idset”;
+
+ for(user list_users:u)
+
+ {
+
+ map_id_Name.put(list_users.Id,list_users.Name);
+
+ }
+
+ if(u!=null && u.size()>0)
+
+ {
+
+ for(Contact_Relationship__c List_recs:cont_Rel)
+
+ {
+
+ if (List_recs.Ownerid!=null)
+
+ {
+
+ List_recs.Name = map_id_Name.get(List_recs.Ownerid);
+
+ }
+
+ }
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 36:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the object called “Contact Relationship” which is
+> related list to the Contacts.(Look Up Relationship).
+> 
+> Trigger Scenario 12 logic will says that when we create contact by
+> checking Contact Relationship checkbox, then Contact Relationship will
+> be created automatically for that contact.
+> 
+> No this logic will for when we delete the Contact, Then Contact
+> Relationship will be deleted automatically
+``` java
+ trigger DeleteCRonContactDeletion on Contact (before delete) {
+
+ if(trigger.isBefore)
+
+ {
+
+ if(trigger.isDelete)
+
+for(Contact c:Trigger.old)
+
+ {
+
+ Contact_relationship__c CR=new Contact_relationship__c();
+
+ CR=“Select Id from Contact_Relationship__c where Contact__c IN:GlobalUtility.getUni
+
+ queIds(Trigger.Old)”;
+
+ delete CR;
+
+ }
+
+ }
+
+ }
+
+ }
+```
+**Global Utility Classs:**
+``` java
+public static set<Id> getUniqueIds(list<SObject> sobs)
+
+ {
+
+ set<Id> Ids = new set<Id>();
+
+ for (SObject sob : sobs) {
+
+ Ids.add(sob.Id);
+
+ }
+
+ return Ids;
+
+ }
+```
+### Trigger Scenario 37:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the object called “Contact Relationship” which is
+> related list to the Contacts.(Look Up Relationship).
+> 
+> Trigger Scenario 14 will says that when we delete the Contact, Then
+> Contact Relationship will be deleted automatically
+> 
+> Now the Logic is when we undelete the Contact, then Contact
+> Relationship will be undeleted automatically
+
+**Triggser:**
+``` java
+trigger UnDeleteCRonContactUnDeletion on Contact (After Undelete) {
+
+ if(trigger.isUndelete)
+
+ {
+
+//call the handler for the after undelete trigger event
+
+ ContactMasterHandler_Undelete ConIns = New ContactMasterHandler_Undelete(
+
+ );
+
+ ConIns.undeleteContactRelationshipsByContact(Trigger.New);
+
+ }
+
+ }
+```
+**Class**
+``` java
+Public Class ContactMasterHandler_Undelete{
+
+ public void undeleteContactRelationshipsByContact(list<Contact> List_Contacts)
+
+ {
+
+ set<Id> ContactIds = New set<Id>();
+
+ if(List_Contacts!=null && List_Contacts.size()>0)
+
+ {
+
+ list<Contact_Relationship__c> List_ConRels= new list<Contact_Relationship__c>(
+
+ );
+
+ List_ConRels= “select id from Contact_Relationship__c where isDeleted=TRUE and Co
+
+ ntact__c in: GlobalUtility.getUniqueIds(List_Contacts)”;
+
+ undelete List_ConRels;
+
+ }
+
+ }
+
+ }
+```
+### Trigger Scenario 38:-
+
+> Create field called “Count of Contacts” on Account Object. When we add
+> the Contacts for that Account then count will populate in the field on
+> Account details page. When we delete the Contacts for that Account,
+> then Count will update automatically
+> 
+> **Note:**
+> 
+> The above logic will be applicable when we have look up relationship.
+> But When we have the Master – Detail relationship, then we can create
+> Rollup Summary field to get the count of child records using “Count”
+> function.
+``` java
+trigger CountOfContacts on Contact (after insert,after delete) {
+
+ set<id> accid=new set<id>();
+
+ list<contact> contactlist =new list<contact>();
+
+ list<contact> listcon=new list<contact>();
+
+ list<account> acclist=new list<account>();
+
+ list<account> listAcc=new list<account>();
+
+map<id,integer> mapCount=new map<id,integer>();
+
+ if(trigger.isinsert){
+
+ for(contact con:trigger.new){
+
+ accid.add(con.accountid);
+
+ }
+
+ }
+
+ if(trigger.isdelete){
+
+ for(contact con:trigger.old){
+
+ accid.add(con.accountid);
+
+ }
+
+ }
+
+ acclist=“select id,name from account where id in:accid”;
+
+ contactlist = “select id,name,accountid from contact where accountid in:accid”;
+
+ for(account acc:acclist){
+
+ listcon.clear();
+
+ for(contact c:contactlist){
+
+ if(c.accountid==acc.id){
+
+ listcon.add(c);
+
+ mapCount.put(c.accountid,listcon.size());
+
+ }
+
+ }
+
+ }
+
+ if(acclist.size()>0){
+
+ for(Account a:acclist){
+
+ if(mapCount.get(a.id)==null)
+
+ a.Count_Of_Contacts__c=0;
+
+else
+
+ a.Count_Of_Contacts__c=mapCount.get(a.id);
+
+ listAcc.add(a);
+
+ }
+
+ }
+
+ if(listAcc.size()>0)
+
+ update listAcc;
+
+ }
+```
+### Trigger Scenario 39:-
+
+> Create the object called “Customer” and create the Master-Detail
+> Relationship on Customer object so that Customer will be the related
+> list to Account record. Create the field called “Account Manager” on
+> Customer object which is lookup to the user object.
+> 
+> Now Logic is when we create Customer record for account record, then
+> the user in Account Manager field will be automatically added to
+> Account Team of that associated account.
+
+**Code:**
+``` java
+trigger InsertAccountTeam on Customer__c (after insert) {
+
+ List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
+
+ AccountTeamMember atm = new AccountTeamMember();
+
+ List<AccountShare> newShare = new List<AccountShare>();
+
+ if(trigger.isInsert)
+
+ {
+
+ For(Customer__c c:Trigger.new)
+
+ {
+
+ if(c.Account_Manager__c!=null){
+
+ atm = new AccountTeamMember();
+
+ atm.accountid=c.Account__c;
+
+ atm.teamMemberRole='Account Manager';
+
+atm.UserId=c.Account_Manager__c;
+
+ AccountShare shares = new AccountShare();
+
+ shares.AccountId=c.Account__c;
+
+ shares.UserOrGroupId = c.Account_Manager__c;
+
+ shares.AccountAccessLevel='Read/Write';
+
+ shares.OpportunityAccessLevel = 'Read Only';
+
+ shares.CaseAccessLevel='Read Only';
+
+ newShare.add(shares);
+
+ atm_list.add(atm);
+
+ }
+
+ }
+
+ if(atm_list!=null)
+
+ insert atm_list;
+
+ if(newShare!=null && newShare.size()>0)
+
+ List<Database.saveresult> sr=Database.insert(newShare,false);
+
+ }
+
+ }
+```
+### Trigger Scenario 40:-
+
+> The above trigger(Trigger Scenario 17) Logic is when we create
+> Customer record for account record, then the user in Account Manager
+> field will be automatically added to Account Team of that associated
+> account.
+> 
+> Now the following trigger logic is when we update the user in the
+> “Account Manager”, the Account team will be updated automatically.
+
+**Code:**
+``` java
+trigger UpdateAccountTeam on Customer__c (before update) {
+
+ List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
+
+ AccountTeamMember atm = new AccountTeamMember();
+
+ List<AccountShare> newShare = new List<AccountShare>();
+
+ if(trigger.isupdate)
+
+ {
+
+ if(trigger.isbefore)
+
+ {
+
+ Set<Id> setAccIds1=new Set<Id>();
+
+ Set<Id> setDelATM=new Set<Id>();
+
+ Map<id,Set<Id>> mapAccMgrs=new Map<id,Set<Id>>();
+
+ for(Customer__c c:Trigger.new)
+
+ {
+
+ if(trigger.oldmap.get(c.Id).Account_Manager__c!=c.Account_Manager__c
+
+ &&c.Account_Manager__c!=null )
+
+ {
+
+ setAccIds1.add(c.Account__c);
+
+ }
+
+ }
+
+ List<Customer__c> listPLAccMgrs=“select id,Account_Manager__c,Account__c
+
+ from Customer__c where Account__c in:setAccIds1 and id not
+
+ in:trigger.newmap.keyset()”;
+
+ if(listPLAccMgrs!=null && listPLAccMgrs.size()>0)
+
+ {
+
+ for(Customer__c c:listPLAccMgrs)
+
+ {
+
+ Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
+
+ if(null==idMgrs){
+
+ idMgrs=new set<Id>();
+
+ mapAccMgrs.put(c.Account__c,idMgrs);
+
+ }
+
+ idMgrs.add(c.Account_Manager__c);
+
+ }
+
+ }
+
+ Map<id,List<AccountTeamMember>> mapStdAccTeam=new
+
+ Map<id,List<AccountTeamMember>>();
+
+ List<AccountTeamMember> listStdAcc Team=“select id,UserId,AccountId from
+
+ AccountTeamMember where AccountId in:setAccIds1 “;
+
+ if(listStdAccTeam!=null && listStdAccTeam.size()>0){
+
+ for(AccountTeamMember recAccTeam :listStdAccTeam)
+
+ {
+
+ List<AccountTeamMember>
+
+ listStdAccTeamMap=mapStdAccTeam.get(recAccTeam.AccountId);
+
+ if(null==listStdAccTeamMap){
+
+ listStdAccTeamMap=new List<AccountTeamMember>();
+
+ mapStdAccTeam.put(recAccTeam.AccountId,listStdAccTeamMap);
+
+ }
+
+ listStdAccTeamMap.add(recAccTeam);
+
+ }
+
+ }
+
+ system.debug('***********'+mapAccMgrs);
+
+ for(Customer__c c:Trigger.new)
+
+ {
+
+ if(trigger.oldmap.get(c.Id).Account_Manager__c!=c.Account_Manager__c
+
+ &&c.Account_Manager__c!=null )
+
+ {
+
+ List<AccountTeamMember>
+
+ listAccTeam=mapStdAccTeam.get(c.Account__c);
+
+ Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
+
+ if(listAccTeam!=null && listAccTeam.size()>0 )
+
+{
+
+ if(idMgrs!=null && idMgrs.size()>0 &&
+
+ !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c)))
+
+ {
+
+ for(AccountTeamMember recATM:listAccTeam)
+
+ {
+
+ if(recATM.UserId==trigger.oldmap.get(c.Id).Account_Manager__c)
+
+ setDelATM.add(recATM.Id);
+
+ }
+
+ }
+
+ else if(idMgrs==null)
+
+ {
+
+ for(AccountTeamMember recATM:listAccTeam)
+
+ setDelATM.add(recATM.Id);
+
+ }
+
+ }
+
+ atm = new
+
+ AccountTeamMember(accountid=c.Account__c,teamMemberRole='Account
+
+ Manager',UserId=c.Account_Manager__c);
+
+ AccountShare shares = new AccountShare();
+
+ shares.AccountId=c.Account__c;
+
+ shares.UserOrGroupId = c.Account_Manager__c;
+
+ shares.AccountAccessLevel='Edit';
+
+ shares.OpportunityAccessLevel = 'None';
+
+ newShare.add(shares);
+
+ atm_list.add(atm);
+
+ }
+
+ }
+
+List<AccountTeamMember> listDelATM=“select id from AccountTeamMember
+
+ where id in:setDelATM”;
+
+ if(listDelATM!=null && listDelATM.size()>0 )
+
+ delete listDelATM;
+
+ if(atm_list!=null)
+
+ insert atm_list;
+
+ if(newShare!=null && newShare.size()>0)
+
+ List<Database.saveresult> sr=Database.insert(newShare,false);
+
+ }
+
+ }
+```
+### Trigger Scenario 41:-
+
+> The trigger scenario 17 Logic is when we create Customer record for
+> account record, then the user in Account Manager field will be
+> automatically added to Account Team of that associated account.
+> 
+> Now the following trigger gives the logic about when we delete the
+> “Customer” of that account, then the user will deleted automatically
+> from the Account Team of that account.
+``` java
+trigger DeleteAccountTeam on Customer__c (before delete) {
+
+ List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
+
+ AccountTeamMember atm = new AccountTeamMember();
+
+ List<AccountShare> newShare = new List<AccountShare>();
+
+ if(trigger.isdelete)
+
+ {
+
+set<id> setAccids = new set<id>();
+
+ Set<Id> setDelATM=new Set<Id>();
+
+ Map<id,Set<Id>> mapAccMgrs=new Map<id,Set<Id>>();
+
+ for(Customer__c c:Trigger.old)
+
+ {
+
+ setAccids.add(c.Account__c);
+
+}
+
+ List<Customer__c> listPLAccMgrs=“select id,Account_Manager__c,Account__c from
+
+ Customer__c where Account__c in:setAccids and id not in:trigger.oldmap.keyset()”;
+
+ if(listPLAccMgrs!=null && listPLAccMgrs.size()>0)
+
+ {
+
+ for(Customer__c c:listPLAccMgrs)
+
+ {
+
+ Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
+
+ if(null==idMgrs){
+
+ idMgrs=new set<Id>();
+
+ mapAccMgrs.put(c.Account__c,idMgrs);
+
+ }
+
+ idMgrs.add(c.Account_Manager__c);
+
+ }
+
+ }
+
+ Map<id,List<AccountTeamMember>> mapStdAccTeam=new
+
+ Map<id,List<AccountTeamMember>>();
+
+ List<AccountTeamMember> listStdAccTeam=“select id,UserId,AccountId from
+
+ AccountTeamMember where AccountId in:setAccids”;
+
+ if(listStdAccTeam!=null && listStdAccTeam.size()>0){
+
+ for(AccountTeamMember recAccTeam :listStdAccTeam)
+
+ {
+
+ List<AccountTeamMember>
+
+ listStdAccTeamMap=mapStdAccTeam.get(recAccTeam.AccountId);
+
+ if(null==listStdAccTeamMap){
+
+ listStdAccTeamMap=new List<AccountTeamMember>();
+
+ mapStdAccTeam.put(recAccTeam.AccountId,listStdAccTeamMap);
+
+ }
+
+ listStdAccTeamMap.add(recAccTeam);
+
+}
+
+ }
+
+ for(Customer__c c:Trigger.old)
+
+ {
+
+ List<AccountTeamMember>
+
+ listAccTeam=mapStdAccTeam.get(c.Account__c);
+
+ Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
+
+ if(listAccTeam!=null && listAccTeam.size()>0 )
+
+ {
+
+ if(idMgrs!=null && idMgrs.size()>0 &&
+
+ !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c)))
+
+ {
+
+ for(AccountTeamMember recATM:listAccTeam)
+
+ {
+
+ if(recATM.UserId==trigger.oldmap.get(c.Id).Account_Manager__c)
+
+ setDelATM.add(recATM.Id);
+
+ }
+
+ }
+
+ else if(idMgrs==null)
+
+ {
+
+ for(AccountTeamMember recATM:listAccTeam)
+
+ setDelATM.add(recATM.Id);
+
+ }
+
+ }
+
+ }
+
+ List<AccountTeamMember> listDelATM=“select id from AccountTeamMember
+
+ where id in:setDelATM”;
+
+if(listDelATM!=null && listDelATM.size()>0 )
+
+ delete listDelATM;
+
+ }
+
+ }
+```
+### Trigger Scenario 42:-
+
+> When we create the Opportunity with the Probability=20, then the
+> opportunity owner will be automatically added to Account Team of the
+> associated account for that Opportunity.
+
+**Code:**
+``` java 
+trigger UpdateATMwithOwneronOptyCreate on Opportunity (after insert,after update) {
+
+ List<AccountShare> list_share= new List<AccountShare>();
+
+ List<AccountTeamMember> list_atm=new List<AccountTeamMember>();
+
+ for(Opportunity opp:Trigger.New)
+
+ {
+
+ if(opp.Probability==20)
+
+ {
+
+ AccountTeamMember atm=new AccountTeamMember();
+
+ atm.accountid=opp.accountid;
+
+ atm.teamMemberRole='Account Manager';
+
+ atm.UserId=opp.Ownerid;
+
+ AccountShare share = new AccountShare();
+
+ share.AccountId=opp.Accountid;
+
+ share.UserOrGroupId = opp.OwnerId;
+
+ share.AccountAccessLevel='Read/Write';
+
+ share.OpportunityAccessLevel = 'Read Only';
+
+ share.CaseAccessLevel='Read Only';
+
+ list_atm.add(atm);
+
+ list_share.add(share);
+
+ }
+
+ }
+
+ if(list_atm!=null)
+
+ insert list_atm;
+
+ if(list_share!=null && list_share.size()>0)
+
+ List<Database.saveresult> sr=Database.insert(list_share,false);
+```
+**Technology**:
+
+> In the above triggers
+> 
+> -   OpportunityTeamMember is backend name of Sales Team
+> 
+> -   For creation of Account Team we need to create Account Share which will bethere at the backend
+> 
+> -   For creation of Sales team, we need to create Opportunity Share which will be there at the backend
+> 
+> **Note**: For more clarity, go to the Data Loader and click on the “Export” operation and click on the select “Show all 
+> [Salesforce](https://www.salesforce.com/in/?ir=1)  Objects” checkbox,
+> then we can able to see Account Share and Opportunity Share.
