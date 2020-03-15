@@ -50,8 +50,188 @@
 > 1. Create two objects credit card and Application . 
 > 2. Create lookup field on Application choosing Credit card as parent
 > 3. When we delete any credit card record all corresponding application records also be deleted.
-#### Trigger Scenario 30 :
+##### Trigger Scenario 23:
+
+> Create “Top X Designation” custom object which is the related list to
+> Opportunity (Look up Relationship). In the Top X Designation object,
+> create the fields
+> -   Type (Picklist),
+> -   Document Attached (Checkbox) Create one field Handoff Attached with pick list type with values are Yes, No on Opportunity Object.
 > 
+> **Logic :-** If Type (Top X Designation) = "Contract Flow Down/Handoff", and "Document Attached” = True then "Handoff Attached"
+> = True, otherwise false.
+
+#### Trigger Scenario 24:-
+
+> The following Trigger will fires when we try to create the account
+> with same name i.e. Preventing the users to create Duplicate Accounts
+
+#### Trigger Scenario 25:-
+
+> The following trigger updates the field called “Hello” by the value
+> “World” whenever we are creating an account or updating an account
+> record. Create the field called “Hello” on the Account Object (Data
+> Type = Text)
+
+#### Trigger Scenario 26:-
+
+> The following trigger describes when the leads are inserted into the
+> data base it would add Doctor prefixed for all lead names. This is
+> applicable for both inserting and updating the lead records.
+
+#### Trigger Scenario 27:-
+
+> The following trigger adds the Opportunity Owner into the sales team
+> automatically whenever the Opportunity is created.
+
+#### Trigger Scenario 28:-
+
+> Create the object called “Books” and create field “Price”(data type is
+> Currency) under this object. Whenever we enter some amount of money in the Price field and once we
+> click on save button, the value we entered in the Price field is 10% less than the
+> actual price. This is applicable for while both inserting and updating records.
+
+#### Trigger Scenario 29:-
+
+> The following trigger will prevent the users from deleting the
+> Accounts. This is because System Administrator has all the
+> permissions, we cannot change the permissions.
+
+#### Trigger Scenario 30:-
+
+> Create Custom field called “Number of Locations” on the Account Object
+> (Data Type=Number) The following trigger creates the number of contacts which are equal
+> to the number which we will enter in the Number of Locations field on
+> the Account Object
+
+#### Trigger Scenario 31:-
+
+> Create the object called “Customer Project” and create Status field
+> under this object with picklist data type (Values=Active, Inactive).
+> Create the relationship between this custom object and Opportunity so
+> that Customer Project is related list to the Opportunity. Create 
+> Active Customer project‑ field on Opportunity object (Data
+> Type=Checkbox) The logic is when we create Customer Project for an
+> Opportunity with the Status=Active, then  Active Customer project
+> check box on the Opportunity Detail page is automatically checked.
+
+#### Trigger Scenario 32:-
+
+**Description:**
+
+> We have Stakeholder object that is the related list to Opportunity and
+> Contact. On Contact detail page, we have NPS ID field on the Contact
+> detail page that is look up to the Voice of NPS object (Customer
+> Object). The following code will get the NPS ID field value from the
+> Contact detail page in the Stackholders page which we can able to
+> clickable.
+> 
+> Create NPS Id 1 field on the stackholders object which is the look up
+> to the Voice of NPS object (Customer Object)
+> 
+> **Note:-**
+> 
+> ‑ we can also get the NPS Id 1 on the Stakeholder’s page using the
+> formula field but will not able to clickable.
+
+#### Trigger Scenario 33:-
+
+> Create “Sales Rep” field with data type (Text) on the Account Object.
+> When we create the Account record, the Account Owner will be
+> automatically added to Sales Rep field. When we update the Account
+> owner of the record, then also the Sales Rep will be automatically
+> updated.
+
+#### Trigger Scenario 34:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the related object called “Contact Relationship”
+> which is related list to the Contacts.(Look Up Relationship).
+> 
+> Now logic is when we create contact by checking Contact Relationship
+> checkbox, then Contact Relationship will be created automatically for
+> that contact.
+
+#### Trigger Scenario 35:-
+
+> When we change the Owner of the Contact Relationship, then the Owner
+> name will be automatically populated in the Contact Relationship Name
+> field.
+
+#### Trigger Scenario 36:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the object called “Contact Relationship” which is
+> related list to the Contacts.(Look Up Relationship).
+> 
+> Trigger Scenario 12 logic will says that when we create contact by
+> checking Contact Relationship checkbox, then Contact Relationship will
+> be created automatically for that contact.
+> 
+> No this logic will for when we delete the Contact, Then Contact
+> Relationship will be deleted automatically
+
+#### Trigger Scenario 37:-
+
+> Create the field called “Contact Relationship” checkbox on the Contact
+> Object and Create the object called “Contact Relationship” which is
+> related list to the Contacts.(Look Up Relationship).
+> 
+> Trigger Scenario 14 will says that when we delete the Contact, Then
+> Contact Relationship will be deleted automatically
+> 
+> Now the Logic is when we undelete the Contact, then Contact
+> Relationship will be undeleted automatically
+#### Trigger Scenario 38:-
+
+> Create field called “Count of Contacts” on Account Object. When we add
+> the Contacts for that Account then count will populate in the field on
+> Account details page. When we delete the Contacts for that Account,
+> then Count will update automatically
+> 
+> **Note:**
+> 
+> The above logic will be applicable when we have look up relationship.
+> But When we have the Master – Detail relationship, then we can create
+> Rollup Summary field to get the count of child records using “Count”
+> function.
+
+#### Trigger Scenario 39:-
+
+> Create the object called “Customer” and create the Master-Detail
+> Relationship on Customer object so that Customer will be the related
+> list to Account record. Create the field called “Account Manager” on
+> Customer object which is lookup to the user object.
+> 
+> Now Logic is when we create Customer record for account record, then
+> the user in Account Manager field will be automatically added to
+> Account Team of that associated account.
+
+#### Trigger Scenario 40:-
+
+> The above trigger(Trigger Scenario 17) Logic is when we create
+> Customer record for account record, then the user in Account Manager
+> field will be automatically added to Account Team of that associated
+> account.
+> 
+> Now the following trigger logic is when we update the user in the
+> “Account Manager”, the Account team will be updated automatically.
+
+#### Trigger Scenario 41:-
+
+> The trigger scenario 17 Logic is when we create Customer record for
+> account record, then the user in Account Manager field will be
+> automatically added to Account Team of that associated account.
+> 
+> Now the following trigger gives the logic about when we delete the
+> “Customer” of that account, then the user will deleted automatically
+> from the Account Team of that account.
+#### Trigger Scenario 42:-
+
+> When we create the Opportunity with the Probability=20, then the
+> opportunity owner will be automatically added to Account Team of the
+> associated account for that Opportunity.
+
 ### Answer:
 ---
 ##### Trigger Scenario 1:
