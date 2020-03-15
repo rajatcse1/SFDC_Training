@@ -1252,87 +1252,38 @@ Public Class ContactMasterHandler {
 
 **Trigger:**
 ``` java
-trigger ContactRelationshipMasterTrigger on Contact_Relationship__c(before update)
-
- {
-
- if(trigger.isBefore)
-
- {
-
- if(trigger.isUpdate)
-
- {
-
- //call the handler for the before update trigger event
-
- updateCROwnerName ConRelUpd = New updateCROwnerName();
-
- ConRelUpd.updateContactRelationshipNameByOwner(trigger.New);
-
+trigger ContactRelationshipMasterTrigger on Contact_Relationship__c(before update) {
+ if (trigger.isBefore) {
+  if (trigger.isUpdate) {
+   updateCROwnerName ConRelUpd = New updateCROwnerName();
+   ConRelUpd.updateContactRelationshipNameByOwner(trigger.New);
+  }
  }
-
- }
-
- }
+}
 ```
 **Class:**
 ``` java
-Public Class updateCROwnerName{
-
- public void updateContactRelationshipNameByOwner(list<Contact_Relationship__c> co
-
- nt_Rel)
-
- {
-
- map<Id,Id> map_Id_Own = new map<id,id>();
-
- map<Id,string> map_id_Name = new map<id,string>();
-
- set<id> Idset = new set<id>();
-
- for(Contact_Relationship__c List_recs:cont_Rel)
-
- {
-
- Idset.add(List_recs.Ownerid);
-
+Public Class updateCROwnerName {
+ public void updateContactRelationshipNameByOwner(list < Contact_Relationship__c > co nt_Rel) {
+  map < Id, Id > map_Id_Own = new map < id, id > ();
+  map < Id, string > map_id_Name = new map < id, string > ();
+  set < id > Idset = new set < id > ();
+  for (Contact_Relationship__c List_recs: cont_Rel) {
+   Idset.add(List_recs.Ownerid);
+  }
+  list < user > u = “select id, Name from user where id in: Idset”;
+  for (user list_users: u) {
+   map_id_Name.put(list_users.Id, list_users.Name);
+  }
+  if (u != null && u.size() > 0) {
+   for (Contact_Relationship__c List_recs: cont_Rel) {
+    if (List_recs.Ownerid != null) {
+     List_recs.Name = map_id_Name.get(List_recs.Ownerid);
+    }
+   }
+  }
  }
-
- list<user> u=“select id,Name from user where id in:Idset”;
-
- for(user list_users:u)
-
- {
-
- map_id_Name.put(list_users.Id,list_users.Name);
-
- }
-
- if(u!=null && u.size()>0)
-
- {
-
- for(Contact_Relationship__c List_recs:cont_Rel)
-
- {
-
- if (List_recs.Ownerid!=null)
-
- {
-
- List_recs.Name = map_id_Name.get(List_recs.Ownerid);
-
- }
-
- }
-
- }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 36:-
 
@@ -1347,51 +1298,27 @@ Public Class updateCROwnerName{
 > No this logic will for when we delete the Contact, Then Contact
 > Relationship will be deleted automatically
 ``` java
- trigger DeleteCRonContactDeletion on Contact (before delete) {
-
- if(trigger.isBefore)
-
- {
-
- if(trigger.isDelete)
-
-for(Contact c:Trigger.old)
-
- {
-
- Contact_relationship__c CR=new Contact_relationship__c();
-
- CR=“Select Id from Contact_Relationship__c where Contact__c IN:GlobalUtility.getUni
-
- queIds(Trigger.Old)”;
-
- delete CR;
-
+trigger DeleteCRonContactDeletion on Contact(before delete) {
+ if (trigger.isBefore) {
+  if (trigger.isDelete)
+   for (Contact c: Trigger.old) {
+    Contact_relationship__c CR = new Contact_relationship__c();
+    CR = “Select Id from Contact_Relationship__c where Contact__c IN: GlobalUtility.getUni
+    queIds(Trigger.Old)”;
+    delete CR;
+   }
  }
-
- }
-
- }
-
- }
+}
 ```
 **Global Utility Classs:**
 ``` java
-public static set<Id> getUniqueIds(list<SObject> sobs)
-
- {
-
- set<Id> Ids = new set<Id>();
-
- for (SObject sob : sobs) {
-
- Ids.add(sob.Id);
-
+public static set < Id > getUniqueIds(list < SObject > sobs) {
+ set < Id > Ids = new set < Id > ();
+ for (SObject sob: sobs) {
+  Ids.add(sob.Id);
  }
-
  return Ids;
-
- }
+}
 ```
 ### Trigger Scenario 37:-
 
@@ -1407,53 +1334,26 @@ public static set<Id> getUniqueIds(list<SObject> sobs)
 
 **Triggser:**
 ``` java
-trigger UnDeleteCRonContactUnDeletion on Contact (After Undelete) {
-
- if(trigger.isUndelete)
-
- {
-
-//call the handler for the after undelete trigger event
-
- ContactMasterHandler_Undelete ConIns = New ContactMasterHandler_Undelete(
-
- );
-
- ConIns.undeleteContactRelationshipsByContact(Trigger.New);
-
+trigger UnDeleteCRonContactUnDeletion on Contact(After Undelete) {
+ if (trigger.isUndelete) {
+  ContactMasterHandler_Undelete ConIns = New ContactMasterHandler_Undelete();
+  ConIns.undeleteContactRelationshipsByContact(Trigger.New);
  }
-
- }
+}
 ```
 **Class**
 ``` java
-Public Class ContactMasterHandler_Undelete{
-
- public void undeleteContactRelationshipsByContact(list<Contact> List_Contacts)
-
- {
-
- set<Id> ContactIds = New set<Id>();
-
- if(List_Contacts!=null && List_Contacts.size()>0)
-
- {
-
- list<Contact_Relationship__c> List_ConRels= new list<Contact_Relationship__c>(
-
- );
-
- List_ConRels= “select id from Contact_Relationship__c where isDeleted=TRUE and Co
-
- ntact__c in: GlobalUtility.getUniqueIds(List_Contacts)”;
-
- undelete List_ConRels;
-
+Public Class ContactMasterHandler_Undelete {
+ public void undeleteContactRelationshipsByContact(list < Contact > List_Contacts) {
+  set < Id > ContactIds = New set < Id > ();
+  if (List_Contacts != null && List_Contacts.size() > 0) {
+   list < Contact_Relationship__c > List_ConRels = new list < Contact_Relationship__c > ();
+   List_ConRels = “select id from Contact_Relationship__c where isDeleted = TRUE and Co
+   ntact__c in: GlobalUtility.getUniqueIds(List_Contacts)”;
+   undelete List_ConRels;
+  }
  }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 38:-
 
@@ -1469,85 +1369,46 @@ Public Class ContactMasterHandler_Undelete{
 > Rollup Summary field to get the count of child records using “Count”
 > function.
 ``` java
-trigger CountOfContacts on Contact (after insert,after delete) {
-
- set<id> accid=new set<id>();
-
- list<contact> contactlist =new list<contact>();
-
- list<contact> listcon=new list<contact>();
-
- list<account> acclist=new list<account>();
-
- list<account> listAcc=new list<account>();
-
-map<id,integer> mapCount=new map<id,integer>();
-
- if(trigger.isinsert){
-
- for(contact con:trigger.new){
-
- accid.add(con.accountid);
-
+trigger CountOfContacts on Contact(after insert, after delete) {
+ set < id > accid = new set < id > ();
+ list < contact > contactlist = new list < contact > ();
+ list < contact > listcon = new list < contact > ();
+ list < account > acclist = new list < account > ();
+ list < account > listAcc = new list < account > ();
+ map < id, integer > mapCount = new map < id, integer > ();
+ if (trigger.isinsert) {
+  for (contact con: trigger.new) {
+   accid.add(con.accountid);
+  }
  }
-
+ if (trigger.isdelete) {
+  for (contact con: trigger.old) {
+   accid.add(con.accountid);
+  }
  }
-
- if(trigger.isdelete){
-
- for(contact con:trigger.old){
-
- accid.add(con.accountid);
-
+ acclist = “select id, name from account where id in: accid”;
+ contactlist = “select id, name, accountid from contact where accountid in: accid”;
+ for (account acc: acclist) {
+  listcon.clear();
+  for (contact c: contactlist) {
+   if (c.accountid == acc.id) {
+    listcon.add(c);
+    mapCount.put(c.accountid, listcon.size());
+   }
+  }
  }
-
+ if (acclist.size() > 0) {
+  for (Account a: acclist) {
+   if (mapCount.get(a.id) == null)
+    a.Count_Of_Contacts__c = 0;
+   else
+    a.Count_Of_Contacts__c = mapCount.get(a.id);
+   listAcc.add(a);
+  }
  }
-
- acclist=“select id,name from account where id in:accid”;
-
- contactlist = “select id,name,accountid from contact where accountid in:accid”;
-
- for(account acc:acclist){
-
- listcon.clear();
-
- for(contact c:contactlist){
-
- if(c.accountid==acc.id){
-
- listcon.add(c);
-
- mapCount.put(c.accountid,listcon.size());
-
- }
-
- }
-
- }
-
- if(acclist.size()>0){
-
- for(Account a:acclist){
-
- if(mapCount.get(a.id)==null)
-
- a.Count_Of_Contacts__c=0;
-
-else
-
- a.Count_Of_Contacts__c=mapCount.get(a.id);
-
- listAcc.add(a);
-
- }
-
- }
-
- if(listAcc.size()>0)
-
- update listAcc;
-
- }
+ if (listAcc.size() > 0)
+  update listAcc;
+}
 ```
 ### Trigger Scenario 39:-
 
@@ -1562,63 +1423,33 @@ else
 
 **Code:**
 ``` java
-trigger InsertAccountTeam on Customer__c (after insert) {
-
- List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
-
+trigger InsertAccountTeam on Customer__c(after insert) {
+ List < AccountTeamMember > atm_list = new List < AccountTeamMember > ();
  AccountTeamMember atm = new AccountTeamMember();
-
- List<AccountShare> newShare = new List<AccountShare>();
-
- if(trigger.isInsert)
-
- {
-
- For(Customer__c c:Trigger.new)
-
- {
-
- if(c.Account_Manager__c!=null){
-
- atm = new AccountTeamMember();
-
- atm.accountid=c.Account__c;
-
- atm.teamMemberRole='Account Manager';
-
-atm.UserId=c.Account_Manager__c;
-
- AccountShare shares = new AccountShare();
-
- shares.AccountId=c.Account__c;
-
- shares.UserOrGroupId = c.Account_Manager__c;
-
- shares.AccountAccessLevel='Read/Write';
-
- shares.OpportunityAccessLevel = 'Read Only';
-
- shares.CaseAccessLevel='Read Only';
-
- newShare.add(shares);
-
- atm_list.add(atm);
-
+ List < AccountShare > newShare = new List < AccountShare > ();
+ if (trigger.isInsert) {
+  For(Customer__c c: Trigger.new) {
+   if (c.Account_Manager__c != null) {
+    atm = new AccountTeamMember();
+    atm.accountid = c.Account__c;
+    atm.teamMemberRole = 'Account Manager';
+    atm.UserId = c.Account_Manager__c;
+    AccountShare shares = new AccountShare();
+    shares.AccountId = c.Account__c;
+    shares.UserOrGroupId = c.Account_Manager__c;
+    shares.AccountAccessLevel = 'Read/Write';
+    shares.OpportunityAccessLevel = 'Read Only';
+    shares.CaseAccessLevel = 'Read Only';
+    newShare.add(shares);
+    atm_list.add(atm);
+   }
+  }
+  if (atm_list != null)
+   insert atm_list;
+  if (newShare != null && newShare.size() > 0)
+   List < Database.saveresult > sr = Database.insert(newShare, false);
  }
-
- }
-
- if(atm_list!=null)
-
- insert atm_list;
-
- if(newShare!=null && newShare.size()>0)
-
- List<Database.saveresult> sr=Database.insert(newShare,false);
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 40:-
 
@@ -1632,201 +1463,89 @@ atm.UserId=c.Account_Manager__c;
 
 **Code:**
 ``` java
-trigger UpdateAccountTeam on Customer__c (before update) {
-
- List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
-
- AccountTeamMember atm = new AccountTeamMember();
-
- List<AccountShare> newShare = new List<AccountShare>();
-
- if(trigger.isupdate)
-
- {
-
- if(trigger.isbefore)
-
- {
-
- Set<Id> setAccIds1=new Set<Id>();
-
- Set<Id> setDelATM=new Set<Id>();
-
- Map<id,Set<Id>> mapAccMgrs=new Map<id,Set<Id>>();
-
- for(Customer__c c:Trigger.new)
-
- {
-
- if(trigger.oldmap.get(c.Id).Account_Manager__c!=c.Account_Manager__c
-
- &&c.Account_Manager__c!=null )
-
- {
-
- setAccIds1.add(c.Account__c);
-
- }
-
- }
-
- List<Customer__c> listPLAccMgrs=“select id,Account_Manager__c,Account__c
-
- from Customer__c where Account__c in:setAccIds1 and id not
-
- in:trigger.newmap.keyset()”;
-
- if(listPLAccMgrs!=null && listPLAccMgrs.size()>0)
-
- {
-
- for(Customer__c c:listPLAccMgrs)
-
- {
-
- Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
-
- if(null==idMgrs){
-
- idMgrs=new set<Id>();
-
- mapAccMgrs.put(c.Account__c,idMgrs);
-
- }
-
- idMgrs.add(c.Account_Manager__c);
-
- }
-
- }
-
- Map<id,List<AccountTeamMember>> mapStdAccTeam=new
-
- Map<id,List<AccountTeamMember>>();
-
- List<AccountTeamMember> listStdAcc Team=“select id,UserId,AccountId from
-
- AccountTeamMember where AccountId in:setAccIds1 “;
-
- if(listStdAccTeam!=null && listStdAccTeam.size()>0){
-
- for(AccountTeamMember recAccTeam :listStdAccTeam)
-
- {
-
- List<AccountTeamMember>
-
- listStdAccTeamMap=mapStdAccTeam.get(recAccTeam.AccountId);
-
- if(null==listStdAccTeamMap){
-
- listStdAccTeamMap=new List<AccountTeamMember>();
-
- mapStdAccTeam.put(recAccTeam.AccountId,listStdAccTeamMap);
-
- }
-
- listStdAccTeamMap.add(recAccTeam);
-
- }
-
- }
-
- system.debug('***********'+mapAccMgrs);
-
- for(Customer__c c:Trigger.new)
-
- {
-
- if(trigger.oldmap.get(c.Id).Account_Manager__c!=c.Account_Manager__c
-
- &&c.Account_Manager__c!=null )
-
- {
-
- List<AccountTeamMember>
-
- listAccTeam=mapStdAccTeam.get(c.Account__c);
-
- Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
-
- if(listAccTeam!=null && listAccTeam.size()>0 )
-
-{
-
- if(idMgrs!=null && idMgrs.size()>0 &&
-
- !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c)))
-
- {
-
- for(AccountTeamMember recATM:listAccTeam)
-
- {
-
- if(recATM.UserId==trigger.oldmap.get(c.Id).Account_Manager__c)
-
- setDelATM.add(recATM.Id);
-
- }
-
- }
-
- else if(idMgrs==null)
-
- {
-
- for(AccountTeamMember recATM:listAccTeam)
-
- setDelATM.add(recATM.Id);
-
- }
-
- }
-
- atm = new
-
- AccountTeamMember(accountid=c.Account__c,teamMemberRole='Account
-
- Manager',UserId=c.Account_Manager__c);
-
- AccountShare shares = new AccountShare();
-
- shares.AccountId=c.Account__c;
-
- shares.UserOrGroupId = c.Account_Manager__c;
-
- shares.AccountAccessLevel='Edit';
-
- shares.OpportunityAccessLevel = 'None';
-
- newShare.add(shares);
-
- atm_list.add(atm);
-
- }
-
- }
-
-List<AccountTeamMember> listDelATM=“select id from AccountTeamMember
-
- where id in:setDelATM”;
-
- if(listDelATM!=null && listDelATM.size()>0 )
-
- delete listDelATM;
-
- if(atm_list!=null)
-
- insert atm_list;
-
- if(newShare!=null && newShare.size()>0)
-
- List<Database.saveresult> sr=Database.insert(newShare,false);
-
- }
-
- }
+trigger UpdateAccountTeam on Customer__c(before update) {
+	List < AccountTeamMember > atm_list = new List < AccountTeamMember > ();
+	AccountTeamMember atm = new AccountTeamMember();
+	List < AccountShare > newShare = new List < AccountShare > ();
+	if (trigger.isupdate) {
+		if (trigger.isbefore) {
+			Set < Id > setAccIds1 = new Set < Id > ();
+			Set < Id > setDelATM = new Set < Id > ();
+			Map < id,
+			Set < Id >> mapAccMgrs = new Map < id,
+			Set < Id >> ();
+			for (Customer__c c: Trigger.new) {
+				if (trigger.oldmap.get(c.Id).Account_Manager__c != c.Account_Manager__c && c.Account_Manager__c != null) {
+					setAccIds1.add(c.Account__c);
+				}
+			}
+			List < Customer__c > listPLAccMgrs = "select id,Account_Manager__c,Account__c from Customer__c where Account__c in:setAccIds1 and id not in:trigger.newmap.keyset()";
+			if (listPLAccMgrs != null && listPLAccMgrs.size() > 0) {
+				for (Customer__c c: listPLAccMgrs) {
+					Set < Id > idMgrs = mapAccMgrs.get(c.Account__c);
+					if (null == idMgrs) {
+						idMgrs = new set < Id > ();
+						mapAccMgrs.put(c.Account__c, idMgrs);
+					}
+					idMgrs.add(c.Account_Manager__c);
+				}
+			}
+			Map < id,
+			List < AccountTeamMember >> mapStdAccTeam = new Map < id,
+			List < AccountTeamMember >> ();
+			List < AccountTeamMember > listStdAcc Team = "select id,UserId,AccountId from AccountTeamMember where AccountId in:setAccIds1";
+			if (listStdAccTeam != null && listStdAccTeam.size() > 0) {
+				for (AccountTeamMember recAccTeam: listStdAccTeam) {
+					List < AccountTeamMember > listStdAccTeamMap = mapStdAccTeam.get(recAccTeam.AccountId);
+					if (null == listStdAccTeamMap) {
+						listStdAccTeamMap = new List < AccountTeamMember > ();
+						mapStdAccTeam.put(recAccTeam.AccountId, listStdAccTeamMap);
+					}
+					listStdAccTeamMap.add(recAccTeam);
+				}
+			}
+			system.debug('***********' + mapAccMgrs);
+			for (Customer__c c: Trigger.new) {
+				if (trigger.oldmap.get(c.Id).Account_Manager__c != c.Account_Manager__c && c.Account_Manager__c != null) {
+					List < AccountTeamMember > listAccTeam = mapStdAccTeam.get(c.Account__c);
+					Set < Id > idMgrs = mapAccMgrs.get(c.Account__c);
+					if (listAccTeam != null && listAccTeam.size() > 0) {
+						if (idMgrs != null && idMgrs.size() > 0 && !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c))) {
+							for (AccountTeamMember recATM: listAccTeam) {
+								if (recATM.UserId == trigger.oldmap.get(c.Id).Account_Manager__c) {
+									setDelATM.add(recATM.Id);
+								}
+							}
+						}
+						else if (idMgrs == null) {
+							for (AccountTeamMember recATM: listAccTeam) {
+								setDelATM.add(recATM.Id);
+							}
+						}
+					}
+					atm = new AccountTeamMember(accountid = c.Account__c, teamMemberRole = 'Account Manager', UserId = c.Account_Manager__c);
+					AccountShare shares = new AccountShare();
+					shares.AccountId = c.Account__c;
+					shares.UserOrGroupId = c.Account_Manager__c;
+					shares.AccountAccessLevel = 'Edit';
+					shares.OpportunityAccessLevel = 'None';
+					newShare.add(shares);
+					atm_list.add(atm);
+				}
+			}
+			List < AccountTeamMember > listDelATM = "select id from AccountTeamMember where id in:setDelATM";
+			if (listDelATM != null && listDelATM.size() > 0) {
+				delete listDelATM;
+			}
+			if (atm_list != null) {
+				insert atm_list;
+			}
+			if (newShare != null && newShare.size() > 0) {
+				List < Database.saveresult > sr = Database.insert(newShare, false);
+			}
+		}
+	}
+}
 ```
 ### Trigger Scenario 41:-
 
@@ -1838,149 +1557,64 @@ List<AccountTeamMember> listDelATM=“select id from AccountTeamMember
 > “Customer” of that account, then the user will deleted automatically
 > from the Account Team of that account.
 ``` java
-trigger DeleteAccountTeam on Customer__c (before delete) {
-
- List<AccountTeamMember> atm_list=new List<AccountTeamMember>();
-
+trigger DeleteAccountTeam on Customer__c(before delete) {
+ List < AccountTeamMember > atm_list = new List < AccountTeamMember > ();
  AccountTeamMember atm = new AccountTeamMember();
-
- List<AccountShare> newShare = new List<AccountShare>();
-
- if(trigger.isdelete)
-
- {
-
-set<id> setAccids = new set<id>();
-
- Set<Id> setDelATM=new Set<Id>();
-
- Map<id,Set<Id>> mapAccMgrs=new Map<id,Set<Id>>();
-
- for(Customer__c c:Trigger.old)
-
- {
-
- setAccids.add(c.Account__c);
-
+ List < AccountShare > newShare = new List < AccountShare > ();
+ if (trigger.isdelete) {
+  set < id > setAccids = new set < id > ();
+  Set < Id > setDelATM = new Set < Id > ();
+  Map < id, Set < Id >> mapAccMgrs = new Map < id, Set < Id >> ();
+  for (Customer__c c: Trigger.old) {
+   setAccids.add(c.Account__c);
+  }
+  List < Customer__c > listPLAccMgrs = “select id, Account_Manager__c, Account__c from
+  Customer__c where Account__c in: setAccids and id not in: trigger.oldmap.keyset()”;
+  if (listPLAccMgrs != null && listPLAccMgrs.size() > 0) {
+   for (Customer__c c: listPLAccMgrs) {
+    Set < Id > idMgrs = mapAccMgrs.get(c.Account__c);
+    if (null == idMgrs) {
+     idMgrs = new set < Id > ();
+     mapAccMgrs.put(c.Account__c, idMgrs);
+    }
+    idMgrs.add(c.Account_Manager__c);
+   }
+  }
+  Map < id, List < AccountTeamMember >> mapStdAccTeam = new
+  Map < id, List < AccountTeamMember >> ();
+  List < AccountTeamMember > listStdAccTeam = “select id, UserId, AccountId from
+  AccountTeamMember where AccountId in: setAccids”;
+  if (listStdAccTeam != null && listStdAccTeam.size() > 0) {
+   for (AccountTeamMember recAccTeam: listStdAccTeam) {
+    List < AccountTeamMember > listStdAccTeamMap = mapStdAccTeam.get(recAccTeam.AccountId);
+    if (null == listStdAccTeamMap) {
+     listStdAccTeamMap = new List < AccountTeamMember > ();
+     mapStdAccTeam.put(recAccTeam.AccountId, listStdAccTeamMap);
+    }
+    listStdAccTeamMap.add(recAccTeam);
+   }
+  }
+  for (Customer__c c: Trigger.old) {
+   List < AccountTeamMember > listAccTeam = mapStdAccTeam.get(c.Account__c);
+   Set < Id > idMgrs = mapAccMgrs.get(c.Account__c);
+   if (listAccTeam != null && listAccTeam.size() > 0) {
+    if (idMgrs != null && idMgrs.size() > 0 && !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c))) {
+     for (AccountTeamMember recATM: listAccTeam) {
+      if (recATM.UserId == trigger.oldmap.get(c.Id).Account_Manager__c)
+       setDelATM.add(recATM.Id);
+     }
+    } else if (idMgrs == null) {
+     for (AccountTeamMember recATM: listAccTeam)
+      setDelATM.add(recATM.Id);
+    }
+   }
+  }
+  List < AccountTeamMember > listDelATM = “select id from AccountTeamMember
+  where id in: setDelATM”;
+  if (listDelATM != null && listDelATM.size() > 0)
+   delete listDelATM;
+ }
 }
-
- List<Customer__c> listPLAccMgrs=“select id,Account_Manager__c,Account__c from
-
- Customer__c where Account__c in:setAccids and id not in:trigger.oldmap.keyset()”;
-
- if(listPLAccMgrs!=null && listPLAccMgrs.size()>0)
-
- {
-
- for(Customer__c c:listPLAccMgrs)
-
- {
-
- Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
-
- if(null==idMgrs){
-
- idMgrs=new set<Id>();
-
- mapAccMgrs.put(c.Account__c,idMgrs);
-
- }
-
- idMgrs.add(c.Account_Manager__c);
-
- }
-
- }
-
- Map<id,List<AccountTeamMember>> mapStdAccTeam=new
-
- Map<id,List<AccountTeamMember>>();
-
- List<AccountTeamMember> listStdAccTeam=“select id,UserId,AccountId from
-
- AccountTeamMember where AccountId in:setAccids”;
-
- if(listStdAccTeam!=null && listStdAccTeam.size()>0){
-
- for(AccountTeamMember recAccTeam :listStdAccTeam)
-
- {
-
- List<AccountTeamMember>
-
- listStdAccTeamMap=mapStdAccTeam.get(recAccTeam.AccountId);
-
- if(null==listStdAccTeamMap){
-
- listStdAccTeamMap=new List<AccountTeamMember>();
-
- mapStdAccTeam.put(recAccTeam.AccountId,listStdAccTeamMap);
-
- }
-
- listStdAccTeamMap.add(recAccTeam);
-
-}
-
- }
-
- for(Customer__c c:Trigger.old)
-
- {
-
- List<AccountTeamMember>
-
- listAccTeam=mapStdAccTeam.get(c.Account__c);
-
- Set<Id> idMgrs=mapAccMgrs.get(c.Account__c);
-
- if(listAccTeam!=null && listAccTeam.size()>0 )
-
- {
-
- if(idMgrs!=null && idMgrs.size()>0 &&
-
- !(idMgrs.Contains(trigger.oldmap.get(c.Id).Account_Manager__c)))
-
- {
-
- for(AccountTeamMember recATM:listAccTeam)
-
- {
-
- if(recATM.UserId==trigger.oldmap.get(c.Id).Account_Manager__c)
-
- setDelATM.add(recATM.Id);
-
- }
-
- }
-
- else if(idMgrs==null)
-
- {
-
- for(AccountTeamMember recATM:listAccTeam)
-
- setDelATM.add(recATM.Id);
-
- }
-
- }
-
- }
-
- List<AccountTeamMember> listDelATM=“select id from AccountTeamMember
-
- where id in:setDelATM”;
-
-if(listDelATM!=null && listDelATM.size()>0 )
-
- delete listDelATM;
-
- }
-
- }
 ```
 ### Trigger Scenario 42:-
 
@@ -1990,55 +1624,29 @@ if(listDelATM!=null && listDelATM.size()>0 )
 
 **Code:**
 ``` java 
-trigger UpdateATMwithOwneronOptyCreate on Opportunity (after insert,after update) {
-
- List<AccountShare> list_share= new List<AccountShare>();
-
- List<AccountTeamMember> list_atm=new List<AccountTeamMember>();
-
- for(Opportunity opp:Trigger.New)
-
- {
-
- if(opp.Probability==20)
-
- {
-
- AccountTeamMember atm=new AccountTeamMember();
-
- atm.accountid=opp.accountid;
-
- atm.teamMemberRole='Account Manager';
-
- atm.UserId=opp.Ownerid;
-
- AccountShare share = new AccountShare();
-
- share.AccountId=opp.Accountid;
-
- share.UserOrGroupId = opp.OwnerId;
-
- share.AccountAccessLevel='Read/Write';
-
- share.OpportunityAccessLevel = 'Read Only';
-
- share.CaseAccessLevel='Read Only';
-
- list_atm.add(atm);
-
- list_share.add(share);
-
- }
-
- }
-
- if(list_atm!=null)
-
- insert list_atm;
-
- if(list_share!=null && list_share.size()>0)
-
- List<Database.saveresult> sr=Database.insert(list_share,false);
+trigger UpdateATMwithOwneronOptyCreate on Opportunity(after insert, after update) {
+  List < AccountShare > list_share = new List < AccountShare > ();
+  List < AccountTeamMember > list_atm = new List < AccountTeamMember > ();
+  for (Opportunity opp: Trigger.New) {
+   if (opp.Probability == 20) {
+    AccountTeamMember atm = new AccountTeamMember();
+    atm.accountid = opp.accountid;
+    atm.teamMemberRole = 'Account Manager';
+    atm.UserId = opp.Ownerid;
+    AccountShare share = new AccountShare();
+    share.AccountId = opp.Accountid;
+    share.UserOrGroupId = opp.OwnerId;
+    share.AccountAccessLevel = 'Read/Write';
+    share.OpportunityAccessLevel = 'Read Only';
+    share.CaseAccessLevel = 'Read Only';
+    list_atm.add(atm);
+    list_share.add(share);
+   }
+  }
+  if (list_atm != null)
+   insert list_atm;
+  if (list_share != null && list_share.size() > 0)
+   List < Database.saveresult > sr = Database.insert(list_share, false);
 ```
 **Technology**:
 
