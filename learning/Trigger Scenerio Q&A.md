@@ -579,192 +579,95 @@ trigger creditcardDeletion on CreditCard__c(before delete) {
 > = True, otherwise false.
 
 ```
-trigger updateHandoffattached on Top_X_Designation__c (after insert, after update,after delete) {
-
-map maptop = new map();
-
-set oppid = new set();
-
-map maptopfalse = new map();//faslecase map
-
-set oppIdInFalseCase = new set();//falsecase set
-
-map deletecase = new map();
-
-set delcaseid = new set();//deletecase set
-
-list opplist = new list(); // query list
-
-list listtoupdate = new list(); //for update
-
-for(Top_X_Designation__c top : trigger.isdelete? trigger.old :trigger.new)
-
-{
-
-if(trigger.isInsert || trigger.isUpdate)
-
-{
-
-if(top.Document_Attached__c == true &&
-
-((top.Type__c==’Contract Flow Down’) || (top.Type__c==’Handoff’)))
-
-{
-
-maptop.put(top.Opp_top_x_designation__c, top.Id);
-
-oppid.add(top.Opp_top_x_designation__c);
-
-system.debug(‘here ‘+ top.Opp_top_x_designation__c);
-
-}
-
-else
-
-maptopfalse.put(top.Opp_top_x_designation__c,top.id);
-
-oppid.add(top.Opp_top_x_designation__c);
-
-system.debug(‘here in else part ‘+ top.Opp_top_x_designation__c);
-
-}
-
-if(trigger.isDelete){
-
-deletecase.put(top.Opp_top_x_designation__c,top.Id);
-
-delcaseid.add(top.Opp_top_x_designation__c);
-
-oppid.add(top.Opp_top_x_designation__c);
-
-}
-
-}
-
-opplist = [select Id,Handoff_Attached__c from opportunity where id in:oppid];
-
-for( opportunity opp : opplist){
-
-if(maptop.containsKey(opp.id))
-
-{
-
-opp.Handoff_Attached__c =’yes’;
-
-//listtoupdate.add(opp);
-
-}
-
-if(maptopfalse.containsKey(opp.id)){
-
-opp.Handoff_Attached__c =’no’;
-
-// listtoupdate.add(opp);
-
-}
-
-if(delcaseid.contains(opp.Id)){
-
-opp.Handoff_Attached__c =”;
-
-}
-
-listtoupdate.add(opp) ;
-
-}
-
-if( listtoupdate.size()>0){
-
-update listtoupdate;
-
-system.debug(‘testL’+listtoupdate);}
-
+trigger updateHandoffattached on Top_X_Designation__c(after insert, after update, after delete) {
+ map maptop = new map();
+ set oppid = new set();
+ map maptopfalse = new map();
+ set oppIdInFalseCase = new set();
+ map deletecase = new map();
+ set delcaseid = new set();
+ list opplist = new list();
+ list listtoupdate = new list();
+ for (Top_X_Designation__c top: trigger.isdelete ? trigger.old : trigger.new) {
+  if (trigger.isInsert || trigger.isUpdate) {
+   if (top.Document_Attached__c == true && ((top.Type__c == ’Contract Flow Down’) || (top.Type__c == ’Handoff’))) {
+    maptop.put(top.Opp_top_x_designation__c, top.Id);
+    oppid.add(top.Opp_top_x_designation__c);
+    system.debug(‘here‘ + top.Opp_top_x_designation__c);
+   } else
+    maptopfalse.put(top.Opp_top_x_designation__c, top.id);
+   oppid.add(top.Opp_top_x_designation__c);
+   system.debug(‘here in
+    else part‘ + top.Opp_top_x_designation__c);
+  }
+  if (trigger.isDelete) {
+   deletecase.put(top.Opp_top_x_designation__c, top.Id);
+   delcaseid.add(top.Opp_top_x_designation__c);
+   oppid.add(top.Opp_top_x_designation__c);
+  }
+ }
+ opplist = [select Id, Handoff_Attached__c from opportunity where id in: oppid];
+ for (opportunity opp: opplist) {
+  if (maptop.containsKey(opp.id)) {
+   opp.Handoff_Attached__c = ’yes’;
+  }
+  if (maptopfalse.containsKey(opp.id)) {
+   opp.Handoff_Attached__c = ’no’;
+  }
+  if (delcaseid.contains(opp.Id)) {
+   opp.Handoff_Attached__c = ”;
+  }
+  listtoupdate.add(opp);
+ }
+ if (listtoupdate.size() > 0) {
+  update listtoupdate;
+  system.debug(‘testL’ + listtoupdate);
+ }
 }
 ```
 and its test class
 ```
 @istest
-
 public class testforhandoff {
-
-@istest static void methodhandoff(){
-
-opportunity opp = new opportunity();
-
-opp.Name =’test opp’;
-
-opp.StageName =’Needs Analysis’;
-
-opp.CloseDate = system.today();
-
-insert opp;
-
-Top_X_Designation__c tx = new Top_X_Designation__c();
-
-tx.Opp_top_x_designation__c = opp.Id;
-
-tx.Document_Attached__c = true;
-
-tx.Type__c = ‘Handoff’;
-
-insert tx;
-
-}
-
-@istest
-
-static void testmethod1(){
-
-opportunity opp1 = new opportunity();
-
-opp1.Name =’test opp’;
-
-opp1.StageName =’Needs Analysis’;
-
-opp1.CloseDate = system.today();
-
-insert opp1;
-
-Top_X_Designation__c tx1 = new Top_X_Designation__c();
-
-tx1.Opp_top_x_designation__c = opp1.id;
-
-tx1.Document_Attached__c = false;
-
-tx1.Type__c =’Handoff’;
-
-insert tx1;
-
-}
-
-@istest
-
-static void deletemethod(){
-
-opportunity opp1 = new opportunity();
-
-opp1.Name =’test opp’;
-
-opp1.StageName =’Needs Analysis’;
-
-opp1.CloseDate = system.today();
-
-insert opp1;
-
-Top_X_Designation__c tx1 = new Top_X_Designation__c();
-
-tx1.Opp_top_x_designation__c = opp1.id;
-
-tx1.Document_Attached__c = false;
-
-tx1.Type__c =’Handoff’;
-
-insert tx1;
-
-delete tx1;
-
-}
-
+ @istest static void methodhandoff() {
+  opportunity opp = new opportunity();
+  opp.Name = ’test opp’;
+  opp.StageName = ’Needs Analysis’;
+  opp.CloseDate = system.today();
+  insert opp;
+  Top_X_Designation__c tx = new Top_X_Designation__c();
+  tx.Opp_top_x_designation__c = opp.Id;
+  tx.Document_Attached__c = true;
+  tx.Type__c = ‘Handoff’;
+  insert tx;
+ }
+ @istest
+ static void testmethod1() {
+  opportunity opp1 = new opportunity();
+  opp1.Name = ’test opp’;
+  opp1.StageName = ’Needs Analysis’;
+  opp1.CloseDate = system.today();
+  insert opp1;
+  Top_X_Designation__c tx1 = new Top_X_Designation__c();
+  tx1.Opp_top_x_designation__c = opp1.id;
+  tx1.Document_Attached__c = false;
+  tx1.Type__c = ’Handoff’;
+  insert tx1;
+ }
+ @istest
+ static void deletemethod() {
+  opportunity opp1 = new opportunity();
+  opp1.Name = ’test opp’;
+  opp1.StageName = ’Needs Analysis’;
+  opp1.CloseDate = system.today();
+  insert opp1;
+  Top_X_Designation__c tx1 = new Top_X_Designation__c();
+  tx1.Opp_top_x_designation__c = opp1.id;
+  tx1.Document_Attached__c = false;
+  tx1.Type__c = ’Handoff’;
+  insert tx1;
+  delete tx1;
+ }
 }
 ```
 
@@ -773,29 +676,14 @@ delete tx1;
 > The following Trigger will fires when we try to create the account
 > with same name i.e. Preventing the users to create Duplicate Accounts
 ```
-trigger AccountDuplicateTrigger on Account (before insert, before update)
-
-{
-
- for(Account a:Trigger.new)
-
- {
-
- List<Account> acc=“Select id from Account where Name=:a.Name and Rating=:a.Rating
-
- “;
-
- if(acc.size()>0)
-
- {
-
- acc.Name.addError('You Cannot Create the Duplicate Account');
-
+trigger AccountDuplicateTrigger on Account(before insert, before update) {
+ for (Account a: Trigger.new) {
+  List < Account > acc = “Select id from Account where Name =: a.Name and Rating =: a.Rating“;
+  if (acc.size() > 0) {
+   acc.Name.addError('You Cannot Create the Duplicate Account');
+  }
  }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 25:-
 
@@ -804,45 +692,23 @@ trigger AccountDuplicateTrigger on Account (before insert, before update)
 > record. Create the field called “Hello” on the Account Object (Data
 > Type = Text)
 ``` java
-trigger HelloWorld on Account (before insert, before update)
-
-{
-
- List<Account> accs = Trigger.new;
-
- MyHelloWorld my= new MyHelloWorld(); //creating instance of apex class
-
- my.addHelloWorld(accs); // calling method from the apex class
-
- }
+trigger HelloWorld on Account(before insert, before update) {
+ List < Account > accs = Trigger.new;
+ MyHelloWorld my = new MyHelloWorld();
+ my.addHelloWorld(accs);
+}
 ```
 **Class:**
 ``` java
-public class MyHelloWorld
-
- {
-
- public void addHelloWorld(List<Account> accs)
-
- {
-
- for (Account a:accs)
-
- {
-
- if (a.Hello__c != 'World')
-
- {
-
- a.Hello__c = 'World';
-
+public class MyHelloWorld {
+ public void addHelloWorld(List < Account > accs) {
+  for (Account a: accs) {
+   if (a.Hello__c != 'World') {
+    a.Hello__c = 'World';
+   }
+  }
  }
-
- }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 26:-
 
@@ -850,72 +716,38 @@ public class MyHelloWorld
 > data base it would add Doctor prefixed for all lead names. This is
 > applicable for both inserting and updating the lead records.
 ``` java
-trigger PrefixDoctor on Lead (before insert,before update)
-
-{
-
- List<Lead> leadList = trigger.new;
-
- for(Lead l: leadList)
-
- {
-
- l.firstname = 'Dr.'+ l.firstname;
-
+trigger PrefixDoctor on Lead(before insert, before update) {
+ List < Lead > leadList = trigger.new;
+ for (Lead l: leadList) {
+  l.firstname = 'Dr.' + l.firstname;
  }
-
- }
+}
 ```
 ### Trigger Scenario 27:-
 
 > The following trigger adds the Opportunity Owner into the sales team
 > automatically whenever the Opportunity is created.
 ``` java
-trigger OppTeam on Opportunity (after insert) {
-
- List<OpportunityShare> sharesToCreate = new List<OpportunityShare>();
-
- List<OpportunityTeamMember> oppteam = new List<OpportunityTeamMember
-
- > ();
-
+trigger OppTeam on Opportunity(after insert) {
+ List < OpportunityShare > sharesToCreate = new List < OpportunityShare > ();
+ List < OpportunityTeamMember > oppteam = new List < OpportunityTeamMember > ();
  OpportunityShare oshare = new OpportunityShare();
-
  oshare.OpportunityAccessLevel = 'Edit';
-
- oshare.OpportunityId = trigger.new”0”.Id;
-
- oshare.UserOrGroupId = trigger.new”0”.createdbyid;
-
+ oshare.OpportunityId = trigger.new” 0”.Id;
+ oshare.UserOrGroupId = trigger.new” 0”.createdbyid;
  sharesToCreate.add(oshare);
-
  OpportunityTeamMember ot = new OpportunityTeamMember();
-
- ot.OpportunityId = trigger.new”0”.Id;
-
- ot.UserId = trigger.new”0”.OwnerId;
-
+ ot.OpportunityId = trigger.new” 0”.Id;
+ ot.UserId = trigger.new” 0”.OwnerId;
  ot.TeamMemberRole = 'Account Manager';
-
  oppteam.add(ot);
-
- if(Oppteam!=null && Oppteam.size()>0)
-
- {
-
- insert Oppteam;
-
+ if (Oppteam != null && Oppteam.size() > 0) {
+  insert Oppteam;
  }
-
- if(sharesToCreate!=null && sharesToCreate.size()>0)
-
- {
-
- list<Database.SaveResult> sr = Database.insert(sharesToCreate,false);
-
+ if (sharesToCreate != null && sharesToCreate.size() > 0) {
+  list < Database.SaveResult > sr = Database.insert(sharesToCreate, false);
+ }
 }
-
- }
 ```
 ### Trigger Scenario 28:-
 
@@ -924,30 +756,21 @@ trigger OppTeam on Opportunity (after insert) {
 > click on save button, the value we entered in the Price field is 10% less than the
 > actual price. This is applicable for while both inserting and updating records.
 ``` java 
-trigger DiscountTrigger on Book__c (before insert, before update) {
-
- List<Book__c> books = Trigger.new;
-
+trigger DiscountTrigger on Book__c(before insert, before update) {
+ List < Book__c > books = Trigger.new;
  PriceDiscount.applyDiscount(books);
-
- }
+}
 ```
 
 **Class**
 ``` java
 public class PriceDiscount {
-
- public static void applyDiscount(List<Book__c> books) {
-
- for (Book__c b :books){
-
- b.Price__c *= 0.9;
-
+ public static void applyDiscount(List < Book__c > books) {
+  for (Book__c b: books) {
+   b.Price__c *= 0.9;
+  }
  }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 29:-
 
@@ -955,17 +778,11 @@ public class PriceDiscount {
 > Accounts. This is because System Administrator has all the
 > permissions, we cannot change the permissions.
 ``` java
-trigger AccountDelete on Account (before delete) {
-
- for(Account Acc:trigger.old)
-
- {
-
- acc.adderror('You Cannot Delete the Account Record');
-
+trigger AccountDelete on Account(before delete) {
+ for (Account Acc: trigger.old) {
+  acc.adderror('You Cannot Delete the Account Record');
  }
-
- }
+}
 ```
 ### Trigger Scenario 30:-
 
@@ -976,43 +793,25 @@ trigger AccountDelete on Account (before delete) {
 
 **Code:**
 ``` java
-trigger ContactsCreation on Account (after insert) {
-
- list<contact> listContact = new list<contact>();
-
- map<id,decimal> mapAcc=new map<id,decimal>();
-
- for(Account acc:trigger.new){
-
- mapAcc.put(acc.id,acc.Number_of_Locations__c);
-
+trigger ContactsCreation on Account(after insert) {
+ list < contact > listContact = new list < contact > ();
+ map < id, decimal > mapAcc = new map < id, decimal > ();
+ for (Account acc: trigger.new) {
+  mapAcc.put(acc.id, acc.Number_of_Locations__c);
  }
-
- if(mapAcc.size()>0 && mapAcc!=null){
-
- for(Id accId:mapAcc.keyset()){
-
- for(integer i=0;i<mapAcc.get(accId);i++){
-
- contact newContact=new contact();
-
- newContact.accountid=accId;
-
- newContact.lastname='contact'+i;
-
- listContact.add(newContact);
-
+ if (mapAcc.size() > 0 && mapAcc != null) {
+  for (Id accId: mapAcc.keyset()) {
+   for (integer i = 0; i < mapAcc.get(accId); i++) {
+    contact newContact = new contact();
+    newContact.accountid = accId;
+    newContact.lastname = 'contact' + i;
+    listContact.add(newContact);
+   }
+  }
  }
-
- }
-
- }
-
- if(listContact.size()>0 && listContact!=null)
-
- insert listContact;
-
- }
+ if (listContact.size() > 0 && listContact != null)
+  insert listContact;
+}
 ```
 ### Trigger Scenario 31:-
 
@@ -1027,29 +826,17 @@ trigger ContactsCreation on Account (after insert) {
 
 **Code:-**
 ``` java
-trigger UpdateCPActivenOnOppty on Customer_Project__c (after insert)
-
- {
-
- List<Opportunity> opps=new List<Opportunity>();
-
- for(Customer_Project__c cp:Trigger.New){
-
- if(cp.Status__c=='Active'){
-
- Opportunity opp= new Opportunity(id=cp.Opportunity__c);
-
- opp.Active_Customer_Project__c = True;
-
- opps.add(opp);
-
+trigger UpdateCPActivenOnOppty on Customer_Project__c(after insert) {
+ List < Opportunity > opps = new List < Opportunity > ();
+ for (Customer_Project__c cp: Trigger.New) {
+  if (cp.Status__c == 'Active') {
+   Opportunity opp = new Opportunity(id = cp.Opportunity__c);
+   opp.Active_Customer_Project__c = True;
+   opps.add(opp);
+  }
  }
-
- }
-
  update opps;
-
- }
+}
 ```
 ### Trigger Scenario 32:-
 
@@ -1072,75 +859,30 @@ trigger UpdateCPActivenOnOppty on Customer_Project__c (after insert)
 
 **Code Single Record:-**
 ``` java
-triggerUpdateNPSid on Stakeholder__c (before insert, before update){
-
- List<id>ConList=new List<id>();
-
- for(Stakeholder__csh:Trigger.New){
-
-ConList.add(sh.Contact_Name__c);
-
+triggerUpdateNPSid on Stakeholder__c(before insert, before update) {
+ List < id > ConList = new List < id > ();
+ for (Stakeholder__csh: Trigger.New) {
+  ConList.add(sh.Contact_Name__c);
  }
-
- List<Contact>lc=“Select NPS_Id__c From Contact Where id IN : ConList”;
-
- for(Stakeholder__csh:Trigger.New){
-
- sh.NPS_Id1__c=lc”0”.NPS_Id__c;
-
+ List < Contact > lc = “Select NPS_Id__c From Contact Where id IN: ConList”;
+ for (Stakeholder__csh: Trigger.New) {
+  sh.NPS_Id1__c = lc” 0”.NPS_Id__c;
  }
-
- }
+}
 ```
 **Code Bulk Records:-**
 ``` java
-trigger UpdateNPSid on Stakeholder__c (before insert, before update){
-
- List<id> ConList=new List<id>();
-
- map<id,id>map_NPS_Cont = new map<id,id>();
-
- for(Stakeholder__c sh:Trigger.New)
-
- {
-
- if(sh.Contact_Name__c!=null)
-
- ConList.add(sh.Contact_Name__c);
-
+triggerUpdateSalesRep on Account(Before insert, Before Update) {
+ Set < Id > setAccOwner = new Set < Id > ();
+ for (Account Acc: trigger.new) {
+  setAccOwner.add(Acc.OwnerId);
  }
-
- List<Contact> lc=“Select Id,NPS_Id__c From Contact Where id IN : ConList”;
-
- if(lc!=null && lc.size()>0)
-
- {
-
- for(Contact c:lc){
-
- If(c.NPS_Id__c!=null){
-
- map_NPS_Cont.put(c.Id,c.NPS_Id__c);
-
+ Map < Id, User > User_map = new Map < Id, User > (“select Name from User where id in: setAccOwner”);
+ for (Account Acc: Trigger.new) {
+  User usr = User_map.get(Acc.OwnerId);
+  Acc.sales_Rep1__c = usr.Name;
  }
-
- }
-
- for(Stakeholder__c sh:Trigger.New){
-
- if(sh.Contact_Name__c!=null)
-
- sh.NPS_Id1__c = map_NPS_Cont.get(sh.Contact_Name__c);
-
- else
-
- sh.NPS_Id1__c = null;
-
- }
-
- }
-
- }
+}
 ```
 ### Trigger Scenario 33:-
 
@@ -1150,33 +892,17 @@ trigger UpdateNPSid on Stakeholder__c (before insert, before update){
 > owner of the record, then also the Sales Rep will be automatically
 > updated.
 ``` java
-triggerUpdateSalesRep on Account (Before insert,Before Update){
-
- Set<Id>setAccOwner=new Set<Id>();
-
- for(Account Acc: trigger.new)
-
- {
-
- setAccOwner.add(Acc.OwnerId);
-
+triggerUpdateSalesRep on Account(Before insert, Before Update) {
+ Set < Id > setAccOwner = new Set < Id > ();
+ for (Account Acc: trigger.new) {
+  setAccOwner.add(Acc.OwnerId);
  }
-
- Map<Id,User>User_map = new Map<Id,User>(“select Name from User where id
-
- in:setAccOwner”);
-
- for(Account Acc: Trigger.new)
-
- {
-
- User usr=User_map.get(Acc.OwnerId);
-
- Acc.sales_Rep1__c=usr.Name;
-
+ Map < Id, User > User_map = new Map < Id, User > (“select Name from User where id in: setAccOwner”);
+ for (Account Acc: Trigger.new) {
+  User usr = User_map.get(Acc.OwnerId);
+  Acc.sales_Rep1__c = usr.Name;
  }
-
- }
+}
 ```
 ### Trigger Scenario 34:-
 
@@ -1190,58 +916,29 @@ triggerUpdateSalesRep on Account (Before insert,Before Update){
 
 **Code:**
 ``` java
-trigger CreateCRonContactCreation on Contact (after insert) {
-
- if(trigger.isAfter)
-
- {
-
- if(trigger.isInsert)
-
- {
-
- ContactMasterHandler ConIns = New ContactMasterHandler();
-
- ConIns.createContactRelationshipByContact(trigger.New);
-
+trigger CreateCRonContactCreation on Contact(after insert) {
+ if (trigger.isAfter) {
+  if (trigger.isInsert) {
+   ContactMasterHandler ConIns = New ContactMasterHandler();
+   ConIns.createContactRelationshipByContact(trigger.New);
+  }
+ }
 }
-
- }
-
- }
 ```
 **Class:**
 ``` java
 Public Class ContactMasterHandler {
-
- public void createContactRelationshipByContact(list<Contact> List_Contacts)
-
- {
-
- list<Contact_Relationship__c> ConList= new list<Contact_Relationship__c>();
-
- for(Contact newconts:List_Contacts)
-
- {
-
- if(newconts.Contact_Relationship__c== true)
-
- {
-
- Contact_Relationship__c CR = new Contact_Relationship__c();
-
- CR.Name=newconts.Lastname;
-
- CR.Contact__c= newconts.id;
-
- ConList.add(CR);
-
- }
-
- }
-
- insert ConList;
-
+ public void createContactRelationshipByContact(list < Contact > List_Contacts) {
+  list < Contact_Relationship__c > ConList = new list < Contact_Relationship__c > ();
+  for (Contact newconts: List_Contacts) {
+   if (newconts.Contact_Relationship__c == true) {
+    Contact_Relationship__c CR = new Contact_Relationship__c();
+    CR.Name = newconts.Lastname;
+    CR.Contact__c = newconts.id;
+    ConList.add(CR);
+   }
+  }
+  insert ConList;
  }
 ```
 ### Trigger Scenario 35:-
